@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="/Styles/MainStyles.css">
     </head>
     <body>
-        <?php 
-            include "../../head.php";
+        <?php include "../../head.php"; ?>
+        <?php
             require("Select.php");
             SelectTable("Clients")
         ?>
