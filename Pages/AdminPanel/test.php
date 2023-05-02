@@ -1,21 +1,8 @@
 <?php
-// // Данные для подключения к базе данных
-// $hostname = "localhost";
-// $username = "root";
-// $password = "1";
-// $database = "mydb";
 
-// // Создаем подключение к базе данных
-// $conn = mysqli_connect($hostname, $username, $password, $database);
+require_once("../../connect.php"); // Подключение файла для связи с БД
 
-// // Проверяем, удалось ли подключиться к базе данных
-// if (!$conn) {
-//     die("Подключение не удалось: " . mysqli_connect_error());
-// }
-
-require_once("../../connect.php"); // ПОДКЛЮЧЕНИЕ ЯДРА
-
-// ПОДКЛЮЧЕНИЕ К БД
+// Подключение к БД
 $db = new DB_Class();
 $conn = $db->connect();
 
@@ -47,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
     // Выводим конец таблицы
     echo "</table>";
 } else {
-    echo "Нет данных в таблице.";
+    echo "В таблице нет данных.";
 }
 
 // Закрываем подключение к базе данных

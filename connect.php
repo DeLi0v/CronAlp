@@ -8,15 +8,23 @@ class DB_Class
     var $password = "1";
     var $database = "mydb";
 
+    // Переменные
+    var $conn;
+
     function connect()
     {
         // Создаем подключение к базе данных
-        $conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+        $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
         // Проверяем, удалось ли подключиться к базе данных
-        if (!$conn) {
+        if (!$this->conn) {
             die("Подключение не удалось: " . mysqli_connect_error());
         }
-        return $conn;
+        return $this->conn;
+    }
+
+    function close()
+    {
+        mysqli_close($this->conn);
     }
 }
 
