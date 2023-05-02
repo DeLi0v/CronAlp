@@ -4,7 +4,7 @@
 class MyDB
 {
 var $dblogin = "root"; // ВАШ ЛОГИН К БАЗЕ ДАННЫХ
-var $dbpass = "Qwerty12"; // ВАШ ПАРОЛЬ К БАЗЕ ДАННЫХ
+var $dbpass = "1"; // ВАШ ПАРОЛЬ К БАЗЕ ДАННЫХ
 var $db = "mydb"; // НАЗВАНИЕ БАЗЫ ДЛЯ САЙТА
 var $dbhost="localhost";
 
