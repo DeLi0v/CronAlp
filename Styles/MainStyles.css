@@ -31,7 +31,7 @@
 }
 
 /* Add a color to the active/current link */
-.tableHead a.active {
+.tableHead a:active {
     background-color: #4CAF50;
     color: white;
 }
