@@ -37,6 +37,7 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 15px;
+    text-align: center;
  }
  /* границы ячеек первого ряда таблицы */
  th {
@@ -45,9 +46,5 @@ table {
  /* границы ячеек тела таблицы */
  td {
     border: 1px solid grey;
- }
-
- tr{
-    align-content: center;
  }
  /* ////////////////  ТАБЛИЦЫ  ////////////////////// */
