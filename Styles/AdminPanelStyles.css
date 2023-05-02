@@ -7,3 +7,18 @@ body.staff #nav-staff{
     background-color: #4CAF50;
     color: white;
 }
+
+body.ski_pass #nav-ski_pass{
+    background-color: #4CAF50;
+    color: white;
+}
+
+body.services #nav-services{
+    background-color: #4CAF50;
+    color: white;
+}
+
+body.equepment #nav-equepment{
+    background-color: #4CAF50;
+    color: white;
+}

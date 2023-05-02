@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="Styles/MainStyles.css">
 </head>
 
-<body>
+<body class="ski_pass">
     <?php include("../../head.php"); ?>
     <?php 
     echo "В разработке";
