@@ -1,27 +1,23 @@
 <?php
-// // Данные для подключения к базе данных
-// $hostname = "localhost";
-// $username = "root";
-// $password = "1";
-// $database = "mydatabase";
+// Данные для подключения к базе данных
+$hostname = "localhost";
+$username = "root";
+$password = "1";
+$database = "mydb";
 
-// // Создаем подключение к базе данных
-// $conn = mysqli_connect($hostname, $username, $password, $database);
+// Создаем подключение к базе данных
+$conn = mysqli_connect($hostname, $username, $password, $database);
 
-// // ПОДКЛЮЧЕНИЕ К БД
-// $db = new MyDB();
-// $db->connect();
-
-// // Проверяем, удалось ли подключиться к базе данных
-// if (!$conn) {
-//     die("Подключение не удалось: " . mysqli_connect_error());
-// }
+// Проверяем, удалось ли подключиться к базе данных
+if (!$conn) {
+    die("Подключение не удалось: " . mysqli_connect_error());
+}
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
-$sql = "SELECT * FROM Clients";
+$sql = "SELECT * FROM users";
 
 // Выполняем SQL-запрос
-$result = mysqli_query($db, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Проверим, есть ли записи в таблице
 if (mysqli_num_rows($result) > 0) {
@@ -49,5 +45,5 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Закрываем подключение к базе данных
-mysqli_close($db);
+mysqli_close($conn);
 ?>
