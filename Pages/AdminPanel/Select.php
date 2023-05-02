@@ -1,6 +1,6 @@
 <?php
 
-function Select($table){
+function SelectTable($table){
 require_once("../../connect.php"); // Подключение файла для связи с БД
 
 // Подключение к БД

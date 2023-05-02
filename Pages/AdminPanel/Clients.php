@@ -1,3 +1,4 @@
 <?php 
-    require(Select("Clients"))
+    require("Select.php");
+    SelectTable("Clients")
 ?>
