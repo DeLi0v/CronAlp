@@ -23,7 +23,7 @@ $conn = $db->connect();
 $sql = "SELECT * FROM Clients";
 
 // Выполняем SQL-запрос
-$result = mysqli_query($this->conn, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Проверим, есть ли записи в таблице
 if (mysqli_num_rows($result) > 0) {
@@ -51,5 +51,5 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Закрываем подключение к базе данных
-mysqli_close($this->conn);
+mysqli_close($conn);
 ?>
