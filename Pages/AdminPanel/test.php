@@ -13,6 +13,8 @@
 //     die("Подключение не удалось: " . mysqli_connect_error());
 // }
 
+require_once("../../connect.php"); // ПОДКЛЮЧЕНИЕ ЯДРА
+
 // ПОДКЛЮЧЕНИЕ К БД
 $db = new DB_Class();
 $conn = $db->connect();
