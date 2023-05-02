@@ -8,7 +8,7 @@
 </head>
 
 <body>
-        <?php include "/head.php"; ?>
+        <?php include "../../head.php"; ?>
         <br>
         <?php
             require("Select.php");
