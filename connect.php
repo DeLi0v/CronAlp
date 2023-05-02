@@ -1,49 +1,23 @@
-<?php defined('INDEX') OR die('Прямой доступ к странице запрещён!');
+<?php
 
-// MYSQL
-class MyDB
+class DB_Class
 {
-var $dblogin = "root"; // ВАШ ЛОГИН К БАЗЕ ДАННЫХ
-var $dbpass = "1"; // ВАШ ПАРОЛЬ К БАЗЕ ДАННЫХ
-var $db = "mydb"; // НАЗВАНИЕ БАЗЫ ДЛЯ САЙТА
-var $dbhost="localhost";
+    // Данные для подключения к базе данных
+    var $hostname = "localhost";
+    var $username = "root";
+    var $password = "1";
+    var $database = "mydb";
 
-var $link;
-var $query;
-var $err;
-var $result;
-var $data;
-var $fetch;
-
-function connect() {
-$this->link = mysql_connect($this->dbhost, $this->dblogin, $this->dbpass);
-mysql_select_db($this->db);
-mysql_query('SET NAMES utf8');
-}
-
-function close() {
-mysql_close($this->link);
+    function connect()
+    {
+        // Создаем подключение к базе данных
+        $conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+        // Проверяем, удалось ли подключиться к базе данных
+        if (!$conn) {
+            die("Подключение не удалось: " . mysqli_connect_error());
+        }
+        return $conn;
+    }
 }
 
-function run($query) {
-$this->query = $query;
-$this->result = mysql_query($this->query, $this->link);
-$this->err = mysql_error();
-}
-function row() {
-$this->data = mysql_fetch_assoc($this->result);
-}
-function fetch() {
-while ($this->data = mysql_fetch_assoc($this->result)) {
-$this->fetch = $this->data;
-return $this->fetch;
-}
-}
-function stop() {
-unset($this->data);
-unset($this->result);
-unset($this->fetch);
-unset($this->err);
-unset($this->query);
-}
-}
+?>
