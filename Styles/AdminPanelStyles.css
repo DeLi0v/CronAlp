@@ -36,6 +36,7 @@ table {
     border: 1px solid grey;
     border-collapse: collapse;
     width: 100%;
+    margin: 10px;
  }
  /* границы ячеек первого ряда таблицы */
  th {
