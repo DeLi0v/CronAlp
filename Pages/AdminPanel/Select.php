@@ -16,6 +16,7 @@ $result = mysqli_query($conn, $sql);
 // Проверим, есть ли записи в таблице
 if (mysqli_num_rows($result) > 0) {
     
+    echo "<div>";
     // Выводим начало таблицы
     echo "<table>";
     if($table == 'Clients'){
@@ -27,6 +28,8 @@ if (mysqli_num_rows($result) > 0) {
 
     // Выводим конец таблицы
     echo "</table>";
+    echo "</div>";
+    
 } else {
     echo "В таблице нет данных.";
 }

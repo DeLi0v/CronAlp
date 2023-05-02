@@ -35,7 +35,7 @@ body.equepment #nav-equepment{
 table {
     border: 1px solid grey;
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
     margin: 10px;
     table-layout: fixed;
  }
