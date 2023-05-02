@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="Styles/MainStyles.css">
 </head>
 
-<body>
-    <?php include("/head.php"); ?>
-    <?php 
-    echo "В разработке";
+<body class="staff">
+    <?php include("../../head.php"); ?>
+    <div>
+    <?php
+        require("Select.php");
+        SelectTable("Staff")
     ?>
+    </div>
 </body>
 
 </html>

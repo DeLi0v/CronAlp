@@ -1,0 +1,9 @@
+body.clients #nav-clients{
+    background-color: #4CAF50;
+    color: white;
+}
+
+body.staff #nav-staff{
+    background-color: #4CAF50;
+    color: white;
+}
