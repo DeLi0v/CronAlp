@@ -14,7 +14,7 @@ if (!$conn) {
 }
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
-$sql = "SELECT * FROM users";
+$sql = "SELECT * FROM Clients";
 
 // Выполняем SQL-запрос
 $result = mysqli_query($conn, $sql);
