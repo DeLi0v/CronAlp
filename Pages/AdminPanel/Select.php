@@ -40,7 +40,15 @@ mysqli_close($conn);
 
 // Вывод таблицы клиентов
 function Clients($result){
-    echo "<tr><th>ID</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефон</th><th>Почта</th><th>Пароль</th></tr>";
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th width=\"100\">Телефон</th>
+            <th width=\"200\">Почта</th>
+            <th>Пароль</th>
+        </tr>";
 
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
@@ -58,7 +66,16 @@ function Clients($result){
 
 // Вывод таблицы сотрудников
 function Staff($result){
-    echo "<tr><th>ID</th><th>Фамилия</th><th>Имя</th><th>Отчество</th><th>Телефон</th><th>Почта</th><th>Должность</th><th>Пароль</th></tr>";
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th width=\"100\">Телефон</th>
+            <th width=\"200\">Почта</th>
+            <th>Должность</th>
+            <th>Пароль</th>
+        </tr>";
 
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {

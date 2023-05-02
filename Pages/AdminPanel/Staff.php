@@ -10,12 +10,10 @@
 
 <body class="staff">
     <?php include("../../head.php"); ?>
-    <div>
     <?php
         require("Select.php");
         SelectTable("Staff")
     ?>
-    </div>
 </body>
 
 </html>
