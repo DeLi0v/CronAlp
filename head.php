@@ -8,3 +8,11 @@
     <a id="nav-staff" href="/Pages/AdminPanel/Staff.php">Сотрудники</a>
     <a id="nav-equepment" href="/Pages/AdminPanel/Equepment.php">Оборудование</a>
 </div>
+<div class="dropdown">
+  <button class="dropbtn">Выпадающее</button>
+  <div class="dropdown-content">
+    <a href="#">Ссылка 1</a>
+    <a href="#">Ссылка 2</a>
+    <a href="#">Ссылка 3</a>
+  </div>
+</div>
