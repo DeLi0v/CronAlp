@@ -34,7 +34,7 @@
     color: black;
 }
 
-/* Установка цвета, если ссылка активна */
+/* Если на кнопку нажали */
 .tableHead a:active {
     background-color: #4CAF50;
     color: white;
@@ -49,3 +49,16 @@
     border-radius: 3px; /* Скругляем уголки */
     margin: 10px;
 }
+
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    border: 1px solid grey;
+ }
+ /* границы ячеек первого ряда таблицы */
+ th {
+    border: 1px solid grey;
+ }
+ /* границы ячеек тела таблицы */
+ td {
+    border: 1px solid grey;
+ }
