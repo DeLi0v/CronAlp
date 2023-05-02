@@ -6,17 +6,13 @@
     <title>MySiTe</title>
     <link rel="stylesheet" href="/Styles/MainStyles.css">
 </head>
-    <body>
-        <div>
-        <?php include "../../head.php"; ?>
-        </div>
-        <div>
-        <?php
-            require("Select.php");
-            SelectTable("Clients")
-        ?>
-        </div>
-    </div>
+
+<body>
+    <?php include("../../head.php"); ?>
+    <?php
+        require("Select.php");
+        SelectTable("Clients")
+    ?>
 </body>
 
 </html>
