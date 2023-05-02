@@ -1,5 +1,6 @@
 <?php
 
+function Select($table){
 require_once("../../connect.php"); // Подключение файла для связи с БД
 
 // Подключение к БД
@@ -7,7 +8,7 @@ $db = new DB_Class();
 $conn = $db->connect();
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
-$sql = "SELECT * FROM Clients";
+$sql = "SELECT * FROM ". $table;
 
 // Выполняем SQL-запрос
 $result = mysqli_query($conn, $sql);
@@ -39,4 +40,5 @@ if (mysqli_num_rows($result) > 0) {
 
 // Закрываем подключение к базе данных
 mysqli_close($conn);
+}
 ?>
