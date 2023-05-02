@@ -8,7 +8,8 @@
 </head>
 
 <body>
-    <div class="head">
+    <?php include "head.php"; ?>
+    <!-- <div class="head">
         <h1>Административная панель</h1>
     </div>
     <div class="tableHead">
@@ -16,7 +17,7 @@
         <a href="Pages/AdminPanel/Clients.php">Клиенты</a>
         <a href="Pages/AdminPanel/Ski_Pass.php">Ski-Pass</a>
         <a href="Pages/AdminPanel/Staff.php">Сотрудники</a>
-    </div>
+    </div> -->
     <div>
     <a class="btn" href="Pages/AdminPanel/Select.php">Открыть таблицу</a>
     <br>
