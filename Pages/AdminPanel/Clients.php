@@ -7,9 +7,11 @@
     </head>
     <body>
         <?php include "../../head.php"; ?>
+        <div>
         <?php
             require("Select.php");
             SelectTable("Clients")
         ?>
+        </div>
     </body>
 </html>
