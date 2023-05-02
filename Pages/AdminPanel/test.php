@@ -8,9 +8,9 @@
 // // Создаем подключение к базе данных
 // $conn = mysqli_connect($hostname, $username, $password, $database);
 
-// ПОДКЛЮЧЕНИЕ К БД
-$db = new MyDB();
-$db->connect();
+// // ПОДКЛЮЧЕНИЕ К БД
+// $db = new MyDB();
+// $db->connect();
 
 // // Проверяем, удалось ли подключиться к базе данных
 // if (!$conn) {
@@ -21,7 +21,7 @@ $db->connect();
 $sql = "SELECT * FROM Clients";
 
 // Выполняем SQL-запрос
-$result = mysqli_query($db-, $sql);
+$result = mysqli_query($db, $sql);
 
 // Проверим, есть ли записи в таблице
 if (mysqli_num_rows($result) > 0) {
