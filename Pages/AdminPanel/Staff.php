@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <?php include_once("/head.php"); ?>
+    <?php include("/head.php"); ?>
     <?php 
     echo "В разработке";
     ?>
