@@ -1,24 +1,48 @@
+/* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
+/* Выделение кнопки навигации "Клиенты" */
 body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
 
+/* Выделение кнопки навигации "Сотрудники" */
 body.staff #nav-staff{
     background-color: #4CAF50;
     color: white;
 }
 
+/* Выделение кнопки навигации "Ski-pass" */
 body.ski_pass #nav-ski_pass{
     background-color: #4CAF50;
     color: white;
 }
 
+/* Выделение кнопки навигации "Услуги" */
 body.services #nav-services{
     background-color: #4CAF50;
     color: white;
 }
 
+/* Выделение кнопки навигации "Оборудование" */
 body.equepment #nav-equepment{
     background-color: #4CAF50;
     color: white;
 }
+/* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
+
+/* ////////////////  ТАБЛИЦЫ  ////////////////////// */
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+ }
+ /* границы ячеек первого ряда таблицы */
+ th {
+    border: 1px solid grey;
+ }
+ /* границы ячеек тела таблицы */
+ td {
+    border: 1px solid grey;
+ }
+ /* ////////////////  ТАБЛИЦЫ  ////////////////////// */
