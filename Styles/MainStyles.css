@@ -13,6 +13,7 @@
 .tableHead{
     background-color: #a3a3a3;
     overflow: hidden;
+    float: left;
 }
 
 .tableHead a{
@@ -32,6 +33,11 @@
 
 /* Add a color to the active/current link */
 .tableHead a:active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.tableHead a.active {
     background-color: #4CAF50;
     color: white;
 }
