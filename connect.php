@@ -9,7 +9,7 @@ class DB_Class
     var $database = "mydb";
 
     // Переменные
-    var $conn;
+    var $conn; // подключенная БД
 
     function connect()
     {
