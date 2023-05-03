@@ -1,7 +1,7 @@
 <div class="head">
     <h1>Административная панель</h1>
 </div>
-<div class="tableHead1">
+<div class="tableHead">
     <div class="dropdown">
         <button class="dropbtn">Услуги</button>
         <div class="dropdown-content">
