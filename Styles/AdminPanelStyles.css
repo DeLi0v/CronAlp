@@ -4,7 +4,7 @@ body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
-body.clients-add #nav-clients{
+body.clients-add #nav-clients-add{
   background-color: #4CAF50;
   color: white;
 }
@@ -14,7 +14,7 @@ body.staff #nav-staff{
     background-color: #4CAF50;
     color: white;
 }
-body.staff-add #nav-staff{
+body.staff-add #nav-staff-add{
   background-color: #4CAF50;
   color: white;
 }
@@ -24,7 +24,7 @@ body.ski_pass #nav-ski_pass{
     background-color: #4CAF50;
     color: white;
 }
-body.ski_pass-add #nav-ski_pass{
+body.ski_pass-add #nav-ski_pass-add{
   background-color: #4CAF50;
   color: white;
 }
@@ -34,7 +34,7 @@ body.services #nav-services{
     background-color: #4CAF50;
     color: white;
 }
-body.services-add #nav-services{
+body.services-add #nav-services-add{
   background-color: #4CAF50;
   color: white;
 }
@@ -44,7 +44,7 @@ body.equepment #nav-equepment{
     background-color: #4CAF50;
     color: white;
 }
-body.equepment-add #nav-equepment{
+body.equepment-add #nav-equepment-add{
   background-color: #4CAF50;
   color: white;
 }
