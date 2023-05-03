@@ -19,11 +19,16 @@ if (mysqli_num_rows($result) > 0) {
     echo "<div>";
     // Выводим начало таблицы
     echo "<table>";
-    if($table == 'Clients'){
+    if($table == 'Clients') {
         Clients($result);    
-    } elseif($table == 'Staff')
-    {
+    } elseif($table == 'Staff') {
         Staff($result);
+    } elseif($table == 'Services') {
+        Services($result);
+    } elseif($table == 'Equepments') {
+        Equepments($result);
+    } elseif($table == 'Ski_Pass') {
+        Ski_Pass($result);
     }
 
     // Выводим конец таблицы
@@ -95,4 +100,92 @@ function Staff($result){
         echo "</tr>";
     }    
 }
+
+// Вывод таблицы услуг
+// НЕ НАСТРОЕНО
+function Services($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th width=\"100\">Телефон</th>
+            <th width=\"200\">Почта</th>
+            <th>Пароль</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td>" . $row["ClientSurname"] . "</td>";
+        echo "<td>" . $row["ClientName"] . "</td>";
+        echo "<td>" . $row["ClientOtch"] . "</td>";
+        echo "<td>" . $row["Phone"] . "</td>";
+        echo "<td>" . $row["Mail"] . "</td>";
+        echo "<td>" . $row["Passwd"] . "</td>";
+        echo "</tr>";
+    }
+}
+
+// Вывод таблицы оборудования
+// НЕ НАСТРОЕНО
+function Equepments($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th width=\"100\">Телефон</th>
+            <th width=\"200\">Почта</th>
+            <th>Пароль</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td>" . $row["ClientSurname"] . "</td>";
+        echo "<td>" . $row["ClientName"] . "</td>";
+        echo "<td>" . $row["ClientOtch"] . "</td>";
+        echo "<td>" . $row["Phone"] . "</td>";
+        echo "<td>" . $row["Mail"] . "</td>";
+        echo "<td>" . $row["Passwd"] . "</td>";
+        echo "</tr>";
+    }
+}
+
+// Вывод таблицы ски-пассов
+// НЕ НАСТРОЕНО
+function Ski_Pass($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th width=\"100\">Телефон</th>
+            <th width=\"200\">Почта</th>
+            <th>Пароль</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td>" . $row["ClientSurname"] . "</td>";
+        echo "<td>" . $row["ClientName"] . "</td>";
+        echo "<td>" . $row["ClientOtch"] . "</td>";
+        echo "<td>" . $row["Phone"] . "</td>";
+        echo "<td>" . $row["Mail"] . "</td>";
+        echo "<td>" . $row["Passwd"] . "</td>";
+        echo "</tr>";
+    }
+}
+
 ?>
