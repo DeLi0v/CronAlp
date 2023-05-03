@@ -10,8 +10,9 @@
 
 <body class="services">
     <?php include("../../head.php"); ?>
-    <?php 
-    echo "В разработке";
+    <?php
+        require("Select.php");
+        SelectTable("Services");
     ?>
 </body>
 

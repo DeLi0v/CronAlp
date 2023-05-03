@@ -36,7 +36,7 @@ if (mysqli_num_rows($result) > 0) {
     echo "</div>";
     
 } else {
-    echo "В таблице нет данных.";
+    echo "<div class=\"error\">В таблице нет данных.</div>";
 }
 
 // Закрываем подключение к базе данных

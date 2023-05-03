@@ -10,8 +10,9 @@
 
 <body class="equepment">
     <?php include("../../head.php"); ?>
-    <?php 
-    echo "В разработке";
+    <?php
+        require("Select.php");
+        SelectTable("Equepment");
     ?>
 </body>
 

@@ -10,8 +10,9 @@
 
 <body class="ski_pass">
     <?php include("../../head.php"); ?>
-    <?php 
-    echo "В разработке";
+    <?php
+        require("Select.php");
+        SelectTable("Ski_Pass");
     ?>
 </body>
 
