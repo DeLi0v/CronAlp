@@ -4,11 +4,19 @@ body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
+body.clients #nav-clients-add{
+  background-color: #4CAF50;
+  color: white;
+}
 
 /* Выделение кнопки навигации "Сотрудники" */
 body.staff #nav-staff{
     background-color: #4CAF50;
     color: white;
+}
+body.staff #nav-staff-add{
+  background-color: #4CAF50;
+  color: white;
 }
 
 /* Выделение кнопки навигации "Ski-pass" */
@@ -16,17 +24,29 @@ body.ski_pass #nav-ski_pass{
     background-color: #4CAF50;
     color: white;
 }
+body.ski_pass #nav-ski_pass-add{
+  background-color: #4CAF50;
+  color: white;
+}
 
 /* Выделение кнопки навигации "Услуги" */
 body.services #nav-services{
     background-color: #4CAF50;
     color: white;
 }
+body.services #nav-services-add{
+  background-color: #4CAF50;
+  color: white;
+}
 
 /* Выделение кнопки навигации "Оборудование" */
 body.equepment #nav-equepment{
     background-color: #4CAF50;
     color: white;
+}
+body.equepment #nav-equepment-add{
+  background-color: #4CAF50;
+  color: white;
 }
 
 /* Кнопка выпадающего списка */
