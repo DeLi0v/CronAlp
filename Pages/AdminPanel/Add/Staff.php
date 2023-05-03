@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="staff">
+<body class="staff-add">
     <?php include("../../../head.php"); ?>
     <?php
         require("Add.php");

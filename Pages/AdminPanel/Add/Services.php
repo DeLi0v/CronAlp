@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="services">
+<body class="services-add">
     <?php include("../../../head.php"); ?>
     <?php
         require("Add.php");
