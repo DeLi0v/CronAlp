@@ -27,7 +27,7 @@ if (mysqli_num_rows($result) > 0) {
         Services($result);
     } elseif($table == 'Equepments') {
         Equepments($result);
-    } elseif($table == 'Ski_Pass') {
+    } elseif($table == 'Ski_pass') {
         Ski_Pass($result);
     }
 

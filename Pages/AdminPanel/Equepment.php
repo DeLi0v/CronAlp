@@ -12,7 +12,7 @@
     <?php include("../../head.php"); ?>
     <?php
         require("Select.php");
-        SelectTable("Equepment");
+        SelectTable("Equepments");
     ?>
 </body>
 
