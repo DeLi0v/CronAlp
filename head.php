@@ -2,13 +2,7 @@
     <h1>Административная панель</h1>
 </div>
 <div class="tableHead">
-    <ul class="dropdown">
-        <li class="dropdown-content">
-            <a id="nav-services" href="/Pages/AdminPanel/Services.php">Открыть таблицу</a>
-            <a href="#">Добавить данные</a>
-        </li>
-    </ul>
-    <!-- <div class="dropdown">
+    <div class="dropdown">
         <button class="dropbtn">Услуги</button>
         <div class="dropdown-content">
             <a id="nav-services" href="/Pages/AdminPanel/Services.php">Открыть таблицу</a>
@@ -42,5 +36,5 @@
             <a id="nav-equepment" href="/Pages/AdminPanel/Equepment.php">Открыть таблицу</a>
             <a href="#">Добавить данные</a>
         </div>
-    </div> -->
+    </div>
 </div>
