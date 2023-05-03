@@ -18,20 +18,20 @@
 /* Общие */
 .tableHead{
     background-color: #a3a3a3;
+    overflow: visible;
 }
 
 /* Стиль ссылок на панели навигации */
 .tableHead a{
     color: #000000;
     text-align: center;
-    /* text-decoration: none; */
 }
 
 /* Изменение ссылки при наведении курсора */
-/* .tableHead a:hover {
+.tableHead a:hover {
     background-color: #ddd;
     color: black;
-} */
+}
 
 /* Если на кнопку нажали */
 .tableHead a:active {
