@@ -15,5 +15,10 @@
             <a id="nav-services" href="/Pages/AdminPanel/Services.php">Открыть таблицу</a>
             <a href="#">Добавить данные</a>
         </div>
+        <button class="dropbtn">Клиенты</button>
+        <div class="dropdown-content">
+            <a id="nav-clients" href="/Pages/AdminPanel/Clients.php">Открыть таблицу</a>
+            <a href="#">Добавить данные</a>
+        </div>
     </div>
 </div>
