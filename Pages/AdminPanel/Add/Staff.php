@@ -9,10 +9,10 @@
 </head>
 
 <body class="staff">
-    <?php include("../../head.php"); ?>
+    <?php include("../../../head.php"); ?>
     <?php
-        require("Select.php");
-        SelectTable("Staff");
+        require("Add.php");
+        // SelectTable("Clients");
     ?>
 </body>
 

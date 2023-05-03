@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="ski_pass">
-    <?php include("../../head.php"); ?>
+<body class="equepment">
+    <?php include("../../../head.php"); ?>
     <?php
         require("Select.php");
-        SelectTable("Ski_pass");
+        SelectTable("Equepments");
     ?>
 </body>
 
