@@ -36,12 +36,14 @@ body.equepment #nav-equepment{
     padding: 16px;
     font-size: 16px;
     border: none;
+    cursor: pointer;
   }
   
   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
   .dropdown {
     position: relative;
     display: inline-block;
+    cursor: pointer
   }
   
   /* Выпадающее содержимое (скрыто по умолчанию) */

@@ -19,6 +19,7 @@
 .tableHead{
     background-color: #a3a3a3;
     overflow: visible;
+    display: flex;
 }
 
 /* Стиль ссылок на панели навигации */
