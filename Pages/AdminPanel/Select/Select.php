@@ -1,17 +1,21 @@
 <?php
 
 function SelectTable($table){
-require_once("../../../connect.php"); // Подключение файла для связи с БД
+// require_once("../../../connect.php"); // Подключение файла для связи с БД
 
-// Подключение к БД
+// // Подключение к БД
 $db = new DB_Class();
 $conn = $db->connect();
+// define('MYSQL_SERVER', '192.168.0.4:3306');
+// define('MYSQL_USER', 'a1');
+// define('MYSQL_PASSWORD', '1');
+// define('MYSQL_DB', 'vesna');
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
 $sql = "SELECT * FROM ". $table;
 
 // Выполняем SQL-запрос
-$result = mysqli_query($conn, $sql);
+$result = mysql_query($conn, $sql);
 
 // Проверим, есть ли записи в таблице
 if (mysqli_num_rows($result) > 0) {
@@ -58,7 +62,7 @@ function Clients($result){
         </tr>";
 
     // Выводим данные из таблицы
-    while ($row = mysqli_fetch_assoc($result)) {
+    while ($row = mysql_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["idClient"] . "</td>";
         echo "<td>" . $row["ClientSurname"] . "</td>";
