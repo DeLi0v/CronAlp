@@ -18,7 +18,7 @@ $sql = "SELECT * FROM ". $table;
 $result = mysql_query($conn, $sql);
 
 // Проверим, есть ли записи в таблице
-if (mysqli_num_rows($result) > 0) {
+if (mysql_num_rows($result) > 0) {
     
     echo "<div>";
     // Выводим начало таблицы
