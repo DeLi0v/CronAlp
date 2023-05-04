@@ -11,7 +11,7 @@
 <body class="clients-add">
     <?php include("../../../head.php"); ?>
     <h3>Добавление пользователя</h3>
-    <form action="/Pages/AdminPanel/Add/Add.php" method="post">
+    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post">
         <p>Фамилия:
             <input type="text" name="ClientSurname" />
         </p>
@@ -32,7 +32,4 @@
         </p>
         <input type="submit" value="Добавить">
     </form>
-    <?php
-    require("Add.php");
-    ?>
 </body>
