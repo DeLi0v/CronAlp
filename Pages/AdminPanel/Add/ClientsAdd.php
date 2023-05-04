@@ -8,6 +8,7 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
+    $id = mysqli_insert_id($conn);
     $surname = $conn->real_escape_string($_POST["ClientSurname"]);
     $name = $conn->real_escape_string($_POST["ClientName"]);
     $otch = $conn->real_escape_string($_POST["ClientOtch"]);
@@ -15,7 +16,7 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $mail = $conn->real_escape_string($_POST["Mail"]);
     $passwd = $conn->real_escape_string($_POST["Passwd"]);
 
-    $sql = "INSERT INTO \`mydb\`.\`Clients\` (\`ClientSurname\`, \`ClientName\`, \`ClientOtch\`, \`Phone\`, \`Mail\`, \`Passwd\`) VALUES ($surname, $name, $otch, $phone, $mail, $passwd);";
+    $sql = "INSERT INTO `mydb`.`Clients` (`ClientSurname`, `ClientName`, `ClientOtch`, `Phone`, `Mail`, `Passwd`) VALUES ($surname, $name, $otch, $phone, $mail, $passwd);";
     if($conn->query($sql)){
         echo "Данные успешно добавлены";
     } else{
