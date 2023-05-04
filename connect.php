@@ -1,4 +1,22 @@
 <?php
+// Данные для подключения к базе данных
+    $hostname = "192.168.0.2";
+    $username = "begetuser";
+    $password = "1";
+    $database = "mydb";
+
+    $conn; // подключенная БД
+
+    // Создаем подключение к базе данных
+        $conn = mysqli_connect($hostname, $username, $password, $database);
+        // Проверяем, удалось ли подключиться к базе данных
+        if (!$conn) {
+            die("Подключение не удалось: " . mysqli_connect_error());
+        }
+        mysqli_select_db($conn, $database);
+?>
+
+<!-- <?php
 
 class DB_Class
 {
@@ -39,4 +57,4 @@ class DB_Class
     }
 }
 
-?>
+?> -->
