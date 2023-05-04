@@ -20,7 +20,7 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $id = mysqli_insert_id($conn);
+    // $id = mysqli_insert_id($conn);
     $surname = $conn->real_escape_string($_POST["ClientSurname"]);
     $name = $conn->real_escape_string($_POST["ClientName"]);
     $otch = $conn->real_escape_string($_POST["ClientOtch"]);
