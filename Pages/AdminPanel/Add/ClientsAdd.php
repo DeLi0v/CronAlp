@@ -1,5 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>MySiTe</title>
+    <link rel="stylesheet" href="/Styles/MainStyles.css">
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
+</head>
+
+<body class="clients-add">
+<?php include("../../../head.php"); ?>
 <?php
-include("../../../head.php");
 if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POST["ClientOtch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
@@ -26,3 +37,5 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn->close();
 }
 ?>
+</body>
+</html>
