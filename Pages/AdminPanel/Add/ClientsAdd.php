@@ -37,7 +37,12 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn->close();
 } else {
     echo "Что-то не так";
-    $_POST["ClientSurname"];
+    echo $_POST["ClientSurname"];
+    echo $_POST["ClientName"];
+    echo $_POST["ClientOtch"];
+    echo $_POST["Phone"];
+    echo $_POST["Mail"];
+    echo $_POST["Passwd"];
 }
 ?>
 </body>
