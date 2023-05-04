@@ -24,12 +24,3 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn->close();
 }
 ?>
-
-echo "<td>" . $row["idClient"] . "</td>";
-        echo "<td>" . $row["ClientSurname"] . "</td>";
-        echo "<td>" . $row["ClientName"] . "</td>";
-        echo "<td>" . $row["ClientOtch"] . "</td>";
-        echo "<td>" . $row["Phone"] . "</td>";
-        echo "<td>" . $row["Mail"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
-        echo "</tr>";
