@@ -1,15 +1,3 @@
-<header>
-    <nav>
-        <a href="#">
-        </a>
-        <ul>
-          <li><a href="#">Каталог</a></li>
-          <li><a href="#">Доставка</a></li>
-          <li><a href="#">Контакты</a></li>
-        /ul>
-    </nav>
-</header>
-<!-- 
 <div class="head">
     <h1>Административная панель</h1>
 </div>
@@ -49,4 +37,4 @@
             <a id="nav-equepment-add" href="/Pages/AdminPanel/Add/Equepment.php">Добавить данные</a>
         </div>
     </div>
-</div> -->
+</div>
