@@ -37,6 +37,7 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn->close();
 } else {
     echo "Что-то не так";
+    $_POST["ClientSurname"];
 }
 ?>
 </body>
