@@ -22,7 +22,7 @@
             <input type="text" name="ClientOtch" />
         </p>
         <p>Телефон:
-            <input type="number" name="Phone" />
+            <input type="text" name="Phone" />
         </p>
         <p>Почта:
             <input type="text" name="Mail" />
