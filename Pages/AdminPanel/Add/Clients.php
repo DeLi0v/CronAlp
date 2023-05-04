@@ -25,7 +25,7 @@
             <input type="number" name="Phone" />
         </p>
         <p>Почта:
-            <input type="text" name="userage" />
+            <input type="text" name="Mail" />
         </p>
         <p>Пароль:
             <input type="text" name="Passwd" />
