@@ -6,10 +6,7 @@ require_once("../../../connect.php"); // Подключение файла дл�
 // // Подключение к БД
 $db = new DB_Class();
 $conn = $db->connect();
-// define('MYSQL_SERVER', '192.168.0.4:3306');
-// define('MYSQL_USER', 'a1');
-// define('MYSQL_PASSWORD', '1');
-// define('MYSQL_DB', 'vesna');
+mysqli_select_db($conn, $db->database);
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
 $sql = "SELECT * FROM ". $table;
