@@ -25,7 +25,7 @@ class DB_Class
     {
         // Создаем подключение к базе данных
         $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
-        mysqli_select_db($this->conn, $this->database);
+        // mysqli_select_db($this->conn, $this->database);
         // Проверяем, удалось ли подключиться к базе данных
         if (!$this->conn) {
             die("Подключение не удалось: " . mysqli_connect_error());
