@@ -3,8 +3,13 @@
 class DB_Class
 {
     // Данные для подключения к базе данных
-    var $hostname = "192.168.0.2";
-    var $username = "begetuser";
+    // var $hostname = "192.168.0.2";
+    // var $username = "begetuser";
+    // var $password = "1";
+    // var $database = "mydb";
+
+    var $hostname = "localhost";
+    var $username = "root";
     var $password = "1";
     var $database = "mydb";
 
