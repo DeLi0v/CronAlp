@@ -15,10 +15,10 @@ $conn = $db->connect();
 $sql = "SELECT * FROM ". $table;
 
 // Выполняем SQL-запрос
-$result = mysql_query($conn, $sql);
+$result = mysqli_query($conn, $sql);
 
 // Проверим, есть ли записи в таблице
-if (mysql_num_rows($result) > 0) {
+if (mysqli_num_rows($result) > 0) {
     
     echo "<div>";
     // Выводим начало таблицы
@@ -62,7 +62,7 @@ function Clients($result){
         </tr>";
 
     // Выводим данные из таблицы
-    while ($row = mysql_fetch_assoc($result)) {
+    while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["idClient"] . "</td>";
         echo "<td>" . $row["ClientSurname"] . "</td>";

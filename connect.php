@@ -24,17 +24,18 @@ class DB_Class
     function connect()
     {
         // Создаем подключение к базе данных
-        $this->conn = mysql_connect($this->hostname, $this->username, $this->password, $this->database);
+        $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+        mysqli_select_db($this->conn, $this->database);
         // Проверяем, удалось ли подключиться к базе данных
         if (!$this->conn) {
-            die("Подключение не удалось: " . mysql_connect_error());
+            die("Подключение не удалось: " . mysqli_connect_error());
         }
         return $this->conn;
     }
 
     function close()
     {
-        mysql_close($this->conn);
+        mysqli_close($this->conn);
     }
 }
 
