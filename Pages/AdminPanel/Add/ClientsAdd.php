@@ -11,6 +11,7 @@
 <body class="clients-add">
 <?php include("../../../head.php"); ?>
 <?php
+echo mysqli_insert_id($conn) + 1;
 if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POST["ClientOtch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
@@ -20,7 +21,7 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $id = mysqli_insert_id($conn)+1;
+    $id = mysqli_insert_id($conn) + 1;
     $surname = $conn->real_escape_string($_POST["ClientSurname"]);
     $name = $conn->real_escape_string($_POST["ClientName"]);
     $otch = $conn->real_escape_string($_POST["ClientOtch"]);
