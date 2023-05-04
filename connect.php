@@ -8,6 +8,11 @@ class DB_Class
     var $password = "1";
     var $database = "mydb";
 
+    // define('MYSQL_SERVER', '192.168.0.2:3306');
+    // define('MYSQL_USER', 'a1');
+    // define('MYSQL_PASSWORD', '1');
+    // define('MYSQL_DB', 'vesna');
+
     // var $hostname = "localhost";
     // var $username = "root";
     // var $password = "1";
@@ -19,17 +24,17 @@ class DB_Class
     function connect()
     {
         // Создаем подключение к базе данных
-        $this->conn = mysqli_connect($this->hostname, $this->username, $this->password, $this->database);
+        $this->conn = mysql_connect($this->hostname, $this->username, $this->password, $this->database);
         // Проверяем, удалось ли подключиться к базе данных
         if (!$this->conn) {
-            die("Подключение не удалось: " . mysqli_connect_error());
+            die("Подключение не удалось: " . mysql_connect_error());
         }
         return $this->conn;
     }
 
     function close()
     {
-        mysqli_close($this->conn);
+        mysql_close($this->conn);
     }
 }
 
