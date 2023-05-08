@@ -1,6 +1,6 @@
 /* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
 /* Выделение кнопки навигации "Клиенты" */
-body.clients #nav-clients{
+body.clients .dropbtn #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
@@ -58,7 +58,7 @@ body.equepment-add #nav-equepment-add{
     border: none;
     cursor: pointer;
   }
-  
+
   /* Контейнер <div> - необходим для размещения выпадающего содержимого */
   .dropdown {
     position: relative;
