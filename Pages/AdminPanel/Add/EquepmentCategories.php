@@ -14,8 +14,8 @@
     <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
-                <label for="Name">Наименование:</label>
-                <input type="text" name="Name" size="20px" />
+                <label for="CategoryName">Наименование:</label>
+                <input type="text" name="CategoryName" size="20px" />
             </li>
             <li class="form-row">
                 <button type="submit">Добавить</button>

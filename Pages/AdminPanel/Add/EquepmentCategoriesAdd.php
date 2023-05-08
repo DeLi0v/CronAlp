@@ -11,7 +11,7 @@
 <body class="equepmentCat-add">
 <?php include("../../../head.php"); ?>
 <?php
-if (isset($_POST["Name"])) {
+if (isset($_POST["CategoryName"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
 
@@ -20,7 +20,7 @@ if (isset($_POST["Name"])) {
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $name = $conn->real_escape_string($_POST["Name"]);
+    $name = $conn->real_escape_string($_POST["CategoryName"]);
 
     $sql = "INSERT INTO EquepmentCategories (CategoryName) VALUES ('$name');";
     if($conn->query($sql)){
