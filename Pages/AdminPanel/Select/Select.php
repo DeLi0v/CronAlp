@@ -86,15 +86,15 @@ function Clients($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td id=\"center\">" . $row["idClient"] . "</td>";
         echo "<td>" . $row["ClientSurname"] . "</td>";
         echo "<td>" . $row["ClientName"] . "</td>";
         echo "<td>" . $row["ClientOtch"] . "</td>";
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
@@ -117,7 +117,7 @@ function Staff($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idStaff"] . "</td>";
+        echo "<td id=\"center\">" . $row["idStaff"] . "</td>";
         echo "<td>" . $row["StaffSurname"] . "</td>";
         echo "<td>" . $row["StaffName"] . "</td>";
         echo "<td>" . $row["StaffOtch"] . "</td>";
@@ -125,8 +125,8 @@ function Staff($result){
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Post"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }    
 }
@@ -147,13 +147,13 @@ function Ski_Pass($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
+        echo "<td id=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Surname"] . "</td>";
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Otch"] . "</td>";
         echo "<td>" . $row["Balance"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
@@ -170,10 +170,10 @@ function EquepmentCategories($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idEquepmentCategory"] . "</td>";
+        echo "<td id=\"center\">" . $row["idEquepmentCategory"] . "</td>";
         echo "<td>" . $row["CategoryName"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
@@ -191,11 +191,11 @@ function Equepments($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
+        echo "<td id=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Category"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
@@ -212,10 +212,10 @@ function OperationTypes($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idOperationType"] . "</td>";
+        echo "<td id=\"center\">" . $row["idOperationType"] . "</td>";
         echo "<td>" . $row["OperationName"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
@@ -224,29 +224,29 @@ function OperationTypes($result){
 // НЕ НАСТРОЕНО
 function Services($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
-            <th width=\"100\">Телефон</th>
-            <th width=\"200\">Почта</th>
+            <th style=\"width: 0;\">Телефон</th>
+            <th style=\"width: 0;\">Почта</th>
             <th>Пароль</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td id=\"center\">" . $row["idClient"] . "</td>";
         echo "<td>" . $row["ClientSurname"] . "</td>";
         echo "<td>" . $row["ClientName"] . "</td>";
         echo "<td>" . $row["ClientOtch"] . "</td>";
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "<td>Изменить</td>";
-        echo "<td>Удалить</td>";
+        echo "<td id=\"center\">Изменить</td>";
+        echo "<td id=\"center\">Удалить</td>";
         echo "</tr>";
     }
 }
