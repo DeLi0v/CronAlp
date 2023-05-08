@@ -34,6 +34,7 @@ if (isset($_POST["CategoryName"])) {
     $conn->close();
 } else {
     echo "Что-то не так";
+    echo $_POST["CategoryName"];
 }
 ?>
 </body>
