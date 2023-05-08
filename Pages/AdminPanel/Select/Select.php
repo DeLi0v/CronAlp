@@ -9,6 +9,10 @@ $conn = $db->connect();
 mysqli_select_db($conn, $db->database);
 
 // Формируем SQL-запрос для получения данных из таблицы "users"
+if($table == 'Ski_pass') {
+    Ski_Pass($conn);
+}
+
 $sql = "SELECT * FROM ". $table;
 
 // Выполняем SQL-запрос
@@ -28,8 +32,6 @@ if (mysqli_num_rows($result) > 0) {
         Services($result);
     } elseif($table == 'Equepments') {
         Equepments($result);
-    } elseif($table == 'Ski_pass') {
-        Ski_Pass($result);
     }
 
     // Выводим конец таблицы
@@ -162,15 +164,28 @@ function Equepments($result){
 
 // Вывод таблицы ски-пассов
 // НЕ НАСТРОЕНО
-function Ski_Pass($result){
+function Ski_Pass($conn){
+    
+    $sql = "SELECT 	
+        Ski_pass.idSki_pass id,
+        Clients.ClientSurname Surname,
+        Clients.ClientName Name,
+        Clients.ClientOtch Otch,
+        Ski_pass.Balance Balance 
+    FROM 
+        Ski_pass
+        join Clients on Clients.idClient = Ski_pass.idClient;";
+
+    // Выполняем SQL-запрос
+    $result = mysqli_query($conn, $sql);
+
     echo "<tr>
             <th width=\"50\">ID</th>
+            <th>Id ski-pass</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
-            <th width=\"100\">Телефон</th>
-            <th width=\"200\">Почта</th>
-            <th>Пароль</th>
+            <th>Баланс</th>
             <th>Изменить</th>
             <th>Удалить</th>
         </tr>";
@@ -178,8 +193,10 @@ function Ski_Pass($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td>" . $row["idSki_pass"] . "</td>";
-        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["Surname"] . "</td>";
+        echo "<td>" . $row["Name"] . "</td>";
+        echo "<td>" . $row["Otch"] . "</td>";
         echo "<td>" . $row["Balance"] . "</td>";
         echo "<td>Изменить</td>";
         echo "<td>Удалить</td>";
