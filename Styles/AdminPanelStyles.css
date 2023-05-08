@@ -149,10 +149,16 @@ table {
 }
 .form-row > input,
 .form-row > button {
-  padding: .5em;
+  padding: 7px;
 }
 .form-row > button {
   background: gray;
   color: white;
   border: 0;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 15px;
+}
+.form-row:hover > button {
+  background: rgb(82, 82, 82);
 }
