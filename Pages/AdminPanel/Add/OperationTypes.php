@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="equepmentCat">
+<body class="equepmentCat-add">
     <?php include("../../../head.php"); ?>
     <h3 style="text-align:center;">Добавление вида услуг</h3>
-    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form action="/Pages/AdminPanel/Add/OperationTypesAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Name">Наименование:</label>
