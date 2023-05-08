@@ -178,7 +178,7 @@ function Equepments($result){
 function Ski_Pass($result){
     
     echo "<tr>
-            <th width=\"50\">Id ski-pass</th>
+            <th>Id ski-pass</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
