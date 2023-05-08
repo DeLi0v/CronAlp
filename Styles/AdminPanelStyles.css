@@ -159,6 +159,6 @@ table {
   padding: 12px;
   font-size: 15px;
 }
-.form-row:hover > button {
+.form-row > button:hover {
   background: rgb(82, 82, 82);
 }
