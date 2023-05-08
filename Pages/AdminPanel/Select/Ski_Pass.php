@@ -10,7 +10,7 @@
 
 <body class="ski_pass">
     <?php include("../../../head.php"); ?>
-    <h3 text-align="center">Ski-pass</h3>
+    <h3 style="text-align:center;">Ski-pass</h3>
     <?php
         require("Select.php");
         SelectTable("Ski_pass");
