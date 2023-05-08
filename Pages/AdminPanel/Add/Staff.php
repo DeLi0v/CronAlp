@@ -10,7 +10,7 @@
 
 <body class="staff-add">
     <?php include("../../../head.php"); ?>
-    <h3 style="text-align:center;">Добавление клиента</h3>
+    <h3 style="text-align:center;">Добавление сотрудника</h3>
     <form action="/Pages/AdminPanel/Add/StaffAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
