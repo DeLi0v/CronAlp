@@ -10,6 +10,7 @@
 
 <body class="services">
     <?php include("../../../head.php"); ?>
+    <h3 text-align="center">Услуги</h3>
     <?php
         require("Select.php");
         SelectTable("Services");

@@ -10,6 +10,7 @@
 
 <body class="staff">
     <?php include("../../../head.php"); ?>
+    <h3 text-align="center">Сотрудники</h3>
     <?php
         require("Select.php");
         SelectTable("Staff");
