@@ -37,4 +37,18 @@
             <a id="nav-equepment-add" href="/Pages/AdminPanel/Add/Equepment.php">Добавить данные</a>
         </div>
     </div>
+    <div class="dropdown">
+        <button class="dropbtn">Категории оборудования</button>
+        <div class="dropdown-content">
+            <a id="nav-equepment-cat" href="/Pages/AdminPanel/Select/EquepmentCategories.php">Открыть таблицу</a>
+            <a id="nav-equepment-cat-add" href="/Pages/AdminPanel/Add/EquepmentCategories.php">Добавить данные</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Виды услуг</button>
+        <div class="dropdown-content">
+            <a id="nav-operations" href="/Pages/AdminPanel/Select/OperationTypes.php">Открыть таблицу</a>
+            <a id="nav-operations-add" href="/Pages/AdminPanel/Add/OperationTypes.php">Добавить данные</a>
+        </div>
+    </div>
 </div>

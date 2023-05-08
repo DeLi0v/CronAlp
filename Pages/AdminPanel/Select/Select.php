@@ -20,6 +20,14 @@ if($table == 'Ski_pass') {
     FROM 
         Ski_pass
         join Clients on Clients.idClient = Ski_pass.idClient;";
+} elseif($table == 'Equepment'){
+    $sql = "SELECT 	
+        Equepments.idEquepment id,
+        Equepments.EquepmentName Name,
+        EquepmentCategories.CategoryName Category
+    FROM 
+        Equepments
+        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
@@ -43,6 +51,10 @@ if (mysqli_num_rows($result) > 0) {
         Equepments($result);
     } elseif($table == 'Ski_pass') {
         Ski_Pass($result);
+    } elseif ($table == 'EquepmentCategories'){
+        EquepmentCategories($result);
+    } elseif ($table == 'OperationTypes'){
+        OperationTypes($result);
     }
 
     // Выводим конец таблицы
@@ -81,6 +93,8 @@ function Clients($result){
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
         echo "</tr>";
     }
 }
@@ -111,8 +125,99 @@ function Staff($result){
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Post"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
         echo "</tr>";
     }    
+}
+
+// Вывод таблицы ски-пассов
+function Ski_Pass($result){
+    
+    echo "<tr>
+            <th>Id ski-pass</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+            <th>Баланс</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["Surname"] . "</td>";
+        echo "<td>" . $row["Name"] . "</td>";
+        echo "<td>" . $row["Otch"] . "</td>";
+        echo "<td>" . $row["Balance"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
+        echo "</tr>";
+    }
+}
+
+// Вывод таблицы категорий оборудования
+function EquepmentCategories($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Наименование</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["idEquepmentCategory"] . "</td>";
+        echo "<td>" . $row["CategoryName"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
+        echo "</tr>";
+    }
+}
+
+// Вывод таблицы оборудования
+function Equepments($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Наименование</th>
+            <th>Категория</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["id"] . "</td>";
+        echo "<td>" . $row["Name"] . "</td>";
+        echo "<td>" . $row["Category"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
+        echo "</tr>";
+    }
+}
+
+// Вывод таблицы видов оказания услуг
+function OperationTypes($result){
+    echo "<tr>
+            <th width=\"50\">ID</th>
+            <th>Наименование</th>
+            <th>Изменить</th>
+            <th>Удалить</th>
+        </tr>";
+
+    // Выводим данные из таблицы
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<tr>";
+        echo "<td>" . $row["idOperationType"] . "</td>";
+        echo "<td>" . $row["OperationTypeName"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
+        echo "</tr>";
+    }
 }
 
 // Вывод таблицы услуг
@@ -140,63 +245,10 @@ function Services($result){
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "</tr>";
-    }
-}
-
-// Вывод таблицы оборудования
-// НЕ НАСТРОЕНО
-function Equepments($result){
-    echo "<tr>
-            <th width=\"50\">ID</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th width=\"100\">Телефон</th>
-            <th width=\"200\">Почта</th>
-            <th>Пароль</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
-        </tr>";
-
-    // Выводим данные из таблицы
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row["idClient"] . "</td>";
-        echo "<td>" . $row["ClientSurname"] . "</td>";
-        echo "<td>" . $row["ClientName"] . "</td>";
-        echo "<td>" . $row["ClientOtch"] . "</td>";
-        echo "<td>" . $row["Phone"] . "</td>";
-        echo "<td>" . $row["Mail"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
-        echo "</tr>";
-    }
-}
-
-// Вывод таблицы ски-пассов
-// НЕ НАСТРОЕНО
-function Ski_Pass($result){
-    
-    echo "<tr>
-            <th>Id ski-pass</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th>Баланс</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
-        </tr>";
-
-    // Выводим данные из таблицы
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row["id"] . "</td>";
-        echo "<td>" . $row["Surname"] . "</td>";
-        echo "<td>" . $row["Name"] . "</td>";
-        echo "<td>" . $row["Otch"] . "</td>";
-        echo "<td>" . $row["Balance"] . "</td>";
         echo "<td>Изменить</td>";
         echo "<td>Удалить</td>";
         echo "</tr>";
     }
 }
+
+?>

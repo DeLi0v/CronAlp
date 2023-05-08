@@ -49,6 +49,26 @@ body.equepment-add #nav-equepment-add{
   color: white;
 }
 
+/* Выделение кнопки навигации "Категории оборудования" */
+body.equepmentCat #nav-equepment-cat{
+  background-color: #4CAF50;
+  color: white;
+}
+body.equepmentCat-add #nav-equepment-cat-add{
+background-color: #4CAF50;
+color: white;
+}
+
+/* Выделение кнопки навигации "Виды услуг" */
+body.operations #nav-operations{
+  background-color: #4CAF50;
+  color: white;
+}
+body.operations-add #nav-operations-add{
+background-color: #4CAF50;
+color: white;
+}
+
 /* Кнопка выпадающего списка */
 .dropbtn {
     background-color: #4C98AF;
