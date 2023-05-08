@@ -8,34 +8,40 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="clients-add">
+<body class="equepment-add">
     <?php include("../../../head.php"); ?>
     <h3 style="text-align:center;">Добавление клиента</h3>
-    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form action="/Pages/AdminPanel/Add/EquepmentAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
-                <label for="ClientSurname">Фамилия:</label>
-                <input type="text" name="ClientSurname" size="20px" />
+                <label for="Name">Наименование:</label>
+                <input type="text" name="Name" size="20px" />
             </li>
             <li class="form-row">
-                <label for="ClientName">Имя:</label>
-                <input type="text" name="ClientName" size="20px" />
-            </li>
-            <li class="form-row">
-                <label for="ClientOtch">Отчетсво:</label>
-                <input type="text" name="ClientOtch" size="20px" />
-            </li>
-            <li class="form-row">
-                <label for="Phone">Телефон:</label>
-                <input type="text" name="Phone" size="20px" />
-            </li>
-            <li class="form-row">
-                <label for="Mail">Почта:</label>
-                <input type="text" name="Mail" size="20px" />
-            </li>
-            <li class="form-row">
-                <label for="Passwd">Пароль:</label>
-                <input type="text" name="Passwd" size="20px" />
+                <label for="Category">Категория:</label>
+                <?php 
+                    require_once("../../../connect.php"); // Подключение файла для связи с БД
+
+                    // // Подключение к БД
+                    $db = new DB_Class();
+                    $conn = $db->connect();
+                    mysqli_select_db($conn, $db->database);
+
+                    // Формируем SQL-запрос для получения данных из таблицы "users"
+                    $sql = "SELECT * FROM EqupmentCategories";
+
+                    // Выполняем SQL-запрос
+                    $result = mysqli_query($conn, $sql);
+                    
+                    /*Выпадающий список*/
+                    echo "<select name=\"Category\">";
+                    
+                    while($object = mysqli_fetch_object($result)){
+                        echo "<option value = '$object->idCategory' > $object->idCategory - $object->CategoryName</option>";
+                    }
+                    
+                    echo "</select>";
+                ?>
             </li>
             <li class="form-row">
                 <button type="submit">Добавить</button>
