@@ -135,11 +135,11 @@ function Staff($result){
 function Ski_Pass($result){
     
     echo "<tr>
-            <th style=\"width: 0;\">Id ski-pass</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th style=\"width: 0;\">Баланс</th>
+            <th style=\"width: 0;\">ID</th>
+            <th>Фамилия клиента</th>
+            <th>Имя клиента</th>
+            <th>Отчество клиента</th>
+            <th style=\"width: 0;\">Баланс, руб</th>
             <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
         </tr>";
