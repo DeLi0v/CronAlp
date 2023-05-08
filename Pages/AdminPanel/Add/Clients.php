@@ -11,7 +11,7 @@
 <body class="clients-add">
     <?php include("../../../head.php"); ?>
     <h3 align="center">Добавление клиента</h3>
-    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" margin="auto" width="500px">
+    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="ClientSurname">Фамилия:</label>
