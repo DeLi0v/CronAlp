@@ -178,13 +178,11 @@ function Ski_Pass($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
+        echo "<td>" . $row["idSki_pass"] . "</td>";
         echo "<td>" . $row["idClient"] . "</td>";
-        echo "<td>" . $row["ClientSurname"] . "</td>";
-        echo "<td>" . $row["ClientName"] . "</td>";
-        echo "<td>" . $row["ClientOtch"] . "</td>";
-        echo "<td>" . $row["Phone"] . "</td>";
-        echo "<td>" . $row["Mail"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
+        echo "<td>" . $row["Balance"] . "</td>";
+        echo "<td>Изменить</td>";
+        echo "<td>Удалить</td>";
         echo "</tr>";
     }
 }
