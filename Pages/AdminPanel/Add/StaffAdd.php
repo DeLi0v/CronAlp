@@ -31,8 +31,8 @@ if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) &
     $sql = "INSERT INTO Staff (StaffSurname, StaffName, StaffOtch, Phone, Mail, Post, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$post', '$passwd');";
     if($conn->query($sql)){
         echo "<div align=\"center\">
-            <img src=\"/pictures/icons/success.png\">
-            Данные успешно добавлены
+            <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
+            <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
         </div>";
     } else{
         echo "Ошибка: " . $conn->error;
