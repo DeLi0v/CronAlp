@@ -213,7 +213,7 @@ function OperationTypes($result){
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td>" . $row["idOperationType"] . "</td>";
-        echo "<td>" . $row["OperationTypeName"] . "</td>";
+        echo "<td>" . $row["OperationName"] . "</td>";
         echo "<td>Изменить</td>";
         echo "<td>Удалить</td>";
         echo "</tr>";

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="equepment-cat">
+<body class="equepmentCat">
     <?php include("../../../head.php"); ?>
     <h3 style="text-align:center;">Категории оборудования</h3>
     <?php
