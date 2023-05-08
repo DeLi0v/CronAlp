@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="clients-add">
+<body class="clients">
     <?php include("../../../head.php"); ?>
     <h3 align="center">Добавление клиента</h3>
     <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post">
