@@ -38,7 +38,6 @@
                 echo "</select>";
                 ?>
             </li>
-            </li>
             <li class="form-row">
                 <button type="submit">Добавить</button>
             </li>
