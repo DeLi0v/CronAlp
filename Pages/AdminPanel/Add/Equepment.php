@@ -37,7 +37,7 @@
                     echo "<select name=\"Category\">";
                     
                     while($object = mysqli_fetch_object($result)){
-                        echo "<option value = '$object->idCategory' > $object->idCategory - $object->CategoryName</option>";
+                        echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
                     }
                     
                     echo "</select>";
