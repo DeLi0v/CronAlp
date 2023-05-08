@@ -138,7 +138,7 @@ table {
  td {
     border: 1px solid grey;
     padding: 5px 10px;
-    text-align: left;
+    /* text-align: left; */
  }
  td #center {
     border: 1px solid grey;
