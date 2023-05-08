@@ -4,7 +4,7 @@ body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
-body.clients #nav-clients-add{
+body.clients-add #nav-clients-add{
   background-color: #4CAF50;
   color: white;
 }
