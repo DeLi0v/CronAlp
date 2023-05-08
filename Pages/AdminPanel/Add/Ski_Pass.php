@@ -10,7 +10,7 @@
 
 <body class="clients-add">
     <?php include("../../../head.php"); ?>
-    <h3 style="text-align:center;">Добавление клиента</h3>
+    <h3 style="text-align:center;">Выдача ski-pass</h3>
     <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
@@ -33,7 +33,7 @@
                     echo "<select name=\"Client\">";
                     
                     while($object = mysqli_fetch_object($result)){
-                        echo "<option value = '$object->ClientSurname' > $object->idClient - $object->ClientSurname $object->ClientName $object->ClientOtch</option>";
+                        echo "<option value = '$object->idClient' > $object->idClient - $object->ClientSurname $object->ClientName $object->ClientOtch</option>";
                     }
                     
                     echo "</select>";
