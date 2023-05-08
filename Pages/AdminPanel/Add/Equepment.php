@@ -28,7 +28,7 @@
                     mysqli_select_db($conn, $db->database);
 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EqupmentCategories";
+                    $sql = "SELECT * FROM EquepmentCategories;";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
