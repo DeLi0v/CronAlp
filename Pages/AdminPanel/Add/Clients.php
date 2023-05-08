@@ -27,11 +27,11 @@
             </li>
             <li class="form-row">
                 <label for="Phone">Телефон:</label>
-                <input type="text" name="Phone" size="20px" />
+                <input type="tel" name="Phone" size="20px" />
             </li>
             <li class="form-row">
                 <label for="Mail">Почта:</label>
-                <input type="text" name="Mail" size="20px" />
+                <input type="email" name="Mail" size="20px" />
             </li>
             <li class="form-row">
                 <label for="Passwd">Пароль:</label>
