@@ -61,7 +61,7 @@
                 ?>
             </li>
             <li class="form-row">
-                <label for="Opearation">Вид услуги:</label>
+                <label for="Operation">Вид услуги:</label>
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
                     $sql = "SELECT * FROM OperationTypes";
@@ -70,7 +70,7 @@
                     $result = mysqli_query($conn, $sql);
                     
                     /*Выпадающий список*/
-                    echo "<select name=\"Opearation\">";
+                    echo "<select name=\"Operation\">";
                     
                     while($object = mysqli_fetch_object($result)){
                         echo "<option value = '$object->idOperationType' >$object->OperationName</option>";
