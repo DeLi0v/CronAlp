@@ -29,7 +29,10 @@ if (isset($_POST["ClientSurname"]) && isset($_POST["ClientName"]) && isset($_POS
 
     $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
     if($conn->query($sql)){
-        echo "Данные успешно добавлены";
+        echo "<div align=\"center\">
+
+            Данные успешно добавлены
+        </div>";
     } else{
         echo "Ошибка: " . $conn->error;
     }
