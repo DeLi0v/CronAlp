@@ -30,21 +30,21 @@ if($table == 'Ski_pass') {
         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 } elseif($table == 'Services') {
     $sql = "SELECT 
-        sv.idService id,
-        sv.ServiceData data,
-        sf.idstaff staff,
-        cl.idclient client,
-        ot.idOperation operation,
-        eq.idEquepment equepment,
-        sv.NewSki_Pass NewSki_pass,
-        sv.idski_pass ski_pass,
-        sv.total total
+        Services.idService id,
+        Services.ServiceData data,
+        Staff.idstaff staff,
+        Clients.idclient client,
+        OperationTypes.idOperation operation,
+        Equepments.idEquepment equepment,
+        Services.NewSki_Pass NewSki_pass,
+        Services.idski_pass ski_pass,
+        Services.total total
     FROM 
-        Services sv
-        join Clients cl on cl.idClient = sv.idClient
-        join Staff sf on sf.idStaff = sv.idStaff
-        join OperationTypes ot on ot.idOperation = sv.idOperation
-        join Equepments eq on cl.idEquepment = sv.idEquepment;";
+        Services
+        join Clients on Clients.idClient = Services.idClient
+        join Staff on Staff.idStaff = Services.idStaff
+        join OperationTypes on OperationTypes.idOperation = Services.idOperation
+        join Equepments on Equepments.idEquepment = Services.idEquepment;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
