@@ -1,10 +1,10 @@
 /* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
 /* Выделение кнопки навигации "Клиенты" */
-body.clients #nav-clients #nav-clients-add{
+body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }
-body.clients-add #nav-clients-add{
+body.clients #nav-clients-add{
   background-color: #4CAF50;
   color: white;
 }
