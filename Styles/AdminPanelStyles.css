@@ -51,7 +51,7 @@ body.equepment-add #nav-equepment-add{
 
 /* Кнопка выпадающего списка */
 .dropbtn {
-    background-color: #4CAF50;
+    background-color: #4C98AF;
     color: white;
     padding: 16px;
     font-size: 16px;
@@ -96,7 +96,7 @@ body.equepment-add #nav-equepment-add{
   
   /* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
   .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: #3c7688 ;
   }
 /* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
 
@@ -133,6 +133,7 @@ table {
   list-style-type: none;
   padding: 0;
   border-radius: 3px;
+  max-width: 500px;
 }
 .form-row {
   display: flex;

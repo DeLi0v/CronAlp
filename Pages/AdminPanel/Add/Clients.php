@@ -10,7 +10,7 @@
 
 <body class="clients-add">
     <?php include("../../../head.php"); ?>
-    <h3>Добавление пользователя</h3>
+    <h3 align="center">Добавление клиента</h3>
     <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post">
         <ul class="wrapper">
             <li class="form-row">
