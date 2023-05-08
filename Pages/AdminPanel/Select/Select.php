@@ -20,7 +20,7 @@ if($table == 'Ski_pass') {
     FROM 
         Ski_pass
         join Clients on Clients.idClient = Ski_pass.idClient;";
-} elseif($table == 'Equepment'){
+} elseif($table == 'Equepments'){
     $sql = "SELECT 	
         Equepments.idEquepment id,
         Equepments.EquepmentName Name,
