@@ -1,6 +1,6 @@
 /* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
 /* Выделение кнопки навигации "Клиенты" */
-body.clients .dropbtn #nav-clients{
+body.clients #nav-clients{
     background-color: #4CAF50;
     color: white;
 }

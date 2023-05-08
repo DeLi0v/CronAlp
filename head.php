@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="dropdown">
-        <button class="dropbtn">Клиенты</button>
+        <button class="dropbtn clients clients-add">Клиенты</button>
         <div class="dropdown-content">
             <a id="nav-clients" href="/Pages/AdminPanel/Select/Clients.php">Открыть таблицу</a>
             <a id="nav-clients-add" href="/Pages/AdminPanel/Add/Clients.php">Добавить данные</a>
