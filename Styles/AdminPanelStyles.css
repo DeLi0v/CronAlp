@@ -132,12 +132,12 @@ table {
  /* границы ячеек первого ряда таблицы */
  th {
     border: 1px solid grey;
-    padding: 5px;
+    padding: 5px 10px;
  }
  /* границы ячеек тела таблицы */
  td {
     border: 1px solid grey;
-    padding: 5px;
+    padding: 5px 10px;
  }
  /* ////////////////  ТАБЛИЦЫ  ////////////////////// */
 

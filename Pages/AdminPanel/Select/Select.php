@@ -72,15 +72,15 @@ if (mysqli_num_rows($result) > 0) {
 // Вывод таблицы клиентов
 function Clients($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
-            <th width=\"100\">Телефон</th>
-            <th width=\"200\">Почта</th>
+            <th style=\"width: 0;\">Телефон</th>
+            <th style=\"width: 0;\">Почта</th>
             <th>Пароль</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
@@ -102,16 +102,16 @@ function Clients($result){
 // Вывод таблицы сотрудников
 function Staff($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
-            <th width=\"100\">Телефон</th>
-            <th width=\"200\">Почта</th>
+            <th style=\"width: 0;\">Телефон</th>
+            <th style=\"width: 0;\">Почта</th>
             <th>Должность</th>
             <th>Пароль</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
@@ -135,13 +135,13 @@ function Staff($result){
 function Ski_Pass($result){
     
     echo "<tr>
-            <th>Id ski-pass</th>
+            <th style=\"width: 0;\">Id ski-pass</th>
             <th>Фамилия</th>
             <th>Имя</th>
             <th>Отчество</th>
-            <th>Баланс</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Баланс</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
@@ -161,10 +161,10 @@ function Ski_Pass($result){
 // Вывод таблицы категорий оборудования
 function EquepmentCategories($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
@@ -181,11 +181,11 @@ function EquepmentCategories($result){
 // Вывод таблицы оборудования
 function Equepments($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
             <th>Категория</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
@@ -203,10 +203,10 @@ function Equepments($result){
 // Вывод таблицы видов оказания услуг
 function OperationTypes($result){
     echo "<tr>
-            <th width=\"50\">ID</th>
+            <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
-            <th>Изменить</th>
-            <th>Удалить</th>
+            <th style=\"width: 0;\">Изменить</th>
+            <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
     // Выводим данные из таблицы
