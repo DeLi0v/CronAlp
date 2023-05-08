@@ -29,18 +29,14 @@
                 $result = mysqli_query($conn, $sql);
                 
                 /*Выпадающий список*/
-                echo "<select>";
+                echo "<select name=\"Client\">";
                 
                 while($object = mysqli_fetch_object($result)){
-                    echo "<option value = '$object->ClientSurname' > $object->ClientSurname </option>";
+                    echo "<option value = '$object->ClientSurname' > $object->idClient $object->ClientSurname </option>";
                 }
                 
                 echo "</select>";
                 ?>
-                <select>
-                    <option>Пункт 1</option>
-                    <option>Пункт 2</option>
-                </select>
             </li>
             </li>
             <li class="form-row">
