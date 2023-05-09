@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="staff-add">
+<body class="ski_pass-add">
 <?php include("../../../head.php"); ?>
 <?php
 if (isset($_POST["Client"])) {
