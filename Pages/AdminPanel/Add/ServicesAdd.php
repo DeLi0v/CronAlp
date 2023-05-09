@@ -43,7 +43,8 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         $total = $conn->real_escape_string($_POST["total"]);
     }
 
-    $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) VALUES ($data,'$staff', '$client', '$operation', '$equepment', $newSkiPass, $skiPass, $total);";
+    $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
+                VALUES ($data,'$staff', '$client', '$operation', '$equepment', '$newSkiPass', '$skiPass', '$total');";
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
