@@ -85,7 +85,7 @@
             echo "</select>
                 </li>";
             
-            $_SESSION['newSkiPass'] = 'None';
+            $_SESSION['newSkiPass'] = '0';
             $_SESSION['skiPass'] = 'None';
             $_SESSION['total'] = 'None';
             

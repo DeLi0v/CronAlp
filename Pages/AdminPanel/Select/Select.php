@@ -31,7 +31,7 @@ if($table == 'Ski_pass') {
 } elseif($table == 'Services') {
         $sql = "SELECT 
             Services.idService id,
-            Services.ServiceData data,
+            Services.ServiceData dataNow,
             --DATE_FORMAT('Services.ServiceData', '%d.%m.%Y %H:%i') data,
             Staff.StaffSurname staffSurname,
             Staff.StaffName staffName,
@@ -263,7 +263,7 @@ function Services($result){
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td class=\"center\">" . $row["id"] . "</td>";
-        echo "<td class=\"center\">" . $row["data"] . "</td>";
+        echo "<td class=\"center\">" . $row["dataNow"] . "</td>";
         echo "<td>" . $row["staffSurname"] ." ". $row["staffName"] ." ". $row["staffOtch"] . "</td>";
         echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
         echo "<td>" . $row["operation"] . "</td>";
