@@ -243,12 +243,14 @@ function OperationTypes($result){
 function Services($result){
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
-            <th>Фамилия</th>
-            <th>Имя</th>
-            <th>Отчество</th>
-            <th style=\"width: 0;\">Телефон</th>
-            <th style=\"width: 0;\">Почта</th>
-            <th>Пароль</th>
+            <th style=\"width: 0;\">Дата</th>
+            <th>Сотрудник</th>
+            <th>Клиент</th>
+            <th style=\"width: 0;\">Операция</th>
+            <th>Оборудование</th>
+            <th style=\"width: 0;\">Новый ski-pass?</th>
+            <th style=\"width: 0;\">ID ski-pass</th>
+            <th style=\"width: 0;\">Сумма</th>
             <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
         </tr>";
@@ -256,13 +258,15 @@ function Services($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idClient"] . "</td>";
-        echo "<td>" . $row["ClientSurname"] . "</td>";
-        echo "<td>" . $row["ClientName"] . "</td>";
-        echo "<td>" . $row["ClientOtch"] . "</td>";
-        echo "<td>" . $row["Phone"] . "</td>";
-        echo "<td>" . $row["Mail"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
+        echo "<td class=\"center\">" . $row["idServices"] . "</td>";
+        echo "<td>" . $row["ServiceData"] . "</td>";
+        echo "<td>" . $row["idStaff"] . "</td>";
+        echo "<td>" . $row["idClient"] . "</td>";
+        echo "<td>" . $row["idOperation"] . "</td>";
+        echo "<td>" . $row["idEquepment"] . "</td>";
+        echo "<td>" . $row["NewSki_pass"] . "</td>";
+        echo "<td>" . $row["idSki_pass"] . "</td>";
+        echo "<td>" . $row["Total"] . "</td>";
         echo "<td class=\"center\">Изменить</td>";
         echo "<td class=\"center\">Удалить</td>";
         echo "</tr>";
