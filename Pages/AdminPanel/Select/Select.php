@@ -55,7 +55,7 @@ if($table == 'Ski_pass') {
             Clients.ClientName clientName,
             Clients.ClientOtch clientOtch,
             OperationTypes.OperationName operation,
-            Equepments.EqueomentName equepment,
+            Equepments.EquepmentName equepment,
             Services.NewSki_Pass NewSki_pass,
             Services.idSki_pass ski_pass,
             Services.Total total
