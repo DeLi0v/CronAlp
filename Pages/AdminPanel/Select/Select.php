@@ -48,7 +48,7 @@ if($table == 'Ski_pass') {
         $sql = "SELECT 
             Services.idService id,
             Services.ServiceData data,
-            Services.idStaff staff,
+            Staff.idStaff staff,
             Clients.ClientSurname clientSurname,
             Clients.ClientName clientName,
             Clients.ClientOtch clientOtch,
@@ -59,7 +59,8 @@ if($table == 'Ski_pass') {
             Services.Total total
         FROM 
             Services
-                join Clients on Clients.idClient = Services.idClient;";
+                join Clients on Clients.idClient = Services.idClient
+                join Staff on Staff.idStaff = Services.idStaff;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
@@ -275,7 +276,7 @@ function Services($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["data"] . "</td>";
         echo "<td>" . $row["staff"] . "</td>";
-        echo "<td>" . $row["clientSurname"] . $row["clientName"] . $row["clientOtch"]. "</td>";
+        echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"]. "</td>";
         echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
         echo "<td>" . $row["NewSki_pass"] . "</td>";
