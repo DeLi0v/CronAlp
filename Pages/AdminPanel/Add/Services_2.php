@@ -64,7 +64,7 @@
             echo "<div class=\"error\">ОШИБКА.</div>";
         }
 
-        if ($operation == "1") { // Выдача или прием оборудования
+        if ($operation == "1") { // Выдача оборудования
             
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";  

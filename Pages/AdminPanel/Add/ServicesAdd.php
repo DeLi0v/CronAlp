@@ -44,6 +44,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
                 VALUES ($data,'$staff', '$client', '$operation', Null, '$newSkiPass', '$skiPass', '$total');";
     }
 
+    session_unset();
     
     if($conn->query($sql)){
         echo "<div align=\"center\">
