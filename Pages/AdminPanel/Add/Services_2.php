@@ -132,6 +132,8 @@
 
             echo "</select>
                 </li>";
+
+            echo $client;
             
             $_SESSION['newSkiPass'] = 'None';
             $_SESSION['skiPass'] = 'None';
