@@ -170,7 +170,7 @@
                         AND Services.idClient = \"$client\"
                         AND Services.idOperation = \"2\"
                     ORDER BY ServiceData desc
-                    limit 1"; // оплата возможна только если оборудование было сдано
+                    limit 1;"; // оплата возможна только если оборудование было сдано
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
