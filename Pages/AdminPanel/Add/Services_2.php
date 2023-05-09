@@ -118,7 +118,7 @@
                     WHERE 
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
-                        AND Services.ServiceData > (select sv.ServiceData from Services sv where sv.idOperation =\"2\" and sv.idEquepment = idEquepment and sv.idClient=\"$client\")"; // вывод если ранее оборудование уже было принято 
+                        AND Services.ServiceData > (select sv.ServiceData from Services sv where sv.idOperation =\"2\")"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
