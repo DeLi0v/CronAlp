@@ -64,7 +64,8 @@
             echo "<div class=\"error\">ОШИБКА.</div>";
         }
 
-        if ($operation == "1") { // Выдача оборудования
+        if ($operation == "1") { // Выдача или прием оборудования
+            
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";  
             
@@ -80,24 +81,97 @@
             while($object = mysqli_fetch_object($result)){
                 echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
             }
+
+            echo "</select>
+                </li>";
             
-            $_SESSION['newSki_pass'] = 'None';
-            $_SESSION['ski_pass'] = 'None';
+            $_SESSION['newSkiPass'] = 'None';
+            $_SESSION['skiPass'] = 'None';
             $_SESSION['total'] = 'None';
             
-        } elseif ($operation == "2") { // Прием оборудования
+        } elseif($operation == "2") { // Прием оборудования
+            
+            echo "<li class=\"form-row\">
+                    <label for=\"Equepment\">Оборудование:</label>";
+            
+            // Формируем SQL-запрос для получения данных из таблицы "users"
+            $sql = "SELECT 
+                        Services.idService id,
+                        Services.ServiceData data,
+                        Services.idStaff staff,
+                        Services.idClient client,
+                        Services.idOperation operation,
+                        Equepments.idEquepment idEquepment,
+                        Equepments.EquepmentName idEquepment,
+                        Equepments.idCategory idCategory
+                    FROM 
+                        Services
+                        join Equepments on Equepments.idEquepment = Services.idEquepment
+                    WHERE
+                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
+                        AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных только на текущий месяц
+                        AND YEAR(Services.ServiceData) = YEAR(NOW()) -- вывод данных только на текущий год
+                        AND Services.idClient = \"$client\" -- вывод данных только по данному клиенту
+                        AND Services.idOperation = \"1\" -- вывод оборудования только выданного оборуование
+                        AND Services.idOperation <> \"2\""; // вывод данных, если оборудование не приняли 
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            /*Выпадающий список*/
+            echo "<select name=\"Equepment\">";
+            
+            while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
+            }
+
+            echo "</select>
+                </li>";
+            
+            $_SESSION['newSkiPass'] = 'None';
+            $_SESSION['skiPass'] = 'None';
+            $_SESSION['total'] = 'None';
 
         } elseif ($operation == "3") { // Оплата проката
+
+            echo "<li class=\"form-row\">
+                    <label for=\"Equepment\">Оборудование:</label>";  
+            
+            // Формируем SQL-запрос для получения данных из таблицы "users"
+            $sql = "SELECT 
+                        Services.idService id,
+                        Services.ServiceData data,
+                        Equepments.EquepmentName
+                    FROM 
+                        Services
+                        join Equepments on Equepments.idEquepment = Services.idEquepment
+                    WHERE
+                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных на текущий день
+                        AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных на текущий месяц 
+                        AND YEAR(Services.ServiceData) = YEAR(NOW()) -- вывод данных на текущий год
+                        AND Services.idClient = \"$client\" -- вывод данных только по выбранному клиенту
+                        AND Services.idOperation = \"2\""; // оплата возможна только если оборудование было сдано
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            /*Выпадающий список*/
+            echo "<select name=\"Equepment\">";
+            
+            while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
+            }
+
+            echo "</select>
+                </li>";
 
         } elseif ($operation == "4") { // Пополнение ski-pass
 
         }
         
-        echo "</select>
-                </li>
-                <li class=\"form-row\">
-                    <button type=\"submit\">Добавить</button>
-                </li>"; 
+        echo "<li class=\"form-row\">
+                <button type=\"submit\">Добавить</button>
+              </li>"; 
     } else {
         echo "Что-то не так";
     }

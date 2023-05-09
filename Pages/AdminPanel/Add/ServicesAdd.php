@@ -21,15 +21,27 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     mysqli_select_db($conn, $db->database);
 
     session_start();
-    
+
     $data = 'NOW()';
     $staff = $_SESSION['staff'];
     $client = $_SESSION['client'];
     $operation = $_SESSION['operation'];
-    $equepment = $conn->real_escape_string($_POST["Equepment"]);
-    $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
-    $skiPass = $conn->real_escape_string($_POST["skiPass"]);
-    $total = $conn->real_escape_string($_POST["total"]);
+    if ($operation == "1" || $operation == "2") { // Выдача или прием оборудования
+        $equepment = $conn->real_escape_string($_POST["Equepment"]);
+        $newSkiPass = $_SESSION['newSkiPass'];
+        $skiPass = $_SESSION['skiPass'];
+        $total = $_SESSION['total'];    
+    } elseif ($operation == "3") { // Оплата проката
+        $equepment = $conn->real_escape_string($_POST["Equepment"]);
+        $newSkiPass = $_SESSION['newSkiPass'];
+        $skiPass = $_SESSION['skiPass'];
+        $total = $conn->real_escape_string($_POST["total"]); 
+    } elseif ($operation == "4") { // Пополнение ski-pass
+        $equepment = $_SESSION['equepment'];
+        $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
+        $skiPass = $conn->real_escape_string($_POST["skiPass"]);
+        $total = $conn->real_escape_string($_POST["total"]);
+    }
 
     $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) VALUES ($data,'$staff', '$client', '$operation', '$equepment', '$newSkiPass', '$skiPass', '$total');";
     if($conn->query($sql)){
