@@ -118,7 +118,14 @@
                     WHERE 
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
-                        AND Services.ServiceData > (select MAX(sv.ServiceData) from Services sv where sv.idOperation =\"2\" and sv.idClient=\"$client\")"; // вывод если ранее оборудование уже было принято 
+                        AND Services.ServiceData > (SELECT 
+                                                        CASE 
+                                                            WHEN NOT ServiceData IS Null 
+                                                                THEN MAX(ServiceData) 
+                                                            ELSE '2000-01-01 00:00:00'
+                                                        END 
+                                                    FROM Services sv 
+                                                    WHERE sv.idOperation =\"2\" and sv.idClient=\"$client\")"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
