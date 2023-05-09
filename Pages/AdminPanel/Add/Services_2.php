@@ -110,7 +110,9 @@
             $sql = "SELECT 
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
-                        EquepmentCategories.CategoryName Category
+                        EquepmentCategories.CategoryName Category,
+                        Services.ServiceData,
+                        Services.idClient
                     FROM 
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
@@ -118,10 +120,9 @@
                     WHERE 
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
-                        AND Services.ServiceData > (SELECT 
-                                                        IFNULL(MAX(ServiceData), \'2000-01-01 00:00:00\') 
-                                                    FROM Services sv 
-                                                    WHERE sv.idOperation =\"2\" and sv.idClient=\"$client\")"; // вывод если ранее оборудование уже было принято 
+                        AND Services.ServiceData > (select IFNULL(MAX(ServiceData), '2000-01-01 00:00:00')
+                                                    from Services 
+                                                    where idOperation =\"2\" and idClient=\"$client\");"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
