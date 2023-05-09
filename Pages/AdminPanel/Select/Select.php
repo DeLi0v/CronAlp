@@ -31,8 +31,8 @@ if($table == 'Ski_pass') {
 } elseif($table == 'Services') {
         $sql = "SELECT 
             Services.idService id,
-            Services.ServiceData dataNow,
-            --DATE_FORMAT('Services.ServiceData', '%d.%m.%Y %H:%i') data,
+            --Services.ServiceData dataNow,
+            DATE_FORMAT('Services.ServiceData', '%d.%m.%Y %H:%i') dataNow,
             Staff.StaffSurname staffSurname,
             Staff.StaffName staffName,
             Staff.StaffOtch staffOtch,

@@ -85,9 +85,9 @@
             echo "</select>
                 </li>";
             
-            $_SESSION['newSkiPass'] = '0';
-            $_SESSION['skiPass'] = 'None';
-            $_SESSION['total'] = 'None';
+            $_SESSION['newSkiPass'] = 'Null';
+            $_SESSION['skiPass'] = 'Null';
+            $_SESSION['total'] = 'Null';
             
         } elseif($operation == "2") { // Прием оборудования
             
