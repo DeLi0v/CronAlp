@@ -29,23 +29,34 @@ if($table == 'Ski_pass') {
         Equepments
         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 } elseif($table == 'Services') {
-    $sql = "SELECT 
-        Services.idService id,
-        Services.ServiceData data,
-        Staff.idstaff staff,
-        Clients.idclient client,
-        OperationTypes.idOperation operation,
-        Equepments.idEquepment equepment,
-        Services.NewSki_Pass NewSki_pass,
-        Services.idski_pass ski_pass,
-        Services.total total
-    FROM 
-        Services
-        join Clients on Clients.idClient = Services.idClient
-        join Staff on Staff.idStaff = Services.idStaff
-        join OperationTypes on OperationTypes.idOperation = Services.idOperation
-        join Equepments on Equepments.idEquepment = Services.idEquepment;";
-        // $sql = "SELECT * FROM Services";
+    // $sql = "SELECT 
+    //     Services.idService id,
+    //     Services.ServiceData data,
+    //     Staff.idstaff staff,
+    //     Clients.idclient client,
+    //     OperationTypes.idOperation operation,
+    //     Equepments.idEquepment equepment,
+    //     Services.NewSki_Pass NewSki_pass,
+    //     Services.idski_pass ski_pass,
+    //     Services.total total
+    // FROM 
+    //     Services
+    //     join Clients on Clients.idClient = Services.idClient
+    //     join Staff on Staff.idStaff = Services.idStaff
+    //     join OperationTypes on OperationTypes.idOperation = Services.idOperation
+    //     join Equepments on Equepments.idEquepment = Services.idEquepment;";
+        $sql = "SELECT 
+            Services.idService id,
+            Services.ServiceData data,
+            Services.idStaff staff,
+            Services.idClient client,
+            Services.idOperation operation,
+            Services.idEquepment equepment,
+            Services.NewSki_Pass NewSki_pass,
+            Services.idSki_pass ski_pass,
+            Services.Total total
+        FROM 
+            Services";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
