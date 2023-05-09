@@ -54,7 +54,7 @@ if($table == 'Ski_pass') {
             Clients.ClientSurname clientSurname,
             Clients.ClientName clientName,
             Clients.ClientOtch clientOtch,
-            Services.idOperation operation,
+            OperationTypes.OperationName operation,
             Services.idEquepment equepment,
             Services.NewSki_Pass NewSki_pass,
             Services.idSki_pass ski_pass,
@@ -62,7 +62,8 @@ if($table == 'Ski_pass') {
         FROM 
             Services
                 join Clients on Clients.idClient = Services.idClient
-                join Staff on Staff.idStaff = Services.idStaff;";
+                join Staff on Staff.idStaff = Services.idStaff
+                join OperationTypes on OperationTypes.idOperation = Services.idOperation;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
@@ -265,7 +266,7 @@ function Services($result){
             <th>Клиент</th>
             <th style=\"width: 0;\">Операция</th>
             <th>Оборудование</th>
-            <th style=\"width: 0;\">Новый ski-pass?</th>
+            <th style=\"width: 90;\">Новый ski-pass?</th>
             <th style=\"width: 0;\">ID ski-pass</th>
             <th style=\"width: 0;\">Сумма</th>
             <th style=\"width: 0;\">Изменить</th>
@@ -276,13 +277,13 @@ function Services($result){
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td class=\"center\">" . $row["id"] . "</td>";
-        echo "<td>" . $row["data"] . "</td>";
+        echo "<td class=\"center\">" . $row["data"] . "</td>";
         echo "<td>" . $row["staffSurname"] ." ". $row["staffName"] ." ". $row["staffOtch"] . "</td>";
         echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
         echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
-        echo "<td>" . $row["NewSki_pass"] . "</td>";
-        echo "<td>" . $row["ski_pass"] . "</td>";
+        echo "<td class=\"center\">" . $row["NewSki_pass"] . "</td>";
+        echo "<td class=\"center\">" . $row["ski_pass"] . "</td>";
         echo "<td>" . $row["total"] . "</td>";
         echo "<td class=\"center\">Изменить</td>";
         echo "<td class=\"center\">Удалить</td>";
