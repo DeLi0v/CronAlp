@@ -26,25 +26,25 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     $staff = $_SESSION['staff'];
     $client = $_SESSION['client'];
     $operation = $_SESSION['operation'];
-    if ($operation == "1" || $operation == "2") { // Выдача или прием оборудования
+    if ($operation == "1" || $operation == "2") { // Выдача или прием оборудования       
         $equepment = $conn->real_escape_string($_POST["Equepment"]);
-        $newSkiPass = $_SESSION['newSkiPass'];
-        $skiPass = $_SESSION['skiPass'];
-        $total = $_SESSION['total'];    
+        $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
+                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null);";
     } elseif ($operation == "3") { // Оплата проката
         $equepment = $conn->real_escape_string($_POST["Equepment"]);
-        $newSkiPass = $_SESSION['newSkiPass'];
-        $skiPass = $_SESSION['skiPass'];
         $total = $conn->real_escape_string($_POST["total"]); 
+
+        $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
+                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, '$total');";
     } elseif ($operation == "4") { // Пополнение ski-pass
-        $equepment = $_SESSION['equepment'];
         $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
         $skiPass = $conn->real_escape_string($_POST["skiPass"]);
         $total = $conn->real_escape_string($_POST["total"]);
+        $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
+                VALUES ($data,'$staff', '$client', '$operation', Null, '$newSkiPass', '$skiPass', '$total');";
     }
 
-    $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
-                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null);";
+    
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">

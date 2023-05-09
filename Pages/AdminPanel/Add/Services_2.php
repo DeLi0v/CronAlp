@@ -85,10 +85,6 @@
             echo "</select>
                 </li>";
             
-            $_SESSION['newSkiPass'] = Null;
-            $_SESSION['skiPass'] = Null;
-            $_SESSION['total'] = Null;
-            
         } elseif($operation == "2") { // Прием оборудования
             
             echo "<li class=\"form-row\">
@@ -102,11 +98,12 @@
                         Services.idClient client,
                         Services.idOperation operation,
                         Equepments.idEquepment idEquepment,
-                        Equepments.EquepmentName idEquepment,
-                        Equepments.idCategory idCategory
+                        Equepments.EquepmentName EquepmentName,
+                        Equepments.CategoryName Category
                     FROM 
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
+                        join EquepmentCategories on EquepmentCategories.idCategory = Equepments.idCategory
                     WHERE
                         DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
                         AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных только на текущий месяц
@@ -122,7 +119,7 @@
             echo "<select name=\"Equepment\">";
             
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
             }
 
             echo "</select>
