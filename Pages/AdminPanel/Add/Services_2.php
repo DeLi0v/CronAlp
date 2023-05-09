@@ -77,9 +77,9 @@
                     FROM 
                         Equepments 
                         LEFT OUTER JOIN Services on Equepments.idEquepment = Services.idEquepment 
-                                                    and Services.ServiceData > (select IFNULL(MAX(ServiceData), '2000-01-01 00:00:00')
+                                                    and Services.ServiceData > (select MAX(ServiceData)
                                                                                 from Services 
-                                                                                where idOperation =\"1\" or idOperation =\"2\")
+                                                                                where idOperation =\"1\")
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 
             // Выполняем SQL-запрос
