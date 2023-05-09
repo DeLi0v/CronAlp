@@ -20,7 +20,7 @@
     ?>
 
     <h3 style="text-align:center;">Добавление клиента</h3>
-    <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form action="/Pages/AdminPanel/Add/ServicesAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Staff">Сотрудник:</label>
@@ -123,7 +123,7 @@
                 ?>
             </li>
             <li class="form-row">
-                <label for="total">Новый ski-pass:</label>
+                <label for="total">Сумма:</label>
                 <input type="number" name="total">
             </li>
             <li class="form-row">
