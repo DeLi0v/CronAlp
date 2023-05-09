@@ -100,8 +100,10 @@
             </li>
             <li class="form-row">
                 <label for="newSkiPass" style="flex: max-content;">Новый ski-pass:</label>
-                <input type="radio" name="newSkiPass" value="1"/>Да<br>
-                <input type="radio" name="newSkiPass" value="0" selected/>Нет
+                <input type="radio" name="newSkiPass" value="1" id="radio-1"/>
+                <label for="radio-1">Да</label>
+                <input type="radio" name="newSkiPass" value="0" id="radio-2" selected/>
+                <label for="radio-2">Нет</label>
             </li>
             <li class="form-row">
                 <label for="skiPass">Ski-pass:</label>

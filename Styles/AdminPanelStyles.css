@@ -190,6 +190,11 @@ table {
   background: rgb(82, 82, 82);
 }
 
+.form-row > input[type=radio] {
+  flex: inherit;
+  width: 25px;
+  margin: 2px;
+}
 form {
   margin:auto; 
   width:550px;
