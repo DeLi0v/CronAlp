@@ -20,7 +20,7 @@ if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $data = 'NOW()';
+    $data = NOW();
     $staff = $conn->real_escape_string($_POST["Staff"]);
     $client = $conn->real_escape_string($_POST["Client"]);
     $operation = $conn->real_escape_string($_POST["Operation"]);
@@ -29,7 +29,7 @@ if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation
     $skiPass = $conn->real_escape_string($_POST["skiPass"]);
     $total = $conn->real_escape_string($_POST["total"]);
 
-    $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) VALUES ('$data','$staff', '$client', '$operation', '$equepment', '$newSkiPass', '$skiPass', '$total');";
+    $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) VALUES ($data,'$staff', '$client', '$operation', '$equepment', '$newSkiPass', '$skiPass', '$total');";
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
