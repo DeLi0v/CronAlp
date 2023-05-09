@@ -134,10 +134,6 @@
                 </li>";
 
             echo $client;
-            
-            $_SESSION['newSkiPass'] = 'None';
-            $_SESSION['skiPass'] = 'None';
-            $_SESSION['total'] = 'None';
 
         } elseif ($operation == "3") { // Оплата проката
 
@@ -146,18 +142,37 @@
             
             // Формируем SQL-запрос для получения данных из таблицы "users"
             $sql = "SELECT 
-                        Services.idService id,
-                        Services.ServiceData data,
-                        Equepments.EquepmentName
+                        Services.idService endId,
+                        Services.ServiceData endData,
+                        Equepments.idEquepment idEquepment
+                        Equepments.EquepmentName EquepmentName,
+                        begindata.startdata startData,
+                        begindata.id startId,
+                        EquepmentCategories.CategoryName Category
                     FROM 
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
+                        join EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory
+                        join (Select 
+                                Services.idService id,
+                                Services.ServiceData startdata
+                            from Services
+                            where 
+                                DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+                                AND MONTH(Services.ServiceData) = MONTH(NOW()) 
+                                AND YEAR(Services.ServiceData) = YEAR(NOW())
+                                AND Services.idClient = \"$client\"
+                                AND Services.idOperation = \"1\"
+                            ORDER BY ServiceData desc
+                            limit 1) begindata
                     WHERE
-                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных на текущий день
-                        AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных на текущий месяц 
-                        AND YEAR(Services.ServiceData) = YEAR(NOW()) -- вывод данных на текущий год
-                        AND Services.idClient = \"$client\" -- вывод данных только по выбранному клиенту
-                        AND Services.idOperation = \"2\""; // оплата возможна только если оборудование было сдано
+                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+                        AND MONTH(Services.ServiceData) = MONTH(NOW()) 
+                        AND YEAR(Services.ServiceData) = YEAR(NOW())
+                        AND Services.idClient = \"$client\"
+                        AND Services.idOperation = \"2\"
+                    ORDER BY ServiceData desc
+                    limit 1"; // оплата возможна только если оборудование было сдано
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
@@ -166,7 +181,7 @@
             echo "<select name=\"Equepment\">";
             
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
             }
 
             echo "</select>
@@ -175,6 +190,11 @@
         } elseif ($operation == "4") { // Пополнение ski-pass
 
         }
+        
+        echo "<li class=\"form-row\">
+                <label for=\"total\">Сумма:</label>
+                <input type=\"number\" name=\"total\" size=\"20px\" />
+              /li>";
 
         echo "<li class=\"form-row\">
                 <a href=\"/Pages/AdminPanel/Add/Services_1.php\">Назад</a>

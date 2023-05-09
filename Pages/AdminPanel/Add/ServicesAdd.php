@@ -57,7 +57,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     }
     $conn->close();
 } else {
-    echo "Что-то не так при добавлении";
+    echo "<div class=\"error\">Данные не могут быть добавлены. Попробуйте снова.</div>";
 }
 ?>
 </body>
