@@ -19,8 +19,8 @@
         mysqli_select_db($conn, $db->database);
     ?>
 
-    <h3 style="text-align:center;">Добавление клиента</h3>
-    <form action="/Pages/AdminPanel/Add/ServicesAdd.php" method="post">
+    <h3 style="text-align:center;">Добавление выполненной услуги</h3>
+    <form action="/Pages/AdminPanel/Add/Services_2.php" method="post">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Staff">Сотрудник:</label>
@@ -80,56 +80,7 @@
                 ?>
             </li>
             <li class="form-row">
-                <label for="Equepment">Оборудование:</label>
-                <?php 
-                    // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM Equepments";
-
-                    // Выполняем SQL-запрос
-                    $result = mysqli_query($conn, $sql);
-                    
-                    /*Выпадающий список*/
-                    echo "<select name=\"Equepment\">";
-                    
-                    while($object = mysqli_fetch_object($result)){
-                        echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
-                    }
-                    
-                    echo "</select>";
-                ?>
-            </li>
-            <li class="form-row">
-                <label for="newSkiPass" style="flex: max-content;">Новый ski-pass:</label>
-                <input type="radio" name="newSkiPass" value="1" id="radio-1"/>
-                <label for="radio-1">Да</label>
-                <input type="radio" name="newSkiPass" value="0" id="radio-2" selected/>
-                <label for="radio-2">Нет</label>
-            </li>
-            <li class="form-row">
-                <label for="skiPass">Ski-pass:</label>
-                <?php 
-                    // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM Ski_pass";
-
-                    // Выполняем SQL-запрос
-                    $result = mysqli_query($conn, $sql);
-                    
-                    /*Выпадающий список*/
-                    echo "<select name=\"skiPass\">";
-                    
-                    while($object = mysqli_fetch_object($result)){
-                        echo "<option value = '$object->idSki_pass' >$object->idClient - $object->idSki_pass</option>";
-                    }
-                    
-                    echo "</select>";
-                ?>
-            </li>
-            <li class="form-row">
-                <label for="total">Сумма:</label>
-                <input type="number" name="total">
-            </li>
-            <li class="form-row">
-                <button type="submit">Добавить</button>
+                <button type="submit">Дальше</button>
             </li>
         </ul>
     </form>

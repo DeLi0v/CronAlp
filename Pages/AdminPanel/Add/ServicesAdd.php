@@ -11,7 +11,8 @@
 <body class="clients-add">
 <?php include("../../../head.php"); ?>
 <?php
-if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation"]) && isset($_POST["Equepment"]) && isset($_POST["newSkiPass"]) && isset($_POST["skiPass"]) && isset($_POST["total"])) {
+if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation"]) && isset($_POST["Equepment"]) 
+&& isset($_POST["newSkiPass"]) && isset($_POST["skiPass"]) && isset($_POST["total"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
 
