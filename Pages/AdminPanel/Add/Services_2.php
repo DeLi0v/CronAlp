@@ -39,9 +39,9 @@
                     Staff.StaffSurname staffSurname,
                     Staff.StaffName staffName,
                     Staff.StaffOtch staffOtch,
-                    Clients.idClient clientSurname,
-                    Clients.idClient clientName,
-                    Clients.idClient clientOtch,
+                    Clients.ClientSurname clientSurname,
+                    Clients.ClientName clientName,
+                    Clients.ClientOtch clientOtch,
                     OperationTypes.OperationName operation
                 FROM 
                     OperationTypes
@@ -56,8 +56,8 @@
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div>Сотрудник: ". $row["staffSurname"] . $row["staffName"] . $row["staffOtch"] . "</div>";
-                echo "<div>Клиент: ". $row["clientSurname"] . $row["clientName"] . $row["clientOtch"] . "</div>";
+                echo "<div>Сотрудник: ". $row["staffSurname"] ." ". $row["staffName"] ." ". $row["staffOtch"] ." ". "</div>";
+                echo "<div>Клиент: ". $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] ." ". "</div>";
                 echo "<div>Вид операции: ". $row["operation"] . "</div>";
             }
         } else {
