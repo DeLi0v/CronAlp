@@ -194,7 +194,7 @@
         echo "<li class=\"form-row\">
                 <label for=\"total\">Сумма:</label>
                 <input type=\"number\" name=\"total\" size=\"20px\" />
-              /li>";
+              </li>";
 
         echo "<li class=\"form-row\">
                 <a href=\"/Pages/AdminPanel/Add/Services_1.php\">Назад</a>
