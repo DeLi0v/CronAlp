@@ -49,7 +49,7 @@ if($table == 'Ski_pass') {
             Services.idService id,
             Services.ServiceData data,
             Services.idStaff staff,
-            Services.idClient client,
+            Clients.ClientName client,
             Services.idOperation operation,
             Services.idEquepment equepment,
             Services.NewSki_Pass NewSki_pass,
