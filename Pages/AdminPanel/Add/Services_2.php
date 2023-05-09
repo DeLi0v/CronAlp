@@ -108,11 +108,6 @@
             
             // Формируем SQL-запрос для получения данных из таблицы "users"
             $sql = "SELECT 
-                        Services.idService id,
-                        Services.ServiceData data,
-                        Services.idStaff staff,
-                        Services.idClient client,
-                        Services.idOperation operation,
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
                         EquepmentCategories.CategoryName Category
@@ -120,12 +115,10 @@
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
-                    WHERE
-                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
-                        AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных только на текущий месяц
-                        AND YEAR(Services.ServiceData) = YEAR(NOW()) -- вывод данных только на текущий год
-                        AND Services.idClient = \"$client\" -- вывод данных только по данному клиенту
-                        AND Services.idOperation = \"1\";"; // вывод только выданного оборудования 
+                    WHERE 
+                        Services.idClient = \"$client\"
+                        Services.idEquepment IS not NULL -- Вывод, если есть запись об оборудовании
+                        AND Services.ServiceData > (select Services.ServiceData from Services where Services.idOperation =\"2\")"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
