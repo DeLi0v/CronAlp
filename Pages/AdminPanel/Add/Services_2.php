@@ -32,8 +32,8 @@
 
         session_start(); 
         $_SESSION['staff'] = $staff;
-        $_SESSION['client'] = $staff;
-        $_SESSION['operation'] = $staff;
+        $_SESSION['client'] = $client;
+        $_SESSION['operation'] = $operation;
 
         $sql = "SELECT 
                     Staff.StaffSurname staffSurname,
