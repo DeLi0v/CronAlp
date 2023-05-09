@@ -20,7 +20,7 @@ if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $data = NOW();
+    $data = 'NOW()';
     $staff = $conn->real_escape_string($_POST["Staff"]);
     $client = $conn->real_escape_string($_POST["Client"]);
     $operation = $conn->real_escape_string($_POST["Operation"]);
