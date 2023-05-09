@@ -64,7 +64,7 @@
     }
     ?>
 
-            <li class="form-row">
+            <!-- <li class="form-row">
                 <label for="newSkiPass" style="flex: max-content;">Новый ski-pass:</label>
                 <input type="radio" name="newSkiPass" value="1" id="radio-1"/>
                 <label for="radio-1">Да</label>
@@ -98,7 +98,7 @@
                 <button type="submit">Добавить</button>
             </li>
         </ul>
-    </form>
+    </form> -->
 </body>
 
 </html>
