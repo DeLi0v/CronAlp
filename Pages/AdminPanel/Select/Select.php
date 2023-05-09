@@ -56,7 +56,8 @@ if($table == 'Ski_pass') {
             Services.idSki_pass ski_pass,
             Services.Total total
         FROM 
-            Services";
+            Services
+                join Clients on Clients.idClient = Services.idClient;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
