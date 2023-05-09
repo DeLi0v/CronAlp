@@ -207,3 +207,8 @@ select {
   /* border-radius: .3em; */
   background-color: white;
 }
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
