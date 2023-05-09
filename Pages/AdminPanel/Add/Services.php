@@ -20,7 +20,7 @@
     ?>
 
     <h3 style="text-align:center;">Добавление клиента</h3>
-    <form action="/Pages/AdminPanel/Add/ServicesAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form action="/Pages/AdminPanel/Add/ServicesAdd.php" method="post">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Staff">Сотрудник:</label>

@@ -159,7 +159,7 @@ table {
   list-style-type: none;
   padding: 0;
   border-radius: 3px;
-  max-width: 500px;
+  max-width: 550px;
 }
 .form-row {
   display: flex;
@@ -190,10 +190,15 @@ table {
   background: rgb(82, 82, 82);
 }
 
+form {
+  margin:auto; 
+  width:550px;
+}
+
 select {
   width: 380px;
   padding: 7px;
-  border: 1px solid black;
-  border-radius: .3em;
+  border: 1px solid gray;
+  /* border-radius: .3em; */
   background-color: white;
 }
