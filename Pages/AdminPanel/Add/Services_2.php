@@ -116,7 +116,7 @@
                         join Equepments on Equepments.idEquepment = Services.idEquepment
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                     WHERE 
-                        Services.idClient = \"client\"
+                        Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
                         AND Services.ServiceData > (select sv.ServiceData from Services sv where sv.idOperation =\"2\" and sv.idEquepment = \"idEquepment\"))"; // вывод если ранее оборудование уже было принято 
 
