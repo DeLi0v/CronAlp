@@ -99,11 +99,11 @@
                         Services.idOperation operation,
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
-                        Equepments.CategoryName Category
+                        EquepmentCategories.CategoryName Category
                     FROM 
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
-                        join EquepmentCategories on EquepmentCategories.idCategory = Equepments.idCategory
+                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                     WHERE
                         DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
                         AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных только на текущий месяц
