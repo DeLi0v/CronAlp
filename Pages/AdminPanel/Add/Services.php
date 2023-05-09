@@ -51,7 +51,7 @@
                     $result = mysqli_query($conn, $sql);
                     
                     /*Выпадающий список*/
-                    echo "<select name=\"Client\" size=\"20px\">";
+                    echo "<select name=\"Client\">";
                     
                     while($object = mysqli_fetch_object($result)){
                         echo "<option value = '$object->idClient' >$object->ClientSurname $object->ClientName $object->ClientOtch</option>";
