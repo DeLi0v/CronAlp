@@ -71,22 +71,16 @@
             
             // Формируем SQL-запрос
             $sql = "SELECT 
-                        Services.idService id,
-                        Services.ServiceData data,
-                        Services.idStaff staff,
-                        Services.idClient client,
-                        Services.idOperation operation,
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
                         EquepmentCategories.CategoryName Category
                     FROM 
                         Equepments 
-                        join Services on Services.ServiceData > (select sv.ServiceData from Services sv where sv.idOperation =\"2\") and Services.idEquepment = Equepments.idEquepment 
-                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
-                    WHERE
-                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
-                        AND MONTH(Services.ServiceData) = MONTH(NOW()) -- вывод данных только на текущий месяц
-                        AND YEAR(Services.ServiceData) = YEAR(NOW());"; // вывод данных только на текущий год;
+                        LEFT OUTER JOIN Services on Equepments.idEquepment = Services.idEquepment 
+                                                    and Services.ServiceData > (select IFNULL(MAX(ServiceData), '2000-01-01 00:00:00')
+                                                                                from Services 
+                                                                                where idOperation =\"2\")
+                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
