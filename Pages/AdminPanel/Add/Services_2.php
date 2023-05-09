@@ -69,7 +69,7 @@
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";  
             
-            // Формируем SQL-запрос для получения данных из таблицы "users"
+            // Формируем SQL-запрос
             $sql = "SELECT 
                         Services.idService id,
                         Services.ServiceData data,
@@ -81,7 +81,7 @@
                         EquepmentCategories.CategoryName Category
                     FROM 
                         Equepments 
-                        join Services on Services.idOperation <> \"1\" and Services.idEquepment = Equepments.idEquepment 
+                        join Services on Services.ServiceData > (select sv.ServiceData from Services sv where sv.idOperation =\"2\") and Services.idEquepment = Equepments.idEquepment 
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                     WHERE
                         DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW()) -- вывод данных только на текущий день
@@ -106,7 +106,7 @@
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";
             
-            // Формируем SQL-запрос для получения данных из таблицы "users"
+            // Формируем SQL-запрос
             $sql = "SELECT 
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
@@ -173,8 +173,9 @@
         } elseif ($operation == "4") { // Пополнение ski-pass
 
         }
-        
+
         echo "<li class=\"form-row\">
+                <a href=\"/Pages/AdminPanel/Add/Services_1.php\">Назад</a>
                 <button type=\"submit\">Добавить</button>
               </li>"; 
     } else {
