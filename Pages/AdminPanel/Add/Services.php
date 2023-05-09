@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="clients-add">
+<body class="services-add">
     <?php include("../../../head.php"); ?>
     <?php 
         require_once("../../../connect.php"); // Подключение файла для связи с БД
