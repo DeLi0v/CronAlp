@@ -119,11 +119,7 @@
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
                         AND Services.ServiceData > (SELECT 
-                                                        CASE 
-                                                            WHEN NOT ServiceData IS Null 
-                                                                THEN MAX(ServiceData) 
-                                                            ELSE '2000-01-01 00:00:00'
-                                                        END 
+                                                        IFNULL(MAX(ServiceData), \'2000-01-01 00:00:00\') 
                                                     FROM Services sv 
                                                     WHERE sv.idOperation =\"2\" and sv.idClient=\"$client\")"; // вывод если ранее оборудование уже было принято 
 
