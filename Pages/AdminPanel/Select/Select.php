@@ -258,15 +258,15 @@ function Services($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idService"] . "</td>";
-        echo "<td>" . $row["ServiceData"] . "</td>";
-        echo "<td>" . $row["idStaff"] . "</td>";
-        echo "<td>" . $row["idClient"] . "</td>";
-        echo "<td>" . $row["idOperation"] . "</td>";
-        echo "<td>" . $row["idEquepment"] . "</td>";
+        echo "<td class=\"center\">" . $row["id"] . "</td>";
+        echo "<td>" . $row["data"] . "</td>";
+        echo "<td>" . $row["staff"] . "</td>";
+        echo "<td>" . $row["client"] . "</td>";
+        echo "<td>" . $row["operation"] . "</td>";
+        echo "<td>" . $row["equepment"] . "</td>";
         echo "<td>" . $row["NewSki_pass"] . "</td>";
-        echo "<td>" . $row["idSki_pass"] . "</td>";
-        echo "<td>" . $row["Total"] . "</td>";
+        echo "<td>" . $row["ski_pass"] . "</td>";
+        echo "<td>" . $row["total"] . "</td>";
         echo "<td class=\"center\">Изменить</td>";
         echo "<td class=\"center\">Удалить</td>";
         echo "</tr>";
