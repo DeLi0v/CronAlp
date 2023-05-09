@@ -36,7 +36,7 @@ if($table == 'Ski_pass') {
         Clients.idclient client,
         OperationTypes.idOperation operation,
         Equepments.idEquepment equepment,
-        Services.NewSki_Pass NewSki_pass,
+    --    Services.NewSki_Pass NewSki_pass,
         Services.idski_pass ski_pass,
         Services.total total
     FROM 
