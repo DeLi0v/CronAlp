@@ -63,7 +63,7 @@ if($table == 'Ski_pass') {
             Services
                 join Clients on Clients.idClient = Services.idClient
                 join Staff on Staff.idStaff = Services.idStaff
-                join OperationTypes on OperationTypes.idOperation = Services.idOperation;";
+                join OperationTypes on OperationTypes.idOperationType = Services.idOperation;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
