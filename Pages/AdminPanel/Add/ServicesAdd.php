@@ -44,7 +44,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     }
 
     $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
-                VALUES ($data,'$staff', '$client', '$operation', '$equepment', $newSkiPass, $skiPass, $total);";
+                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null);";
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
