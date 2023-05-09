@@ -45,7 +45,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     }
 
     session_unset();
-    
+
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
@@ -57,7 +57,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     }
     $conn->close();
 } else {
-    echo "Что-то не так";
+    echo "Что-то не так при добавлении";
 }
 ?>
 </body>

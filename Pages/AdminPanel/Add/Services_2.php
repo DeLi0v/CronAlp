@@ -71,10 +71,9 @@
             
             // Формируем SQL-запрос
             $sql = "SELECT 
-                        Equepments.idEquepment,
-                        Equepments.EquepmentName,
-                        EquepmentCategories.CategoryName,
-                        ifnull(Services.ServiceData, now())
+                        Equepments.idEquepment idEquepment,
+                        Equepments.EquepmentName EquepmentName,
+                        EquepmentCategories.CategoryName Category
                     FROM 
                         Equepments
                         left join Services on Equepments.idEquepment = Services.idEquepment
