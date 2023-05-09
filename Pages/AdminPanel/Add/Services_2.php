@@ -22,15 +22,49 @@
     <h3 style="text-align:center;">Добавление выполненной услуги</h3>
     <?php 
     if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation"])) {
-        
-        echo "<div>".$conn->real_escape_string($_POST["Staff"])."</div>";
-        echo "<div>".$conn->real_escape_string($_POST["Client"])."</div>";
-        echo "<div>".$conn->real_escape_string($_POST["Operation"])."</div>";
 
         echo "<form action=\"/Pages/AdminPanel/Add/ServicesAdd.php\" method=\"post\">
                 <ul class=\"wrapper\">";
 
-        if ($_POST["Operation"] == "1") { // Выдача оборудования
+        $staff = $conn->real_escape_string($_POST["Staff"]);
+        $client = $conn->real_escape_string($_POST["Client"]);
+        $operation = $conn->real_escape_string($_POST["Operation"]);
+
+        session_start(); 
+        $_SESSION['staff'] = $staff;
+        $_SESSION['client'] = $staff;
+        $_SESSION['operation'] = $staff;
+
+        $sql = "SELECT 
+                    Staff.StaffSurname staffSurname,
+                    Staff.StaffName staffName,
+                    Staff.StaffOtch staffOtch,
+                    Clients.idClient clientSurname,
+                    Clients.idClient clientName,
+                    Clients.idClient clientOtch,
+                    OperationTypes.OperationName operation
+                FROM 
+                    OperationTypes
+                    join Clients on Clients.idClient = \"$client\"
+                    join Staff on Staff.idStaff = \"$staff\"
+                WHERE
+                    OperationTypes.idOperationType = \"$operation\";";
+        
+        // Выполняем SQL-запрос
+        $result = mysqli_query($conn, $sql);
+
+        // Проверим, есть ли записи в таблице
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<div>Сотрудник: ". $row["staffSurname"] . $row["staffName"] . $row["staffOtch"] . "</div>";
+                echo "<div>Клиент: ". $row["clientSurname"] . $row["clientName"] . $row["clientOtch"] . "</div>";
+                echo "<div>Вид операции: ". $row["operation"] . "</div>";
+            }
+        } else {
+            echo "<div class=\"error\">ОШИБКА.</div>";
+        }
+
+        if ($operation == "1") { // Выдача оборудования
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";  
             
@@ -47,18 +81,23 @@
                 echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->idCategory - $object->EquepmentName</option>";
             }
             
-            echo "</select>
+            $_SESSION['newSki_pass'] = 'None';
+            $_SESSION['ski_pass'] = 'None';
+            $_SESSION['total'] = 'None';
+            
+        } elseif ($operation == "2") { // Прием оборудования
+
+        } elseif ($operation == "3") { // Оплата проката
+
+        } elseif ($operation == "4") { // Пополнение ski-pass
+
+        }
+        
+        echo "</select>
                 </li>
                 <li class=\"form-row\">
                     <button type=\"submit\">Добавить</button>
                 </li>"; 
-        } elseif ($_POST["Operation"] == "2") { // Прием оборудования
-
-        } elseif ($_POST["Operation"] == "3") { // Оплата проката
-
-        } elseif ($_POST["Operation"] == "4") { // Пополнение ski-pass
-
-        }
     } else {
         echo "Что-то не так";
     }

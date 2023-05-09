@@ -11,8 +11,7 @@
 <body class="clients-add">
 <?php include("../../../head.php"); ?>
 <?php
-if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation"]) && isset($_POST["Equepment"]) 
-&& isset($_POST["newSkiPass"]) && isset($_POST["skiPass"]) && isset($_POST["total"])) {
+if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["skiPass"]) || isset($_POST["total"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
 
@@ -21,10 +20,12 @@ if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
+    session_start();
+    
     $data = 'NOW()';
-    $staff = $conn->real_escape_string($_POST["Staff"]);
-    $client = $conn->real_escape_string($_POST["Client"]);
-    $operation = $conn->real_escape_string($_POST["Operation"]);
+    $staff = $_SESSION['staff'];
+    $client = $_SESSION['client'];
+    $operation = $_SESSION['operation'];
     $equepment = $conn->real_escape_string($_POST["Equepment"]);
     $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
     $skiPass = $conn->real_escape_string($_POST["skiPass"]);
@@ -36,6 +37,7 @@ if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
         <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
     </div>";
+
     } else{
         echo "Ошибка: " . $conn->error;
     }
