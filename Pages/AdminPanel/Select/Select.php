@@ -48,7 +48,9 @@ if($table == 'Ski_pass') {
         $sql = "SELECT 
             Services.idService id,
             Services.ServiceData data,
-            Staff.idStaff staff,
+            Staff.StaffSurname staffSurname,
+            Staff.StaffName staffName,
+            Staff.StaffOtch staffOtch,
             Clients.ClientSurname clientSurname,
             Clients.ClientName clientName,
             Clients.ClientOtch clientOtch,
@@ -275,8 +277,8 @@ function Services($result){
         echo "<tr>";
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["data"] . "</td>";
-        echo "<td>" . $row["staff"] . "</td>";
-        echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"]. "</td>";
+        echo "<td>" . $row["staffSurname"] ." ". $row["staffName"] ." ". $row["staffOtch"] . "</td>";
+        echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
         echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
         echo "<td>" . $row["NewSki_pass"] . "</td>";
