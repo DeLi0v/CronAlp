@@ -133,8 +133,6 @@
             echo "</select>
                 </li>";
 
-            echo $client;
-
         } elseif ($operation == "3") { // Оплата проката
 
             echo "<li class=\"form-row\">
