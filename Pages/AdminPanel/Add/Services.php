@@ -101,7 +101,7 @@
             <li class="form-row">
                 <label for="newSkiPass">Новый ski-pass:</label>
                 <input type="radio" name="newSkiPass" value="1"/>Да<br>
-                <input type="radio" name="newSkiPass" value="0"/>Нет
+                <input type="radio" name="newSkiPass" value="0" selected/>Нет
             </li>
             <li class="form-row">
                 <label for="skiPass">Ski-pass:</label>

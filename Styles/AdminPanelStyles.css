@@ -167,14 +167,15 @@ table {
   padding: .5em;
 }
 .form-row > label {
-  padding: .5em 1em .5em 0;
+  padding: .5em 1em .5em 5px;
   flex: 1;
 }
 .form-row > input {
   flex: 2;
 }
 .form-row > input,
-.form-row > button {
+.form-row > button,
+.form-row > select {
   padding: 7px;
 }
 .form-row > button {
@@ -187,4 +188,12 @@ table {
 }
 .form-row > button:hover {
   background: rgb(82, 82, 82);
+}
+
+select {
+  width: 380px;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: .3em;
+  background-color: white;
 }
