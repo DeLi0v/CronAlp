@@ -55,7 +55,7 @@ if($table == 'Ski_pass') {
             Clients.ClientName clientName,
             Clients.ClientOtch clientOtch,
             OperationTypes.OperationName operation,
-            Services.idEquepment equepment,
+            Equepments.EqueomentName equepment,
             Services.NewSki_Pass NewSki_pass,
             Services.idSki_pass ski_pass,
             Services.Total total
@@ -63,7 +63,8 @@ if($table == 'Ski_pass') {
             Services
                 join Clients on Clients.idClient = Services.idClient
                 join Staff on Staff.idStaff = Services.idStaff
-                join OperationTypes on OperationTypes.idOperationType = Services.idOperation;";
+                join OperationTypes on OperationTypes.idOperationType = Services.idOperation
+                join Equepments on Equepments.idEquepment = Services.idEquepment;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
@@ -266,7 +267,7 @@ function Services($result){
             <th>Клиент</th>
             <th style=\"width: 0;\">Операция</th>
             <th>Оборудование</th>
-            <th style=\"width: 90;\">Новый ski-pass?</th>
+            <th style=\"width: 90px;\">Новый ski-pass?</th>
             <th style=\"width: 0;\">ID ski-pass</th>
             <th style=\"width: 0;\">Сумма</th>
             <th style=\"width: 0;\">Изменить</th>
