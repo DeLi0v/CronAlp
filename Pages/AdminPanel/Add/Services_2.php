@@ -71,16 +71,21 @@
             
             // Формируем SQL-запрос
             $sql = "SELECT 
-                        Equepments.idEquepment idEquepment,
-                        Equepments.EquepmentName EquepmentName,
-                        EquepmentCategories.CategoryName Category
+                        Equepments.idEquepment,
+                        Equepments.EquepmentName,
+                        EquepmentCategories.CategoryName,
+                        ifnull(Services.ServiceData, now())
                     FROM 
-                        Equepments 
-                        LEFT OUTER JOIN Services on Equepments.idEquepment = Services.idEquepment 
-                                                    and Services.ServiceData > (select MAX(ServiceData)
-                                                                                from Services 
-                                                                                where idOperation =\"1\")
-                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
+                        Equepments
+                        left join Services on Equepments.idEquepment = Services.idEquepment
+                        join EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory
+                    where
+                        ifnull(Services.ServiceData, now()) >= 
+                            (select ServiceData from Services where idOperation=\"2\" order by ServiceData desc limit 1)
+                        AND ifnull(Services.ServiceData, now()) > 
+                            (select ServiceData from Services where idOperation=\"1\" order by ServiceData desc limit 1)
+                        AND (select ServiceData from Services where idOperation=\"2\" order by ServiceData desc limit 1) > 
+                            (select ServiceData from Services where idOperation=\"1\" order by ServiceData desc limit 1);";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
