@@ -49,7 +49,9 @@ if($table == 'Ski_pass') {
             Services.idService id,
             Services.ServiceData data,
             Services.idStaff staff,
-            Clients.ClientName client,
+            Clients.ClientSurname clientSurname,
+            Clients.ClientName clientName,
+            Clients.ClientOtch clientOtch,
             Services.idOperation operation,
             Services.idEquepment equepment,
             Services.NewSki_Pass NewSki_pass,
@@ -273,7 +275,7 @@ function Services($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["data"] . "</td>";
         echo "<td>" . $row["staff"] . "</td>";
-        echo "<td>" . $row["client"] . "</td>";
+        echo "<td>" . $row["clientSurname"] . $row["clientName"] . $row["clientOtch"]. "</td>";
         echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
         echo "<td>" . $row["NewSki_pass"] . "</td>";
