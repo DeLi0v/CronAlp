@@ -116,9 +116,9 @@
                         join Equepments on Equepments.idEquepment = Services.idEquepment
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                     WHERE 
-                        Services.idClient = \"$client\"
-                        Services.idEquepment IS not NULL -- Вывод, если есть запись об оборудовании
-                        AND Services.ServiceData > (select Services.ServiceData from Services where Services.idOperation =\"2\")"; // вывод если ранее оборудование уже было принято 
+                        Services.idClient = \"client\"
+                        AND Services.idEquepment IS not NULL
+                        AND Services.ServiceData > (select Services.ServiceData from Services where Services.idOperation =\"2\"))"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
