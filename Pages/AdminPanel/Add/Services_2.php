@@ -169,6 +169,13 @@
                         AND YEAR(Services.ServiceData) = YEAR(NOW())
                         AND Services.idClient = \"$client\"
                         AND Services.idOperation = \"2\"
+                        AND Services.ServiceData > (select ServiceData from Services where DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+                                                    AND MONTH(Services.ServiceData) = MONTH(NOW())
+                                                    AND YEAR(Services.ServiceData) = YEAR(NOW())
+                                                    AND idClient = \"1\"
+                                                    AND Services.idOperation = \"3\"
+                                                    ORDER BY ServiceData desc
+                                                    limit 1) 
                     ORDER BY ServiceData desc
                     limit 1;"; // оплата возможна только если оборудование было сдано
 
