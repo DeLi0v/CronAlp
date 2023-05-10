@@ -119,7 +119,8 @@
                         AND Services.idEquepment IS not NULL
                         AND Services.ServiceData > (select IFNULL(MAX(ServiceData), '2000-01-01 00:00:00')
                                                     from Services 
-                                                    where idOperation =\"2\" and idClient=\"$client\");"; // вывод если ранее оборудование уже было принято 
+                                                    where idOperation =\"2\" and idClient=\"$client\")
+                        AND ifnull(Services.idOperation,'1') < '3';"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
