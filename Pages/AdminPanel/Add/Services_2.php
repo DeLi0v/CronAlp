@@ -138,11 +138,11 @@
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Оборудование:</label>";  
             
-            // Формируем SQL-запрос для получения данных из таблицы "users"
+            // Формируем SQL-запрос
             $sql = "SELECT 
                         Services.idService endId,
                         Services.ServiceData endData,
-                        Equepments.idEquepment idEquepment
+                        Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
                         begindata.startdata startData,
                         begindata.id startId,
