@@ -38,10 +38,10 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
                 VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, '$total');";
     } elseif ($operation == "4") { // Пополнение ski-pass
         
-        $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
+        $newSkiPass = $_SESSION['newSkiPass'];
         $skiPass = $_SESSION['idSki_pass'];
         
-        if ($skiPass == 'New') {
+        if ($newSkiPass == 1) {
             // Выдаем ski-pass клиенту
             $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$client', '0');";
             
@@ -75,7 +75,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
         <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>";
-        if ($newSkiPass= 1) {
+        if ($newSkiPass == 1) {
             echo "<div style=\"font-size: 20px;padding-top: 10px;\">Ski-pass успешно присвоен</div>";
         }
         echo "</div>";

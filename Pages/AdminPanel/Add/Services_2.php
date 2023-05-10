@@ -201,13 +201,13 @@
 
         } elseif ($operation == "4") { // Пополнение ski-pass
             
-            echo "<li class=\"form-row\">
-                    <label for=\"newSkiPass\" style=\"flex: max-content;\">Новый ski-pass:</label>
-                    <input type=\"radio\" name=\"newSkiPass\" value=\"1\" id=\"radio-1\"/>
-                    <label for=\"radio-1\">Да</label>
-                    <input type=\"radio\" name=\"newSkiPass\" value=\"0\" id=\"radio-2\" selected/>
-                    <label for=\"radio-2\">Нет</label>
-                  </li>";
+            // echo "<li class=\"form-row\">
+            //         <label for=\"newSkiPass\" style=\"flex: max-content;\">Новый ski-pass:</label>
+            //         <input type=\"radio\" name=\"newSkiPass\" value=\"1\" id=\"radio-1\"/>
+            //         <label for=\"radio-1\">Да</label>
+            //         <input type=\"radio\" name=\"newSkiPass\" value=\"0\" id=\"radio-2\" selected/>
+            //         <label for=\"radio-2\">Нет</label>
+            //       </li>";
             
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Ski-pass:</label>";  
@@ -232,10 +232,12 @@
                 while($object = mysqli_fetch_object($result)){
                     echo "<div>$object->idSki_pass</div>";
                     $_SESSION['idSki_pass'] = $object->idSki_pass;
+                    $_SESSION['newSkiPass'] = 0;
                 };
             } else{
                 echo "<div>У данного клиента нет ski-pass</div>";
                 $_SESSION['idSki_pass'] = 'New';
+                $_SESSION['newSkiPass'] = 1;
             };
             
             echo "</li>";
