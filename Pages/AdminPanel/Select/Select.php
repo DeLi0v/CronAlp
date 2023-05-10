@@ -215,8 +215,8 @@ function Equepments($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Category"] . "</td>";
-        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Edit.php\" value=\"".$row["id"]."\" name=\"Equepment\">Изменить</button></td>";
-        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Delete.php\" value=\"".$row["id"]."\" name=\"Equepment\">Удалить</button></td>";
+        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Edit.php\" formmethod=\"POST\" value=\"".$row["id"]."\" name=\"Equepment\">Изменить</button></td>";
+        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Delete.php\" formmethod=\"POST\" value=\"".$row["id"]."\" name=\"Equepment\">Удалить</button></td>";
         echo "</tr>";
     }
 }
