@@ -222,7 +222,7 @@
                     FROM 
                         Ski_pass 
                         join Clients on Ski_pass.idClient = Clients.idClient
-                    WHERE idClient='$client';";
+                    WHERE Clients.idClient=\"$client\";";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
