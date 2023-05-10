@@ -6,8 +6,9 @@ $db = new DB_Class();
 $conn = $db->connect();
 mysqli_select_db($conn, $db->database);
 
-if (isset($_POST["Equepment"])) {
-    $id = $_POST["Equepment"];
+if (isset($_POST["id"]) && isset($_POST["table"])) {
+    $id = $_POST["id"];
+    $table = $_POST["table"];
     $sql = "DELETE FROM `mydb`.`Ski_pass` WHERE (`idSki_pass` = '$id');";
     if(!$conn->query($sql)){
         echo "Ошибка: " . $conn->error;    
@@ -15,4 +16,5 @@ if (isset($_POST["Equepment"])) {
 } else {
     echo "Что-то не так";
 }
+header("/Pages/AdminPanel/Select/$table.php");
 ?>
