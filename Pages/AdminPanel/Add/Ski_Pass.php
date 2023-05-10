@@ -11,7 +11,7 @@
 <body class="ski_pass-add">
     <?php include("../../../head.php"); ?>
     <h3 style="text-align:center;">Выдача ski-pass</h3>
-    <form action="/Pages/AdminPanel/Add/Ski_PassAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form class="add" action="/Pages/AdminPanel/Add/Ski_PassAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="ClientSurname">Клиент, которому выдается ski-pass:</label>

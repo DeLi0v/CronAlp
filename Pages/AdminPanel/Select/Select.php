@@ -221,8 +221,8 @@ function Equepments($result){
         echo "<td class=\"center\">
                 <form action='/Pages/AdminPanel/Delete.php?id=\"".$row["id"]."\"' method=\"post\">
                     <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
-                    <input type=\"hidden\" name=\"table\" value=\"Equepment\">
-                    <input type=\"submit\" name=\"submit\" value=\"Delete\">
+                    <input type=\"hidden\" name=\"page\" value=\"Equepment\">
+                    <input type=\"submit\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/trash.png\">
                 </form>
               </td>";
         echo "</tr>";

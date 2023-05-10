@@ -20,7 +20,7 @@
     ?>
 
     <h3 style="text-align:center;">Добавление выполненной услуги</h3>
-    <form action="/Pages/AdminPanel/Add/Services_2.php" method="post">
+    <form class="add" action="/Pages/AdminPanel/Add/Services_2.php" method="post">
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Staff">Сотрудник:</label>
