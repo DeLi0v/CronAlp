@@ -1,11 +1,4 @@
 <?php 
-require_once("../../../connect.php"); // Подключение файла для связи с БД
-
-// // Подключение к БД
-$db = new DB_Class();
-$conn = $db->connect();
-mysqli_select_db($conn, $db->database);
-
 if (isset($_POST["id"]) && isset($_POST["table"])) {
     $id = $_POST["id"];
     $table = $_POST["table"];
