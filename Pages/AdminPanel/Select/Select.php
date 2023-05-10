@@ -31,26 +31,61 @@ if($table == 'Ski_pass') {
         Equepments
         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 } elseif($table == 'Services') {
-        $sql = "SELECT 
-            Services.idService id,
-            DATE_FORMAT(Services.ServiceData, '%d.%m.%Y %H:%i') data,
-            Staff.StaffSurname staffSurname,
-            Staff.StaffName staffName,
-            Staff.StaffOtch staffOtch,
-            Clients.ClientSurname clientSurname,
-            Clients.ClientName clientName,
-            Clients.ClientOtch clientOtch,
-            OperationTypes.OperationName operation,
-            Equepments.EquepmentName equepment,
-            Services.NewSki_Pass NewSki_pass,
-            Services.idSki_pass ski_pass,
-            Services.Total total
-        FROM 
-            Services
+    $sql = "SELECT 
+                Services.idService id,
+                DATE_FORMAT(Services.ServiceData, '%d.%m.%Y %H:%i') data,
+                Staff.StaffSurname staffSurname,
+                Staff.StaffName staffName,
+                Staff.StaffOtch staffOtch,
+                Clients.ClientSurname clientSurname,
+                Clients.ClientName clientName,
+                Clients.ClientOtch clientOtch,
+                OperationTypes.OperationName operation,
+                Equepments.EquepmentName equepment,
+                Services.NewSki_Pass NewSki_pass,
+                Services.idSki_pass ski_pass,
+                Services.Total total
+            FROM 
+                Services
                 left join Clients on Clients.idClient = Services.idClient
                 left join Staff on Staff.idStaff = Services.idStaff
                 left join OperationTypes on OperationTypes.idOperationType = Services.idOperation
                 left join Equepments on Equepments.idEquepment = Services.idEquepment;";
+} elseif($table == 'Clients') {
+    $sql = "SELECT 
+                idClient id,
+                ClientSurname,
+                ClientName,
+                ClientOtch,
+                Phone,
+                Mail,
+                Passwd
+            FROM
+                Clients";
+} elseif($table == 'EquepmentCategories') {
+    $sql = "SELECT 
+                idEquepmentCategory id,
+                CategoryName
+            FROM
+                EquepmentCategories";
+} elseif($table == 'OperationTypes') {
+    $sql = "SELECT 
+                idOperationType id,
+                OperationName
+            FROM
+                OperationTypes";
+} elseif($table == 'Staff') {
+    $sql = "SELECT 
+                idStaff id,
+                StaffSurname,
+                StaffName,
+                StaffOtch,
+                Post,
+                Phone,
+                Mail,
+                Passwd
+            FROM
+                Staff";
 } else {
     $sql = "SELECT * FROM ". $table;
 }
@@ -94,6 +129,7 @@ if (mysqli_num_rows($result) > 0) {
 
 // Вывод таблицы клиентов
 function Clients($result){
+    $page = "Clients"; 
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Фамилия</th>
@@ -109,21 +145,21 @@ function Clients($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idClient"] . "</td>";
+        echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["ClientSurname"] . "</td>";
         echo "<td>" . $row["ClientName"] . "</td>";
         echo "<td>" . $row["ClientOtch"] . "</td>";
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
 
 // Вывод таблицы сотрудников
 function Staff($result){
+    $page = "Staff";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Фамилия</th>
@@ -140,7 +176,7 @@ function Staff($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idStaff"] . "</td>";
+        echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["StaffSurname"] . "</td>";
         echo "<td>" . $row["StaffName"] . "</td>";
         echo "<td>" . $row["StaffOtch"] . "</td>";
@@ -148,15 +184,14 @@ function Staff($result){
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Post"] . "</td>";
         echo "<td>" . $row["Passwd"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }    
 }
 
 // Вывод таблицы ски-пассов
 function Ski_Pass($result){
-    
+    $page = "Ski_Pass";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Фамилия клиента</th>
@@ -175,14 +210,14 @@ function Ski_Pass($result){
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Otch"] . "</td>";
         echo "<td>" . $row["Balance"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
 
 // Вывод таблицы категорий оборудования
 function EquepmentCategories($result){
+    $page = "EquepmentCategories";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
@@ -195,8 +230,7 @@ function EquepmentCategories($result){
         echo "<tr>";
         echo "<td class=\"center\">" . $row["idEquepmentCategory"] . "</td>";
         echo "<td>" . $row["CategoryName"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
@@ -225,6 +259,7 @@ function Equepments($result){
 
 // Вывод таблицы видов оказания услуг
 function OperationTypes($result){
+    $page = "OperationTypes";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
@@ -237,14 +272,14 @@ function OperationTypes($result){
         echo "<tr>";
         echo "<td class=\"center\">" . $row["idOperationType"] . "</td>";
         echo "<td>" . $row["OperationName"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
 
 // Вывод таблицы услуг
 function Services($result){
+    $page = "Services";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th style=\"width: 0;\">Дата</th>
@@ -271,8 +306,7 @@ function Services($result){
         echo "<td class=\"center\">" . $row["NewSki_pass"] . "</td>";
         echo "<td class=\"center\">" . $row["ski_pass"] . "</td>";
         echo "<td>" . $row["total"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
