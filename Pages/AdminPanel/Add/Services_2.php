@@ -212,7 +212,7 @@
             echo "<li class=\"form-row\">
                     <label for=\"Equepment\">Ski-pass:</label>";  
 
-            // Формируем SQL-запрос для получения данных из таблицы "users"
+            // Формируем SQL-запрос
             $sql = "SELECT 
                       Ski_pass.idSki_pass,
                       Ski_pass.Balance,
@@ -226,10 +226,16 @@
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
-
-            while($object = mysqli_fetch_object($result)){
-                echo "<div>$object->idSki_pass</div>";
-                $_SESSION['idSki_pass'] = $object->idSki_pass;
+            
+            if (mysqli_num_rows($result) > 0)
+            {
+                while($object = mysqli_fetch_object($result)){
+                    echo "<div>$object->idSki_pass</div>";
+                    $_SESSION['idSki_pass'] = $object->idSki_pass;
+                };
+            } else{
+                echo "<div>У данного клиента нет ski-pass</div>";
+                $_SESSION['idSki_pass'] = 'New';
             };
             
             echo "</li>";

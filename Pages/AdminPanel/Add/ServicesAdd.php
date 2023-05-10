@@ -39,18 +39,48 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     } elseif ($operation == "4") { // Пополнение ski-pass
         $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
         $skiPass = $_SESSION['idSki_pass'];
+        if ($skiPass == 'New') {
+            // Выдаем ski-pass клиенту
+            $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$client', '0');";
+            
+            if(!$conn->query($sql)) {
+                echo "Ошибка: " . $conn->error;
+            }
+            
+            // Формируем SQL-запрос
+            $sql = "SELECT 
+                      Ski_pass.idSki_pass,
+                      Ski_pass.Balance,
+                      Clients.ClientSurname,
+                      Clients.ClientName,  
+                      Clients.ClientOtch
+                    FROM 
+                        Ski_pass 
+                        join Clients on Ski_pass.idClient = Clients.idClient
+                    WHERE idClient='$client';";
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            while($object = mysqli_fetch_object($result)){
+                $skiPass = $object->idSki_pass;
+            }
+        }
         $total = $conn->real_escape_string($_POST["total"]);
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
                 VALUES ($data,'$staff', '$client', '$operation', Null, '$newSkiPass', '$skiPass', '$total');";
+    } else{
+        echo "Ошибка: " . $conn->error;
     }
-
-    session_unset();
-
+        
     if($conn->query($sql)){
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
-        <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
-    </div>";
+        <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>";
+        if ($newSkiPass= '1') {
+            echo "<div style=\"font-size: 20px;padding-top: 10px;\">Ski-pass успешно присвоен</div>";
+        }
+        echo "</div>";
 
     } else{
         echo "Ошибка: " . $conn->error;
