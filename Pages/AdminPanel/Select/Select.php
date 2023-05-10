@@ -8,8 +8,7 @@ $db = new DB_Class();
 $conn = $db->connect();
 mysqli_select_db($conn, $db->database);
 
-// Формируем SQL-запрос для получения данных из таблицы "users"
-
+// Формируем SQL-запрос
 if($table == 'Ski_pass') {
     $sql = "SELECT 	
         Ski_pass.idSki_pass id,
