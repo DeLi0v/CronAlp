@@ -37,8 +37,10 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
                 VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, '$total');";
     } elseif ($operation == "4") { // Пополнение ski-pass
+        
         $newSkiPass = $conn->real_escape_string($_POST["newSkiPass"]);
         $skiPass = $_SESSION['idSki_pass'];
+        
         if ($skiPass == 'New') {
             // Выдаем ski-pass клиенту
             $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$client', '0');";
@@ -50,14 +52,10 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
             // Формируем SQL-запрос
             $sql = "SELECT 
                       Ski_pass.idSki_pass,
-                      Ski_pass.Balance,
-                      Clients.ClientSurname,
-                      Clients.ClientName,  
-                      Clients.ClientOtch
+                      Ski_pass.Balance
                     FROM 
                         Ski_pass 
-                        join Clients on Ski_pass.idClient = Clients.idClient
-                    WHERE idClient='$client';";
+                    WHERE Ski_pass.idClient='$client';";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
