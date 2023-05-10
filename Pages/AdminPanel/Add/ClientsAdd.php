@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="staff-add">
+<body class="client-add">
 <?php include("../../../head.php"); ?>
 <?php
-if (isset($_POST["Client"])) {
+if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
 
@@ -20,9 +20,14 @@ if (isset($_POST["Client"])) {
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    $idClient = $conn->real_escape_string($_POST["Client"]);
+    $surname = $conn->real_escape_string($_POST["Surname"]);
+    $name = $conn->real_escape_string($_POST["Name"]);
+    $otch = $conn->real_escape_string($_POST["Otch"]);
+    $phone = $conn->real_escape_string($_POST["Phone"]);
+    $mail = $conn->real_escape_string($_POST["Mail"]);
+    $passwd = $conn->real_escape_string($_POST["Passwd"]);
 
-    $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$idClient', '0');";
+    $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
     if($conn->query($sql)){
         echo "<div align=\"center\">
             <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">

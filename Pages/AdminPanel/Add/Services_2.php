@@ -201,21 +201,38 @@
 
         } elseif ($operation == "4") { // Пополнение ski-pass
             
+            echo "<li class=\"form-row\">
+                    <label for=\"newSkiPass\" style=\"flex: max-content;\">Новый ski-pass:</label>
+                    <input type=\"radio\" name=\"newSkiPass\" value=\"1\" id=\"radio-1\"/>
+                    <label for=\"radio-1\">Да</label>
+                    <input type=\"radio\" name=\"newSkiPass\" value=\"0\" id=\"radio-2\" selected/>
+                    <label for=\"radio-2\">Нет</label>
+                  </li>";
+            
+            echo "<li class=\"form-row\">
+                    <label for=\"Equepment\">Ski-pass:</label>";  
+
             // Формируем SQL-запрос для получения данных из таблицы "users"
-            $sql = "SELECT * FROM Ski_pass WHERE idClient='$client';";
+            $sql = "SELECT 
+                      Ski_pass.idSki_pass,
+                      Ski_pass.Balance,
+                      Clients.ClientSurname,
+                      Clients.ClientName,  
+                      Clients.ClientOtch
+                    FROM 
+                        Ski_pass 
+                        join Clients on Ski_pass.idClient = Clients.idClient
+                    WHERE idClient='$client';";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
-            
-            /*Выпадающий список*/
-            echo "<select name=\"skiPass\">";
-            
+
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idSki_pass' >$object->idClient - $object->idSki_pass</option>";
-            }
+                echo "<div>$object->idSki_pass</div>";
+                $_SESSION['idSki_pass'] = $object->idSki_pass;
+            };
             
-            echo "</select>
-                </li>";
+            echo "</li>";
 
             echo "<li class=\"form-row\">
                     <label for=\"total\">Сумма:</label>
