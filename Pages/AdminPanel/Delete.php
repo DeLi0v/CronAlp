@@ -17,5 +17,5 @@ if (isset($_POST["id"]) && isset($_POST["table"])) {
 } else {
     echo "Что-то не так";
 }
-header("Location: /Pages/AdminPanel/Select/$table.php");
+// header("Location: /Pages/AdminPanel/Select/$table.php");
 ?>
