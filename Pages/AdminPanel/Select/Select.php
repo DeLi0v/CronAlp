@@ -45,10 +45,10 @@ if($table == 'Ski_pass') {
             Services.Total total
         FROM 
             Services
-                join Clients on Clients.idClient = Services.idClient
-                join Staff on Staff.idStaff = Services.idStaff
-                join OperationTypes on OperationTypes.idOperationType = Services.idOperation
-                join Equepments on Equepments.idEquepment = Services.idEquepment;";
+                left join Clients on Clients.idClient = Services.idClient
+                left join Staff on Staff.idStaff = Services.idStaff
+                left join OperationTypes on OperationTypes.idOperationType = Services.idOperation
+                left join Equepments on Equepments.idEquepment = Services.idEquepment;";
 } else {
     $sql = "SELECT * FROM ". $table;
 }

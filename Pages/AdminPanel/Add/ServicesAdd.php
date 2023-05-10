@@ -75,7 +75,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
         <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>";
-        if ($newSkiPass= '1') {
+        if ($newSkiPass= 1) {
             echo "<div style=\"font-size: 20px;padding-top: 10px;\">Ski-pass успешно присвоен</div>";
         }
         echo "</div>";
