@@ -215,8 +215,8 @@ function Equepments($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Category"] . "</td>";
-        echo "<td class=\"center\">Изменить</td>";
-        echo "<td class=\"center\">Удалить</td>";
+        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Edit.php\" value=\"".$row["id"]."\" name=\"Equepment\">Изменить</button></td>";
+        echo "<td class=\"center\"><button formaction=\"/Pages/AdminPanel/Delete.php\" value=\"".$row["id"]."\" name=\"Equepment\">Удалить</button></td>";
         echo "</tr>";
     }
 }
@@ -242,7 +242,6 @@ function OperationTypes($result){
 }
 
 // Вывод таблицы услуг
-// НЕ НАСТРОЕНО
 function Services($result){
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
