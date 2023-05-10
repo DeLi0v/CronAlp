@@ -169,10 +169,10 @@
                         AND YEAR(Services.ServiceData) = YEAR(NOW())
                         AND Services.idClient = \"$client\"
                         AND Services.idOperation = \"2\"
-                        AND Services.ServiceData > (select ServiceData from Services where DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+                        AND Services.ServiceData > (select ifnull(ServiceData,'2000-01-01 00:00:00') from Services where DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
                                                     AND MONTH(Services.ServiceData) = MONTH(NOW())
                                                     AND YEAR(Services.ServiceData) = YEAR(NOW())
-                                                    AND idClient = \"1\"
+                                                    AND idClient = \"$client\"
                                                     AND Services.idOperation = \"3\"
                                                     ORDER BY ServiceData desc
                                                     limit 1) 
