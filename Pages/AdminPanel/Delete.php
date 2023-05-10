@@ -11,8 +11,10 @@ if (isset($_POST["id"]) && isset($_POST["table"])) {
     $table = $_POST["table"];
     $sql = "DELETE FROM Ski_pass WHERE (idSki_pass = $id);";
     mysqli_query($conn,$sql);
-    if(!$conn->query($sql)){
-        echo "Ошибка: " . $conn->error;    
+    if($conn->query($sql)){
+        echo "Все ок";     
+    } else {
+        echo "Ошибка: " . $conn->error;   
     }
 } else {
     echo "Что-то не так";
