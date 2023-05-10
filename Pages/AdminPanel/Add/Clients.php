@@ -14,16 +14,16 @@
     <form action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
             <li class="form-row">
-                <label for="ClientSurname">Фамилия:</label>
-                <input type="text" name="ClientSurname" size="20px" />
+                <label for="Surname">Фамилия:</label>
+                <input type="text" name="Surname" size="20px" />
             </li>
             <li class="form-row">
-                <label for="ClientName">Имя:</label>
-                <input type="text" name="ClientName" size="20px" />
+                <label for="Name">Имя:</label>
+                <input type="text" name="Name" size="20px" />
             </li>
             <li class="form-row">
-                <label for="ClientOtch">Отчетсво:</label>
-                <input type="text" name="ClientOtch" size="20px" />
+                <label for="Otch">Отчетсво:</label>
+                <input type="text" name="Otch" size="20px" />
             </li>
             <li class="form-row">
                 <label for="Phone">Телефон:</label>
