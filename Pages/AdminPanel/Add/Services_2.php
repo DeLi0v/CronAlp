@@ -193,15 +193,36 @@
 
             echo "</select>
                 </li>";
+            
+            echo "<li class=\"form-row\">
+                    <label for=\"total\">Сумма:</label>
+                    <input type=\"number\" name=\"total\"/>
+                  </li>";
 
         } elseif ($operation == "4") { // Пополнение ski-pass
+            
+            // Формируем SQL-запрос для получения данных из таблицы "users"
+            $sql = "SELECT * FROM Ski_pass WHERE idClient='$client';";
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            /*Выпадающий список*/
+            echo "<select name=\"skiPass\">";
+            
+            while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->idSki_pass' >$object->idClient - $object->idSki_pass</option>";
+            }
+            
+            echo "</select>
+                </li>";
+
+            echo "<li class=\"form-row\">
+                    <label for=\"total\">Сумма:</label>
+                    <input type=\"number\" name=\"total\"/>
+                  </li>";
 
         }
-        
-        echo "<li class=\"form-row\">
-                <label for=\"total\">Сумма:</label>
-                <input type=\"number\" name=\"total\" size=\"20px\" />
-              </li>";
 
         echo "<li class=\"form-row\">
                 <a href=\"/Pages/AdminPanel/Add/Services_1.php\">Назад</a>
