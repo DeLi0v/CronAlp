@@ -71,7 +71,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         echo "Ошибка: " . $conn->error;
     }
         
-    if($conn->query($sql)){
+    if($conn->query($sql)) {
         echo "<div align=\"center\">
         <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
         <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>";
@@ -85,6 +85,9 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
 
     if($operation == "4") {
         $sql ="UPDATE Ski_pass SET Balance = Balance + $total WHERE (idSki_pass = $skiPass);";
+        if(!$conn->query($sql)){
+            echo "Ошибка: " . $conn->error;    
+        }
     }
     $conn->close();
 } else {
