@@ -34,6 +34,7 @@
         $_SESSION['staff'] = $staff;
         $_SESSION['client'] = $client;
         $_SESSION['operation'] = $operation;
+        $_SESSION['newSkiPass'] = 0;
 
         $sql = "SELECT 
                     Staff.StaffSurname staffSurname,

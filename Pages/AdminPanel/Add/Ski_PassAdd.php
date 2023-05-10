@@ -21,15 +21,27 @@ if (isset($_POST["Client"])) {
     mysqli_select_db($conn, $db->database);
 
     $idClient = $conn->real_escape_string($_POST["Client"]);
+    
+    $sql = "SELECT *
+            FROM Ski_pass
+            WHERE Ski_pass.idClient = \"$idClient\";";
+    
+    // Выполняем SQL-запрос
+    $result = mysqli_query($conn, $sql);
 
-    $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$idClient', '0');";
-    if($conn->query($sql)){
-        echo "<div align=\"center\">
-            <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
-            <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
-        </div>";
-    } else{
-        echo "Ошибка: " . $conn->error;
+    // Проверим, есть ли записи в таблице
+    if (mysqli_num_rows($result) == 0) {
+        $sql = "INSERT INTO Ski_pass (idClient, Balance) VALUES ('$idClient', '0');";
+        if($conn->query($sql)){
+            echo "<div align=\"center\">
+                <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
+                <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
+            </div>";
+        } else{
+            echo "Ошибка: " . $conn->error;
+        }
+    } else {
+        echo "<div class=\"error\">У данного клиента уже есть ski-pass</div>";
     }
     $conn->close();
 } else {

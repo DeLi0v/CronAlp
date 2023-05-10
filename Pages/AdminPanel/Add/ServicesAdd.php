@@ -49,7 +49,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
                 echo "Ошибка: " . $conn->error;
             }
             
-            // Формируем SQL-запрос
+            // Получаем данные о выданном ski-pass
             $sql = "SELECT 
                       Ski_pass.idSki_pass,
                       Ski_pass.Balance
@@ -67,7 +67,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         $total = $conn->real_escape_string($_POST["total"]);
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
                 VALUES ($data,'$staff', '$client', '$operation', Null, '$newSkiPass', '$skiPass', '$total');";
-    } else{
+    } else {
         echo "Ошибка: " . $conn->error;
     }
         
@@ -79,9 +79,12 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
             echo "<div style=\"font-size: 20px;padding-top: 10px;\">Ski-pass успешно присвоен</div>";
         }
         echo "</div>";
-
     } else{
         echo "Ошибка: " . $conn->error;
+    }
+
+    if($operation == "4") {
+        $sql ="UPDATE Ski_pass SET Balance = Balance + $total WHERE (idSki_pass = $skiPass);";
     }
     $conn->close();
 } else {
