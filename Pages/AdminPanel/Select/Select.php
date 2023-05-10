@@ -203,6 +203,7 @@ function EquepmentCategories($result){
 
 // Вывод таблицы оборудования
 function Equepments($result){
+    $page = "Equepment";
     echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
@@ -217,14 +218,7 @@ function Equepments($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Name"] . "</td>";
         echo "<td>" . $row["Category"] . "</td>";
-        echo "<td class=\"center\"><button type=\"submit\" formaction=\"/Pages/AdminPanel/Edit.php\" formmethod=\"POST\" value=\"".$row["id"]."\" name=\"Equepment\">Изменить</button></td>";
-        echo "<td class=\"center\">
-                <form action='/Pages/AdminPanel/Delete.php?id=\"".$row["id"]."\"' method=\"post\">
-                    <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
-                    <input type=\"hidden\" name=\"page\" value=\"Equepment\">
-                    <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/trash-full.png\" style=\"max-width: 25px;\">
-                </form>
-              </td>";
+        include("EditAndDeleteRows.php");
         echo "</tr>";
     }
 }
