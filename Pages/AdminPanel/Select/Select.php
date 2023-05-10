@@ -228,7 +228,7 @@ function EquepmentCategories($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idEquepmentCategory"] . "</td>";
+        echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["CategoryName"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
@@ -270,7 +270,7 @@ function OperationTypes($result){
     // Выводим данные из таблицы
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
-        echo "<td class=\"center\">" . $row["idOperationType"] . "</td>";
+        echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["OperationName"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
