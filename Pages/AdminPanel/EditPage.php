@@ -14,7 +14,7 @@
 <?php if (isset($_POST["id"]) && isset($_POST["page"])) {
     
     // Подключение файла для связи с БД
-    require_once("../../../connect.php"); 
+    require_once("../../connect.php"); 
 
     // // Подключение к БД
     $db = new DB_Class();
