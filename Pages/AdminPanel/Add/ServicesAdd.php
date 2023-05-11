@@ -65,6 +65,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
             }
         }
         $total = $conn->real_escape_string($_POST["total"]);
+        if ($newSkiPass == 1) { $total += 250;}
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
                 VALUES ($data,'$staff', '$client', '$operation', Null, '$newSkiPass', '$skiPass', '$total');";
     } else {
