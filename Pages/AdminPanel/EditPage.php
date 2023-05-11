@@ -93,9 +93,9 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                $surname =  $row["ClientSurname"];
-                $name =  $row["ClientName"];
-                $otch =  $row["ClientOtch"];
+                $surname =  $row["StaffSurname"];
+                $name =  $row["StaffName"];
+                $otch =  $row["StaffOtch"];
                 $phone =  $row["Phone"];
                 $mail =  $row["Mail"];
                 $passwd =  $row["Passwd"];
