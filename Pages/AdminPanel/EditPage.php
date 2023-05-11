@@ -9,9 +9,18 @@
 </head>
 
 <body>
-    <?php include("../../../head.php"); ?>
+    <?php include("../../head.php"); ?>
 
 <?php if (isset($_POST["id"]) && isset($_POST["page"])) {
+    
+    // Подключение файла для связи с БД
+    require_once("../../../connect.php"); 
+
+    // // Подключение к БД
+    $db = new DB_Class();
+    $conn = $db->connect();
+    mysqli_select_db($conn, $db->database);
+
     $id = $_POST["id"];
     $page = $_POST["page"];
 
