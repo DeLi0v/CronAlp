@@ -13,7 +13,14 @@ if (isset($_POST["id"]) && isset($_POST["page"])
     $page = $_POST["page"];
     
     if ($page == "Equepment") {
-        //$sql = "UPDATE Ski_pass SET Balance = 0 WHERE (idSki_pass = );";
+        $category = $_POST["Category"];
+        $name = $_POST["Name"];
+
+        $sql = "UPDATE Equepments 
+                SET 
+                    idCategory = '$category',
+                    EquepmentName = '$name',
+                WHERE (idEquepment = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
@@ -40,31 +47,68 @@ if (isset($_POST["id"]) && isset($_POST["page"])
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "EquepmentCategories") {
-        //$sql = "DELETE FROM EquepmentCategories WHERE (idEquepmentCategory = $id);";
+        $name = $_POST["Name"];
+
+        $sql = "UPDATE EquepmentCategories 
+                SET 
+                    CategoryName = '$name'
+                WHERE (idEquepmentCategory = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "OperationTypes") {
-        //$sql = "DELETE FROM OperationTypes WHERE (idOperationType = $id);";
+        $name = $_POST["Name"];
+
+        $sql = "UPDATE OperationTypes 
+                SET 
+                    OperationName = '$name'
+                WHERE (idOperationType = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "Services") {
-        //$sql = "DELETE FROM Services WHERE (idService = $id);";
+        $total = $_POST["Total"];
+
+        $sql = "UPDATE Services 
+                SET 
+                    Total = '$total'
+                WHERE (idService = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "Ski_Pass") {
-        //$sql = "DELETE FROM Ski_pass WHERE (idSki_pass = $id);";
+        $balance = $_POST["Balance"];
+
+        $sql = "UPDATE Ski_pass 
+                SET 
+                    Balance = $balance
+                WHERE (idSki_pass = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "Staff") {
-        //$sql = "DELETE FROM Staff WHERE (idStaff = $id);";
+        $surname = $_POST["Surname"];
+        $name = $_POST["Name"];
+        $otch = $_POST["Otch"];
+        $mail = $_POST["Mail"];
+        $phone = $_POST["Phone"];
+        $passwd = $_POST["Passwd"];
+        $post = $_POST["Post"];
+
+        $sql = "UPDATE Staff 
+                SET 
+                    StaffSurname = '$surname',
+                    StaffName = '$name',
+                    StaffOtch = '$otch',
+                    Mail = '$mail',
+                    Phone = '$phone',
+                    Passwd = '$passwd',
+                    Post = '$post'
+                WHERE (idStaff = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
