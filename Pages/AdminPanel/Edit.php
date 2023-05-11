@@ -28,12 +28,12 @@ if (isset($_POST["id"]) && isset($_POST["page"])
 
         $sql = "UPDATE Clients 
                 SET 
-                    ClientSurname = $surname
-                    ClientName = $name
-                    ClientOtch = $otch
-                    Mail = $mail
-                    Phone = $phone
-                    Passwd = $passwd 
+                    ClientSurname = '$surname'
+                    ClientName = '$name'
+                    ClientOtch = '$otch'
+                    Mail = '$mail'
+                    Phone = '$phone'
+                    Passwd = '$passwd' 
                 WHERE (idClient = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
