@@ -39,6 +39,12 @@
                 $passwd =  $row["Passwd"];
             }
         }
+        echo $surname;
+        echo $name;
+        echo $otch;
+        echo $phone;
+        echo $mail;
+        echo $passwd;
 ?>
     <h3 style="text-align:center;">Изменение данных о клиенте</h3>
     <form class="add" action="/Pages/AdminPanel/Add/Edit.php" method="post" style=" margin:auto; width:500px;">
