@@ -24,6 +24,8 @@
     $id = $_POST["id"];
     $page = $_POST["page"];
 
+    echo $page;
+
     if ($page = "Clients") {
         // Запрос
         $sql = "SELECT * FROM Clients WHERE idClient = $id;";
