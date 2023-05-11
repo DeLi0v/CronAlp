@@ -118,5 +118,5 @@ if (isset($_POST["id"]) && isset($_POST["page"])
 } else {
     echo "Что-то не так";
 }
-// header("Location: /Pages/AdminPanel/Select/$page.php");
+header("Location: /Pages/AdminPanel/Select/$page.php");
 ?>
