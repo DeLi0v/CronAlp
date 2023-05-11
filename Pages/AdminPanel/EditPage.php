@@ -27,6 +27,11 @@
     $page = $_POST["page"];
 
     echo $page;
+    if ($page = "Clients"){
+        echo "все ок";
+    } else {
+        echo "где-то ошибка";
+    }
 
     if ($page = "Clients") {
         // Запрос
@@ -45,32 +50,30 @@
         }
 ?>
     <h3 style="text-align:center;">Изменение данных о клиенте</h3>
-    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper"> -->
-            <li class="form-row">
-                <label for="Surname">Фамилия:</label>
-                <input type="text" name="Surname" size="20px" value="<?php echo $surname?>"/>
-            </li>
-            <li class="form-row">
-                <label for="Name">Имя:</label>
-                <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
-            </li>
-            <li class="form-row">
-                <label for="Otch">Отчетсво:</label>
-                <input type="text" name="Otch" size="20px" value="<?php echo $otch?>"/>
-            </li>
-            <li class="form-row">
-                <label for="Phone">Телефон:</label>
-                <input type="tel" name="Phone" size="20px" value="<?php echo $phone?>"/>
-            </li>
-            <li class="form-row">
-                <label for="Mail">Почта:</label>
-                <input type="email" name="Mail" size="20px" value="<?php echo $mail?>"/>
-            </li>
-            <li class="form-row">
-                <label for="Passwd">Пароль:</label>
-                <input type="text" name="Passwd" size="20px" value="<?php echo $passwd?>"/>
-            </li>
+    <li class="form-row">
+        <label for="Surname">Фамилия:</label>
+        <input type="text" name="Surname" size="20px" value="<?php echo $surname?>"/>
+    </li>
+    <li class="form-row">
+        <label for="Name">Имя:</label>
+            <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
+    </li>
+    <li class="form-row">
+        <label for="Otch">Отчетсво:</label>
+        <input type="text" name="Otch" size="20px" value="<?php echo $otch?>"/>
+    </li>
+    <li class="form-row">
+        <label for="Phone">Телефон:</label>
+        <input type="tel" name="Phone" size="20px" value="<?php echo $phone?>"/>
+    </li>
+    <li class="form-row">
+        <label for="Mail">Почта:</label>
+        <input type="email" name="Mail" size="20px" value="<?php echo $mail?>"/>
+    </li>
+    <li class="form-row">
+        <label for="Passwd">Пароль:</label>
+        <input type="text" name="Passwd" size="20px" value="<?php echo $passwd?>"/>
+    </li>
 <?php
     } elseif ($page = "Ski_Pass") {
         // Запрос
