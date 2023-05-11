@@ -10,6 +10,8 @@
 
 <body>
     <?php include("../../head.php"); ?>
+    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper">
 
 <?php if (isset($_POST["id"]) && isset($_POST["page"])) {
     
@@ -43,8 +45,8 @@
         }
 ?>
     <h3 style="text-align:center;">Изменение данных о клиенте</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Surname">Фамилия:</label>
                 <input type="text" name="Surname" size="20px" value="<?php echo $surname?>"/>
@@ -83,8 +85,8 @@
 ?>
 
 <h3 style="text-align:center;">Изменение баланса ski-pass</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Balance">Баланс:</label>
                 <input type="text" name="Balance" size="20px" value="<?php echo $balance?>"/>
@@ -108,8 +110,8 @@
         }
 ?>
     <h3 style="text-align:center;">Изменение данных о сотруднике</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Surname">Фамилия:</label>
                 <input type="text" name="Surname" size="20px" value="<?php echo $surname?>"/>
@@ -152,8 +154,8 @@
         } ?>
 
 <h3 style="text-align:center;">Изменение данных об оборудовании</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Name">Наименование:</label>
                 <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
@@ -200,8 +202,8 @@
         } ?>
 
 <h3 style="text-align:center;">Изменение наименования категории оборудования</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Name">Наименование:</label>
                 <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
@@ -219,8 +221,8 @@
         } ?>
 
 <h3 style="text-align:center;">Изменение наименования вида услуги</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Name">Наименование:</label>
                 <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
@@ -238,8 +240,8 @@
         } ?>
 
 <h3 style="text-align:center;">Изменение стоимости услуги</h3>
-    <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
-        <ul class="wrapper">
+    <!-- <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
+        <ul class="wrapper"> -->
             <li class="form-row">
                 <label for="Total">Стоимость:</label>
                 <input type="text" name="Total" size="20px" value="<?php echo $total?>"/>
