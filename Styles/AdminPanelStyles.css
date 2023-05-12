@@ -175,10 +175,12 @@ table {
 }
 .form-row > input,
 .form-row > button,
-.form-row > select {
+.form-row > select,
+.form-row > a {
   padding: 7px;
 }
-.form-row > button {
+.form-row > button,
+.form-row > a {
   background: gray;
   color: white;
   border: 0;
@@ -186,7 +188,8 @@ table {
   padding: 12px;
   font-size: 15px;
 }
-.form-row > button:hover {
+.form-row > button:hover,
+.form-row > a:hover {
   background: rgb(82, 82, 82);
 }
 
