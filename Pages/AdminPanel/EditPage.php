@@ -156,7 +156,7 @@
                 <!-- <input type="text" name="Category" size="20px" value="<?php echo $category?>"/> -->
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories;";
+                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory = $idCategory;";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
@@ -168,6 +168,15 @@
                         echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
                     }
 
+                    // Формируем SQL-запрос для получения данных из таблицы "users"
+                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory <> $idCategory;";
+
+                    // Выполняем SQL-запрос
+                    $result = mysqli_query($conn, $sql);
+                    
+                    /*Выпадающий список*/
+                    echo "<select name=\"Category\">";
+                    
                     while($object = mysqli_fetch_object($result)){
                         echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
                     }
