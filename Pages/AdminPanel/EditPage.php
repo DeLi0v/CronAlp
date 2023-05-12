@@ -163,16 +163,16 @@
                     echo "<select name=\"Category\">";
                     
                     while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
-                        if ($row["idEquepmentCategory"] == $category) {
+                        // if ($row["idEquepmentCategory"] == $category) {
                             echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
-                        }
+                        // }
                     }
 
-                    while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
-                        if ($row["idEquepmentCategory"] <> $category) {
-                            echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
-                        }
-                    }
+                    // while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
+                    //     if ($row["idEquepmentCategory"] <> $category) {
+                    //         echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
+                    //     }
+                    // }
                     
                     echo "</select>";
                 ?>
