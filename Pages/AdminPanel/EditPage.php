@@ -152,7 +152,8 @@
             </li>
             <li class="form-row">
                 <label for="Category">Категория:</label>
-                <?php 
+                <input type="text" name="Category" size="20px" value="<?php echo $category?>"/>
+                <!-- <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
                     $sql = "SELECT * FROM EquepmentCategories;";
 
@@ -163,19 +164,11 @@
                     echo "<select name=\"Category\">";
                     
                     while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
-                        // if ($row["idEquepmentCategory"] == $category) {
-                            echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
-                        // }
+                        echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
                     }
-
-                    // while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
-                    //     if ($row["idEquepmentCategory"] <> $category) {
-                    //         echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
-                    //     }
-                    // }
                     
                     echo "</select>";
-                ?>
+                ?> -->
             </li>
 
 <?php } elseif ($page == "EquepmentCategories") {
