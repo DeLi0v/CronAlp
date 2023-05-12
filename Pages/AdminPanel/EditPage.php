@@ -135,13 +135,14 @@
 
 <?php } elseif ($page == "Equepment") {
         // Запрос
-        $sql = "SELECT * FROM Equepments WHERE idEquepment = $id;";
+        $sql = "SELECT * FROM Equepments LEFT JOIN EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory WHERE idEquepment = $id;";
         // Выполняем SQL-запрос
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $name =  $row["EquepmentName"];
-                $category = $row["idCategory"];
+                $idCategory = $row["idCategory"];
+                $nameCategory = $row["CategoryName"];
             }
         } ?>
 
@@ -152,8 +153,8 @@
             </li>
             <li class="form-row">
                 <label for="Category">Категория:</label>
-                <input type="text" name="Category" size="20px" value="<?php echo $category?>"/>
-                <!-- <?php 
+                <!-- <input type="text" name="Category" size="20px" value="<?php echo $category?>"/> -->
+                <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
                     $sql = "SELECT * FROM EquepmentCategories;";
 
@@ -163,12 +164,16 @@
                     /*Выпадающий список*/
                     echo "<select name=\"Category\">";
                     
-                    while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
+                    while($row = mysqli_fetch_object($result) && $row["idEquepmentCategory"] == $idCategory) { // выводим первой строкой выбранное значение
+                        echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
+                    }
+
+                    while($row = mysqli_fetch_object($result) && $row["idEquepmentCategory"] <> $idCategory) { // выводим первой строкой выбранное значение
                         echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
                     }
                     
                     echo "</select>";
-                ?> -->
+                ?>
             </li>
 
 <?php } elseif ($page == "EquepmentCategories") {
