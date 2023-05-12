@@ -19,7 +19,7 @@ if (isset($_POST["id"]) && isset($_POST["page"])
         $sql = "UPDATE Equepments 
                 SET 
                     idCategory = '$category',
-                    EquepmentName = '$name',
+                    EquepmentName = '$name'
                 WHERE (idEquepment = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
