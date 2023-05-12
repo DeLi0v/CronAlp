@@ -174,9 +174,6 @@
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
                     
-                    /*Выпадающий список*/
-                    echo "<select name=\"Category\">";
-                    
                     while($object = mysqli_fetch_object($result)){
                         echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
                     }
