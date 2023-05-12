@@ -237,7 +237,7 @@
 <?php } else {echo "<div class=\"error\">Данная услуга не связана с оплатой</div>"; $error = 1; } } ?>
             
                 <li class="form-row">
-                    <a href="/Pages/AdminPanel/Select/$page.php">Назад</a>
+                    <a href="/Pages/AdminPanel/Select/<?php echo $page?>.php">Назад</a>
                     <?php if($error == 0) {
                         echo "<input type=\"hidden\" name=\"id\" value=\"$id\">
                             <input type=\"hidden\" name=\"page\" value=\"$page\">";
