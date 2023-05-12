@@ -225,7 +225,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 $total =  $row["Total"];
             }
-        } ?>
+        ?>
 
 <h3 style="text-align:center;">Изменение стоимости услуги</h3>
             <li class="form-row">
@@ -233,7 +233,7 @@
                 <input type="text" name="Total" size="20px" value="<?php echo $total?>"/>
             </li>
 
-<?php } ?>
+<?php } else {echo "<div class=\"error\">Данная услуга связана с оплатой</div>"; } } ?>
 
             <li class="form-row">
                 <?php 
