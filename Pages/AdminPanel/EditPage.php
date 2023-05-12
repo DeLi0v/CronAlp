@@ -154,7 +154,7 @@
                 <label for="Category">Категория:</label>
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories; WHERE idEquepmentCategory = $category";
+                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory = $category;";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
@@ -167,7 +167,7 @@
                     }
 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories; WHERE idEquepmentCategory <> $category";
+                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory <> $category;";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
