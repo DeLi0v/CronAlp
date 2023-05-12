@@ -164,12 +164,18 @@
                     /*Выпадающий список*/
                     echo "<select name=\"Category\">";
                     
-                    while($row = mysqli_fetch_object($result) && $row["idEquepmentCategory"] == $idCategory) { // выводим первой строкой выбранное значение
-                        echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
+                    while($object = mysqli_fetch_object($result)){
+                        if ($object->idEquepmentCategory == $idCategory)
+                        {
+                            echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
+                        }
                     }
 
-                    while($row = mysqli_fetch_object($result) && $row["idEquepmentCategory"] <> $idCategory) { // выводим первой строкой выбранное значение
-                        echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
+                    while($object = mysqli_fetch_object($result)){
+                        if ($object->idEquepmentCategory <> $idCategory)
+                        {
+                            echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
+                        }
                     }
                     
                     echo "</select>";
