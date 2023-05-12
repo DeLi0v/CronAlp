@@ -167,6 +167,10 @@
                     while($object = mysqli_fetch_object($result)){
                         echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
                     }
+
+                    while($object = mysqli_fetch_object($result)){
+                        echo "<option value = '$object->idEquepmentCategory' > $object->idEquepmentCategory - $object->CategoryName</option>";
+                    }
                     
                     echo "</select>";
                 ?>
