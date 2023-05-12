@@ -154,7 +154,7 @@
                 <label for="Category">Категория:</label>
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory = $category;";
+                    $sql = "SELECT * FROM EquepmentCategories;";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
@@ -163,16 +163,6 @@
                     echo "<select name=\"Category\">";
                     
                     while($row = mysqli_fetch_object($result)) { // выводим первой строкой выбранное значение
-                        echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
-                    }
-
-                    // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories WHERE idEquepmentCategory <> $category;";
-
-                    // Выполняем SQL-запрос
-                    $result = mysqli_query($conn, $sql);
-                    
-                    while($row = mysqli_fetch_object($result)) { // остальными строками выводим все остальное
                         echo "<option value = '".$row["idEquepmentCategory"]."' > ".$row["idEquepmentCategory"]." - ".$row["CategoryName"]."</option>";
                     }
                     
