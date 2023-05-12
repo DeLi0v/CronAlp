@@ -218,7 +218,7 @@
 
 <?php } elseif ($page == "Services") {
         // Запрос
-        $sql = "SELECT * FROM Services WHERE idService = $id AND idOperation = 3 OR idOperation = 4;";
+        $sql = "SELECT * FROM Services WHERE idService = $id AND idOperation IN(3,4);";
         // Выполняем SQL-запрос
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {
