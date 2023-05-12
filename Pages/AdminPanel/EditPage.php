@@ -234,16 +234,17 @@
                 <input type="text" name="Total" size="20px" value="<?php echo $total?>"/>
             </li>
 
-<?php } else {echo "<div class=\"error\">Данная услуга связана с оплатой</div>"; $error = 1; } } 
-            if($error == 0) {?>
+<?php } else {echo "<div class=\"error\">Данная услуга не связана с оплатой</div>"; $error = 1; } } ?>
+            
                 <li class="form-row">
-                    <?php 
+                    <a href="/Pages/AdminPanel/Select/$page.php">Назад</a>
+                    <?php if($error == 0) {
                         echo "<input type=\"hidden\" name=\"id\" value=\"$id\">
                             <input type=\"hidden\" name=\"page\" value=\"$page\">";
                     ?>
                     <button type="submit">Изменить</button>
+                    <?php } ?>
                 </li>
-            <?php } ?>
         </ul>
     </form>
 </body>
