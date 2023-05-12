@@ -25,6 +25,7 @@
 
     $id = $_POST["id"];
     $page = $_POST["page"];
+    $error = 0;
 
     if ($page == "Clients") {
         // Запрос
@@ -233,15 +234,16 @@
                 <input type="text" name="Total" size="20px" value="<?php echo $total?>"/>
             </li>
 
-<?php } else {echo "<div class=\"error\">Данная услуга связана с оплатой</div>"; } } ?>
-
-            <li class="form-row">
-                <?php 
-                    echo "<input type=\"hidden\" name=\"id\" value=\"$id\">
-                        <input type=\"hidden\" name=\"page\" value=\"$page\">";
-                ?>
-                <button type="submit">Изменить</button>
-            </li>
+<?php } else {echo "<div class=\"error\">Данная услуга связана с оплатой</div>"; $error = 1; } } 
+            if($error == 0) {?>
+                <li class="form-row">
+                    <?php 
+                        echo "<input type=\"hidden\" name=\"id\" value=\"$id\">
+                            <input type=\"hidden\" name=\"page\" value=\"$page\">";
+                    ?>
+                    <button type="submit">Изменить</button>
+                </li>
+            <?php } ?>
         </ul>
     </form>
 </body>
