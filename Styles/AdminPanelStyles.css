@@ -187,6 +187,7 @@ table {
   cursor: pointer;
   padding: 12px;
   font-size: 15px;
+  text-decoration: none;
 }
 .form-row > button:hover,
 .form-row > a:hover {
