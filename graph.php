@@ -1,10 +1,15 @@
+<head>
 <?php
   /* Подключаем классы */
   session_start();
 //   require_once "../lib/pChart/class/pDraw.class.php";
 //   require_once "../lib/pChart/class/pImage.class.php";
   require_once "../lib/pChart/class/pData.class.php";
-//   require_once "../lib/pChart/class/pChart.class.php";
+  require_once "../lib/pChart/class/pChart.class.php"; 
+?>
+</head>
+<body>
+<?php
   $DataSet = new pData(); // Создаём объект pData
   $DataSet->AddPoint(array(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100), "Serie1"); // Загружаем данные графика 1
   $DataSet->AddPoint(array(0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000), "Serie2"); // Загружаем данные графика 2
@@ -22,3 +27,4 @@
   $Test->drawTitle(50, 22, "MyRusakov.ru", 50, 50, 50, 585); // Выводим заголовок графика
   $Test->Stroke(); // Выводим график в окно браузера;
 ?>
+</body>
