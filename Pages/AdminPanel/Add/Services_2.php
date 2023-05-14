@@ -74,17 +74,23 @@
             $sql = "SELECT 
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
-                        EquepmentCategories.CategoryName Category
+                        EquepmentCategories.CategoryName Category,
+                        ifnull(Services.ServiceData,NOW()) ServiceData,
+                        ifnull(Services.idOperation,2) idOperation,
+                        sec.idOperation secOp
                     FROM 
-                        Equepments
-                        left join Services on Equepments.idEquepment = Services.idEquepment
-                        join EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory
-                    where
-                        ifnull(Services.ServiceData, now()) >= 
-                            (select ServiceData from Services where idOperation=\"2\" order by ServiceData desc limit 1)
-                        OR ifnull(Services.ServiceData, now()) > 
-                            (select ServiceData from Services where idOperation=\"1\" order by ServiceData desc limit 1)
-                        AND ifnull(Services.idOperation,'1') < '3';";
+                        Services
+                        RIGHT join Equepments on Equepments.idEquepment = Services.idEquepment
+                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
+                        left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
+                                    FROM Services 
+                                    WHERE idOperation = 1
+                                    GROUP BY idoperation, idEquepment) sec 
+                                    on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
+                    WHERE 
+                        ifnull(Services.idOperation,2) = 2
+                        AND sec.idOperation IS NULL
+                    ORDER BY idEquepment;";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
