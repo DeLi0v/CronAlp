@@ -2,11 +2,6 @@
     <head>
         <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
         <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-    </head>
-
-    <body>
-        <?php include("head.php") ?>
-        <div class="ct-chart ct-golden-section"></div>
         <script>
             new Chartist.Line('.chart1', {
                 labels: ['День 1', 'День 2', 'День 3', 'День 4', 'День 5'],
@@ -21,5 +16,10 @@
                     }
             });
         </script>
+    </head>
+
+    <body>
+        <?php include("head.php") ?>
+        <div class="ct-chart ct-golden-section"></div>
     </body>
 </html>
