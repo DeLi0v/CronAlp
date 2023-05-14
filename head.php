@@ -5,6 +5,7 @@
 
     if(document.getElementById('a').clicked == true)
     {
+        alert("The button was pressed");
         $('a').removeClass('selected');
         $("a[href='address']").addClass('selected');
     }
