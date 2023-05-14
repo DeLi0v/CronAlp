@@ -1,7 +1,7 @@
 <?php  
  // Standard inclusions        
- require("/pChart2.1.4/pData.class");     
- require("/pChart2.1.4/pChart.class");     
+ require("/pChart2.1.4/pData.class.php");     
+ require("/pChart2.1.4/pChart.class.php");     
    
  // Dataset definition      
  $DataSet = new pData;     
