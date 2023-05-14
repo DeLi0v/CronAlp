@@ -16,7 +16,7 @@
         function drawChart() {
             // Create the data table.
             var data = google.visualization.arrayToDataTable([
-                ['Дата', 'Количество', { role: 'annotation' }],
+                ['Дата', 'Количество'],
                 <?php require_once("connect.php"); // Подключение файла для связи с БД
                 // Подключение к БД
                 $db = new DB_Class();
@@ -27,20 +27,22 @@
                 $sql = "SELECT 
                             Equepments.EquepmentName name, 
                             count(Services.idEquepment) count,
-                            DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
                         FROM 
                             Services
                             JOIN Equepments on Services.idEquepment = Equepments.idEquepment
                         WHERE
-                            Services.idOperation = '1'
+                            idOperation = '1'
+                            AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y') 
                         GROUP BY data, name";
 
                 // Выполняем SQL-запрос
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "[ '" . $row["data"] . "', " . $row["count"] . ", 'dsfsd' ],";
+                        echo "['" . $row["data"] . "', " . $row["count"] . "],";
                     }
+                } else {
+                    $error = 1;
                 } ?>
             ]);
 
@@ -60,7 +62,11 @@
 
 <body>
     <?php include("head.php"); ?>
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    <?php if ($error == 0) { ?>
+        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    <?php } else { ?>
+        <div class="error">На данный момент ни одного оборудования не выдали</div>
+    <?php } ?>
 </body>
 
 </html>
