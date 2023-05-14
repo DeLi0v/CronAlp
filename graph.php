@@ -23,7 +23,7 @@
             $sql = "SELECT 
                         Equepments.EquepmentName name,
                         count(idEquepment) count,
-                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
+                        -- DATE_FORMAT(ServiceData, '%d.%m.%Y') data
                     FROM 
                         Services
                         JOIN Equepments on Services.idEquepment = Equepments.idEquepment
