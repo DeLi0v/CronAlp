@@ -18,7 +18,32 @@
       // passes in the data and draws it.
       function drawDashboard() {
 
-        // Create our data table.
+        // Create a dashboard.
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+
+        // Create a range slider, passing some options
+        var donutRangeSlider = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'filter_div',
+          'options': {
+            'filterColumnLabel': 'Количество'
+          }
+        });
+
+        // Создание столбцатого 
+        var pieChart = new google.visualization.ChartWrapper({
+          'chartType': 'Bar',
+          'containerId': 'chart_div',
+          'options': {
+            'width': 500,
+            'height': 500,
+            'pieSliceText': 'value',
+            'legend': 'right'
+          }
+        });
+
+        // Создание таблицы с данными
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Количество'],
           <?php require_once("connect.php"); // Подключение файла для связи с БД
@@ -45,31 +70,6 @@
             }
             } ?>
         ]);
-
-        // Create a dashboard.
-        var dashboard = new google.visualization.Dashboard(
-            document.getElementById('dashboard_div'));
-
-        // Create a range slider, passing some options
-        var donutRangeSlider = new google.visualization.ControlWrapper({
-          'controlType': 'CategoryFilter',
-          'containerId': 'filter_div',
-          'options': {
-            'filterColumnLabel': 'Количество'
-          }
-        });
-
-        // Create a pie chart, passing some options
-        var pieChart = new google.visualization.ChartWrapper({
-          'chartType': 'Bar',
-          'containerId': 'chart_div',
-          'options': {
-            'width': 300,
-            'height': 300,
-            'pieSliceText': 'value',
-            'legend': 'right'
-          }
-        });
 
         // Establish dependencies, declaring that 'filter' drives 'pieChart',
         // so that the pie chart will only display entries that are let through
