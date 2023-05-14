@@ -33,7 +33,7 @@
                         WHERE
                             idOperation = '1'
                             AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y') 
-                        GROUP BY data, name";
+                        GROUP BY name";
 
                 // Выполняем SQL-запрос
                 $result = mysqli_query($conn, $sql);
