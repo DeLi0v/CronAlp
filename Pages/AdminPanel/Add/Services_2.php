@@ -110,21 +110,31 @@
                         Equepments.EquepmentName EquepmentName,
                         EquepmentCategories.CategoryName Category,
                         Services.ServiceData,
-                        Services.idClient
+                        Services.idClient,
+                        Services.idOperation,
+                        sec.idOperation secOp
                     FROM 
                         Services
                         join Equepments on Equepments.idEquepment = Services.idEquepment
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
+                        left join (SELECT idoperation, idEquepment, ServiceData 
+                                    FROM Services 
+                                    WHERE idClient = \"$client\" AND idEquepment IS not NULL AND idOperation = 2) sec 
+                                    on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
                     WHERE 
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
-                        AND Services.ServiceData > (select IFNULL(MAX(ServiceData), '2000-01-01 00:00:00')
-                                                    from Services 
-                                                    where idOperation =\"2\" and idClient=\"$client\")
-                        AND ifnull(Services.idOperation,'1') < '3';"; // вывод если ранее оборудование уже было принято 
+                        AND Services.idOperation = 1
+                        AND sec.idOperation IS NULL;"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "['" . $row["data"] . "', " . $row["count"] . "],";
+                }
+                $error = 0;
+            }
             
             /*Выпадающий список*/
             echo "<select name=\"Equepment\">";
