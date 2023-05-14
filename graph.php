@@ -30,20 +30,19 @@
                 $sql = "SELECT 
                             Equepments.EquepmentName name, 
                             count(Services.idEquepment) count,
-                            DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') date
+                            DATE_FORMAT(Services.ServiceData, '%Y,%m,%d') date
                         FROM 
                             Services
                             JOIN Equepments on Services.idEquepment = Equepments.idEquepment
                         WHERE
                             idOperation = '1'
-                            AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y') 
                         GROUP BY date, name";
 
                 // Выполняем SQL-запрос
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "[" . $row["date"] . ", '" . $row["name"] . "', " . $row["count"] . "],";
+                        echo "[new Date(". $row["date"] ."), '" . $row["name"] . "', " . $row["count"] . "],";
                     }
                 } ?>
             ]);
