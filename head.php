@@ -3,7 +3,7 @@
 <script type="text/javascript">
     var address = document.location.href;
 
-    if(document.getElementById('a').clicked == true)
+    if(document.getElementById('a').onclick == true)
     {
         alert("The button was pressed");
         $('a').removeClass('selected');
