@@ -1,5 +1,5 @@
 <?php
-    header('Content-type: image/png');
+    // header('Content-type: image/png');
     $image = imageCreateTrueColor(600, 280);
     $white = imageColorAllocate($image, 255, 255, 255);
     imagefilledrectangle($image, 0, 0, 599, 279, $white);
