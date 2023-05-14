@@ -82,7 +82,7 @@
                     where
                         ifnull(Services.ServiceData, now()) >= 
                             (select ServiceData from Services where idOperation=\"2\" order by ServiceData desc limit 1)
-                        AND ifnull(Services.ServiceData, now()) > 
+                        OR ifnull(Services.ServiceData, now()) > 
                             (select ServiceData from Services where idOperation=\"1\" order by ServiceData desc limit 1)
                         AND ifnull(Services.idOperation,'1') < '3';";
 

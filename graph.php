@@ -27,11 +27,11 @@
           'controlType': 'CategoryFilter',
           'containerId': 'filter_div',
           'options': {
-            'filterColumnLabel': 'Количество'
+            'filterColumnLabel': 'Оборудование'
           }
         });
 
-        // Создание столбцатого 
+        // Создание 
         var pieChart = new google.visualization.ChartWrapper({
           'chartType': 'Bar',
           'containerId': 'chart_div',
@@ -45,7 +45,7 @@
 
         // Создание таблицы с данными
         var data = google.visualization.arrayToDataTable([
-          ['Дата', 'Количество'],
+          ['Дата', 'Название', 'Количество'],
           <?php require_once("connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
@@ -54,19 +54,21 @@
             
             // Запрос
             $sql = "SELECT 
-                        count(idEquepment) count,
-                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
-                    FROM Services
+                        Equepments.EquepmentName name,
+                        count(Services.idEquepment) count,
+                        DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
+                    FROM 
+                        Services
+                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
                     WHERE
                         idOperation = '1'
-                        AND idEquepment = '1'
-                    GROUP BY data";
+                    GROUP BY data, name";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                echo "['" . $row["data"] . "', ". $row["count"] . "],";
+                echo "['" . $row["data"] . "'," . $row["name"]. ", ". $row["count"] . "],";
             }
             } ?>
         ]);

@@ -26,6 +26,8 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     $staff = $_SESSION['staff'];
     $client = $_SESSION['client'];
     $operation = $_SESSION['operation'];
+    $newSkiPass = $_SESSION['newSkiPass'];
+    
     if ($operation == "1" || $operation == "2") { // Выдача или прием оборудования       
         $equepment = $conn->real_escape_string($_POST["Equepment"]);
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
@@ -38,7 +40,6 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
                 VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, '$total');";
     } elseif ($operation == "4") { // Пополнение ski-pass
         
-        $newSkiPass = $_SESSION['newSkiPass'];
         $skiPass = $_SESSION['idSki_pass'];
         
         if ($newSkiPass == 1) {
