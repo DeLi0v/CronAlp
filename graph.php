@@ -1,30 +1,41 @@
-<head>
-<?php
-  /* Подключаем классы */
-  session_start();
-//   require_once "../lib/pChart/class/pDraw.class.php";
-//   require_once "../lib/pChart/class/pImage.class.php";
-  require_once "../lib/pChart/class/pData.class.php";
-  require_once "../lib/pChart/class/pChart.class.php"; 
-?>
-</head>
-<body>
-<?php
-  $DataSet = new pData(); // Создаём объект pData
-  $DataSet->AddPoint(array(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100), "Serie1"); // Загружаем данные графика 1
-  $DataSet->AddPoint(array(0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000), "Serie2"); // Загружаем данные графика 2
-  $DataSet->AddAllSeries(); // Добавить все данные для построения
-  $Test = new pChart(700, 230); // Рисуем графическую плоскость
-  $Test->setFontProperties("Fonts/tahoma.ttf", 8); // Установка шрифта
-  $Test->setGraphArea(50, 30, 585, 200); // Установка области графика
-  $Test->drawFilledRoundedRectangle(7, 7, 693, 223, 5, 240, 240, 240); // Выделяем плоскость прямоугольником
-  $Test->drawRoundedRectangle(5, 5, 695, 225, 5, 230, 230, 230); // Делаем контур графической плоскости
-  $Test->drawGraphArea(255, 255, 255, true); // Рисуем графическую плоскость
-  $Test->drawScale($DataSet->GetData(), $DataSet->GetDataDescription(), SCALE_NORMAL, 150, 150, 150, true, 0, 2); // Рисуем оси и график
-  $Test->drawGrid(4, true, 230, 230, 230, 50); // Рисуем сетку
-  $Test->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription()); // Соединяем точки графика линиями
-  $Test->drawPlotGraph($DataSet->GetData(),$DataSet->GetDataDescription(), 3, 2, 255, 255, 255); // Рисуем точки
-  $Test->drawTitle(50, 22, "MyRusakov.ru", 50, 50, 50, 585); // Выводим заголовок графика
-  $Test->Stroke(); // Выводим график в окно браузера;
-?>
-</body>
+<?php  
+ // Standard inclusions        
+ include("pChart/pData.class");     
+ include("pChart/pChart.class");     
+   
+ // Dataset definition      
+ $DataSet = new pData;     
+ $DataSet->ImportFromCSV("Sample/bulkdata.csv",",",array(1,2,3),FALSE,0);     
+ $DataSet->AddAllSeries();     
+ $DataSet->SetAbsciseLabelSerie();     
+ $DataSet->SetSerieName("January","Serie1");     
+ $DataSet->SetSerieName("February","Serie2");     
+ $DataSet->SetSerieName("March","Serie3");     
+ $DataSet->SetYAxisName("Average age");  
+ $DataSet->SetYAxisUnit("µs");  
+   
+ // Initialise the graph     
+ $Test = new pChart(700,230);     
+ $Test->setFontProperties("Fonts/tahoma.ttf",8);     
+ $Test->setGraphArea(70,30,680,200);     
+ $Test->drawFilledRoundedRectangle(7,7,693,223,5,240,240,240);     
+ $Test->drawRoundedRectangle(5,5,695,225,5,230,230,230);     
+ $Test->drawGraphArea(255,255,255,TRUE);  
+ $Test->drawScale($DataSet->GetData(),$DataSet->GetDataDescription(),SCALE_NORMAL,150,150,150,TRUE,0,2);     
+ $Test->drawGrid(4,TRUE,230,230,230,50);  
+   
+ // Draw the 0 line     
+ $Test->setFontProperties("Fonts/tahoma.ttf",6);     
+ $Test->drawTreshold(0,143,55,72,TRUE,TRUE);     
+   
+ // Draw the line graph  
+ $Test->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription());     
+ $Test->drawPlotGraph($DataSet->GetData(),$DataSet->GetDataDescription(),3,2,255,255,255);     
+   
+ // Finish the graph     
+ $Test->setFontProperties("Fonts/tahoma.ttf",8);     
+ $Test->drawLegend(75,35,$DataSet->GetDataDescription(),255,255,255);     
+ $Test->setFontProperties("Fonts/tahoma.ttf",10);     
+ $Test->drawTitle(60,22,"example 1",50,50,50,585);     
+ $Test->Render("example1.png");        
+?>  
