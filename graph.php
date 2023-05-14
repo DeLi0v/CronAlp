@@ -2,7 +2,7 @@
   <head>
     <link rel="stylesheet" href="Styles/MainStyles.css">
     <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
-    
+
     <!--Load the AJAX API-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -61,7 +61,7 @@
 
         // Create a pie chart, passing some options
         var pieChart = new google.visualization.ChartWrapper({
-          'chartType': 'PieChart',
+          'chartType': 'Bar',
           'containerId': 'chart_div',
           'options': {
             'width': 300,
