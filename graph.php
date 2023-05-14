@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {
-            packages: ['bar']
+            packages: ['corechart']
         });
         var visualization;
 
@@ -18,14 +18,14 @@
 
         function drawVisualization() {
             var container = document.getElementById('visualization_div');
-            visualization = new google.visualization.Bar(container);
+            visualization = new google.visualization.PieChart(container);
             new google.visualization.Query('https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA').
             send(queryCallback);
         }
 
         function queryCallback(response) {
             visualization.draw(response.getDataTable(), {
-                is3D: false
+                is3D: true
             });
         }
 
@@ -66,7 +66,7 @@
 </head>
 
 <body>
-<?php include("head.php"); ?>
+    <?php include("head.php"); ?>
     <div id="toolbar_div"></div>
     <div id="visualization_div" style="width: 270px; height: 200px;"></div>
 </body>
