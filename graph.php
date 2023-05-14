@@ -5,6 +5,7 @@
     </head>
 
     <body>
+        <?php include("head.php") ?>
         <div class="ct-chart ct-golden-section"></div>
         <script>
             new Chartist.Line('.chart1', {
