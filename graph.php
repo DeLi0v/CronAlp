@@ -1,7 +1,7 @@
 <?php
   /* Подключаем классы */
-  require_once "../lib/pChart2.1.4/class/pData.class";
-  require_once "../lib/pChart2.1.4/class/pChart.class";
+  require_once "/pChart2.1.4/class/pData.class";
+  require_once "/pChart2.1.4/class/pChart.class";
   $DataSet = new pData(); // Создаём объект pData
   $DataSet->AddPoint(array(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100), "Serie1"); // Загружаем данные графика 1
   $DataSet->AddPoint(array(0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000), "Serie2"); // Загружаем данные графика 2
