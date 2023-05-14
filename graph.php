@@ -47,6 +47,15 @@
         var dashboard = new google.visualization.Dashboard(
             document.getElementById('dashboard_div'));
 
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        var options = {
+          chart: {
+            title: 'Количество выданного оборудования',
+            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
         // Create a range slider, passing some options
         var donutRangeSlider = new google.visualization.ControlWrapper({
           'controlType': 'NumberRangeFilter',
@@ -75,6 +84,7 @@
 
         // Draw the dashboard.
         dashboard.draw(data);
+        chart.draw(data, google.charts.Bar.convertOptions(options));
       }
     </script>
   </head>
