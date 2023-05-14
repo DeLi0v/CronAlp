@@ -47,31 +47,31 @@
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Название', 'Количество'],
           ['10.04.2023', Termite, 2],
-          <?php require_once("connect.php"); // Подключение файла для связи с БД
-            // Подключение к БД
-            $db = new DB_Class();
-            $conn = $db->connect();
-            mysqli_select_db($conn, $db->database);
+        //   <?php require_once("connect.php"); // Подключение файла для связи с БД
+        //     // Подключение к БД
+        //     $db = new DB_Class();
+        //     $conn = $db->connect();
+        //     mysqli_select_db($conn, $db->database);
             
-            // Запрос
-            $sql = "SELECT 
-                        Equepments.EquepmentName name,
-                        count(Services.idEquepment) count,
-                        DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
-                    FROM 
-                        Services
-                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
-                    WHERE
-                        idOperation = '1'
-                    GROUP BY data, name";
+        //     // Запрос
+        //     $sql = "SELECT 
+        //                 Equepments.EquepmentName name,
+        //                 count(Services.idEquepment) count,
+        //                 DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
+        //             FROM 
+        //                 Services
+        //                 JOIN Equepments on Services.idEquepment = Equepments.idEquepment
+        //             WHERE
+        //                 idOperation = '1'
+        //             GROUP BY data, name";
 
-            // Выполняем SQL-запрос
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                echo "['" . $row["data"] . "'," . $row["name"]. ", ". $row["count"] . "],";
-            }
-            } ?>
+        //     // Выполняем SQL-запрос
+        //     $result = mysqli_query($conn, $sql);
+        //     if (mysqli_num_rows($result) > 0) {
+        //         while ($row = mysqli_fetch_assoc($result)) {
+        //         echo "['" . $row["data"] . "'," . $row["name"]. ", ". $row["count"] . "],";
+        //     }
+        //     } ?>
         ]);
 
         // Establish dependencies, declaring that 'filter' drives 'pieChart',
