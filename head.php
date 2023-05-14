@@ -1,3 +1,15 @@
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    var address = document.location.href;
+
+    if(document.getElementById('a').clicked == true)
+    {
+        $('a').removeClass('selected');
+        $("a[href='address']").addClass('selected');
+    }
+
+</script>
+
 <div class="head">
     <h1>Административная панель</h1>
 </div>

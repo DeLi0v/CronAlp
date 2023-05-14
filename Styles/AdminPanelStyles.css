@@ -30,13 +30,11 @@ body.ski_pass-add #nav-ski_pass-add{
 }
 
 /* Выделение кнопки навигации "Услуги" */
-body.services #nav-services,
-body.services > button{
+body.services #nav-services{
     background-color: #4CAF50;
     color: white;
 }
-body.services-add #nav-services-add,
-body.services-add > button{
+body.services-add #nav-services-add{
   background-color: #4CAF50;
   color: white;
 }
