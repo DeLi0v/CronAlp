@@ -51,4 +51,5 @@
             <a id="nav-operations-add" href="/Pages/AdminPanel/Add/OperationTypes.php">Добавить данные</a>
         </div>
     </div>
+    <a href="/graph.php">График</a>
 </div>
