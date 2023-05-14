@@ -49,7 +49,7 @@
 
             var options = {
                 chart: {
-                    title: 'Количество выданного оборудования',
+                    //title: 'Количество выданного оборудования',
                     //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
                 }
             };
@@ -64,7 +64,8 @@
 <body>
     <?php include("head.php"); ?>
     <?php if ($error == 0) { ?>
-        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+        <h2 style="text-align: center;">Количество выданного оборудования на текущий день</h2>
+        <div id="columnchart_material" style="align-content: center; width: 800px; height: 500px;"></div>
     <?php } else { ?>
         <div class="error">На данный момент ни одного оборудования не выдали</div>
     <?php } ?>
