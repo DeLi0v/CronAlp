@@ -23,7 +23,7 @@
             document.getElementById('dashboard_div'));
 
         // Create a range slider, passing some options
-        var donutRangeSlider = new google.visualization.ControlWrapper({
+        var Selector = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
           'containerId': 'filter_div',
           'options': {
@@ -31,21 +31,21 @@
           }
         });
 
-        // Создание 
-        var pieChart = new google.visualization.ChartWrapper({
+        // Создание столбчатого графика
+        var Chart = new google.visualization.ChartWrapper({
           'chartType': 'Bar',
           'containerId': 'chart_div',
           'options': {
             'width': 500,
             'height': 500,
-            'pieSliceText': 'value',
+            //'pieSliceText': 'value',
             'legend': 'right'
           }
         });
 
         // Создание таблицы с данными
         var data = google.visualization.arrayToDataTable([
-          ['Дата','Оборудование', 'Количество'],
+          ['Оборудование', 'Количество'],
           <?php require_once("connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
@@ -68,7 +68,7 @@
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                echo "['" . $row["data"] . "', '" . $row["name"] . "', ". $row["count"] . "],";
+                echo "['" . $row["name"] . "', " . $row["count"] . "],";
             }
             } ?>
         ]);
@@ -76,7 +76,7 @@
         // Establish dependencies, declaring that 'filter' drives 'pieChart',
         // so that the pie chart will only display entries that are let through
         // given the chosen slider range.
-        dashboard.bind(donutRangeSlider, pieChart);
+        dashboard.bind(Selector, Chart);
 
         // Draw the dashboard.
         dashboard.draw(data);
