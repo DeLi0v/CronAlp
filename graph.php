@@ -12,7 +12,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Оборудование', 'Количество'],
+          ['Дата', 'Количество'],
           <?php require_once("connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
@@ -21,21 +21,19 @@
             
             // Запрос
             $sql = "SELECT 
-                        Equepments.EquepmentName name,
                         count(idEquepment) count,
-                        -- DATE_FORMAT(ServiceData, '%d.%m.%Y') data
-                    FROM 
-                        Services
-                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
+                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
+                    FROM Services
                     WHERE
                         idOperation = '1'
-                    GROUP BY data, name";
+                        AND idEquepment = '1'
+                    GROUP BY data";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                echo "['" . $row["name"] . "', ". $row["count"] . "],";
+                echo "['" . $row["data"] . "', ". $row["count"] . "],";
             }
             } ?>
         ]);
