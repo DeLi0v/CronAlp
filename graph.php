@@ -1,74 +1,60 @@
 <html>
-
-<head>
+  <head>
+    <meta charset="utf-8">
+    <title>MySiTe</title>
     <link rel="stylesheet" href="Styles/MainStyles.css">
     <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', {
-            packages: ['corechart']
-        });
-        var visualization;
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
 
-        function draw() {
-            drawVisualization();
-            drawToolbar();
-        }
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Дата', 'Оборудование', 'Количество'],
+          <?php require_once("connect.php"); // Подключение файла для связи с БД
+            // Подключение к БД
+            $db = new DB_Class();
+            $conn = $db->connect();
+            mysqli_select_db($conn, $db->database);
+            
+            // Запрос
+            $sql = "SELECT 
+                        Equepments.EquepmentName name,
+                        count(idEquepment) count,
+                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
+                    FROM 
+                        Services
+                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
+                    WHERE
+                        idOperation = '1'
+                    GROUP BY data, name";
 
-        function drawVisualization() {
-            var container = document.getElementById('visualization_div');
-            visualization = new google.visualization.PieChart(container);
-            new google.visualization.Query('https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA').
-            send(queryCallback);
-        }
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                echo "['" . $row["data"] . "', " . $row["name"] . ", ". $row["count"] . "],";
+            }
+            } ?>
+        ]);
 
-        function queryCallback(response) {
-            visualization.draw(response.getDataTable(), {
-                is3D: true
-            });
-        }
-
-        function drawToolbar() {
-            var components = [{
-                    type: 'igoogle',
-                    datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA',
-                    gadget: 'https://www.google.com/ig/modules/pie-chart.xml',
-                    userprefs: {
-                        '3d': 1
-                    }
-                },
-                {
-                    type: 'html',
-                    datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'
-                },
-                {
-                    type: 'csv',
-                    datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA'
-                },
-                {
-                    type: 'htmlcode',
-                    datasource: 'https://spreadsheets.google.com/tq?key=pCQbetd-CptHnwJEfo8tALA',
-                    gadget: 'https://www.google.com/ig/modules/pie-chart.xml',
-                    userprefs: {
-                        '3d': 1
-                    },
-                    style: 'width: 800px; height: 700px; border: 3px solid purple;'
-                }
-            ];
-
-            var container = document.getElementById('toolbar_div');
-            google.visualization.drawToolbar(container, components);
+        var options = {
+          chart: {
+            title: 'Количество выданного оборудования',
+            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
         };
 
-        google.charts.setOnLoadCallback(draw);
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
     </script>
-</head>
-
-<body>
+  </head>
+  <body>
     <?php include("head.php"); ?>
-    <div id="toolbar_div"></div>
-    <div id="visualization_div" style="width: 270px; height: 200px;"></div>
-</body>
-
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+  </body>
 </html>
