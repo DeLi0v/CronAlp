@@ -28,6 +28,7 @@
     </script>
   </head>
   <body>
+    <?php include("head.php"); ?>
     <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
   </body>
 </html>
