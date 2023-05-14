@@ -69,6 +69,29 @@ background-color: #4CAF50;
 color: white;
 }
 
+.chart{
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+}
+.chart:hover{
+  background-color: #3c7688 ;
+}
+
+body.chart-selected .chart{
+  background-color: #4CAF50;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
 /* Кнопка выпадающего списка */
 .dropbtn {
     background-color: #4C98AF;
