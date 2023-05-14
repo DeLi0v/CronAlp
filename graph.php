@@ -46,6 +46,7 @@
         // Создание таблицы с данными
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Название', 'Количество'],
+          ['10.04.2023', Termite, 2],
           <?php require_once("connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
