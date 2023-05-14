@@ -1,7 +1,7 @@
 <?php  
  // Standard inclusions        
- include("pChart/pData.class");     
- include("pChart/pChart.class");     
+ include("../lib/pChart/pData.class");     
+ include("../lib/pChart/pChart.class");     
    
  // Dataset definition      
  $DataSet = new pData;     
