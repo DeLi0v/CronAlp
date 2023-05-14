@@ -16,7 +16,7 @@
         function drawChart() {
             // Create the data table.
             var data = new google.visualization.DataTable();
-            //data.addColumn('data', 'Дата');
+            data.addColumn('date', 'Дата');
             data.addColumn('string', 'Оборудование');
             data.addColumn('number', 'Количество');
             data.addRows([
@@ -30,20 +30,20 @@
                 $sql = "SELECT 
                             Equepments.EquepmentName name, 
                             count(Services.idEquepment) count,
-                            DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
+                            DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') date
                         FROM 
                             Services
                             JOIN Equepments on Services.idEquepment = Equepments.idEquepment
                         WHERE
                             idOperation = '1'
                             AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y') 
-                        GROUP BY data, name";
+                        GROUP BY date, name";
 
                 // Выполняем SQL-запрос
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "['" . $row["name"] . "', " . $row["count"] . "],";
+                        echo "[" . $row["date"] . ", '" . $row["name"] . "', " . $row["count"] . "],";
                     }
                 } ?>
             ]);
