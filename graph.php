@@ -41,6 +41,7 @@
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "['" . $row["data"] . "', " . $row["count"] . "],";
                     }
+                    $error = 0;
                 } else {
                     $error = 1;
                 } ?>
