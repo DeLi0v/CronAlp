@@ -1,3 +1,4 @@
+<head>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
     var address = document.location.href;
@@ -9,6 +10,7 @@
     }
 
 </script>
+</head>
 
 <div class="head">
     <h1>Административная панель</h1>
