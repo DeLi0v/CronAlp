@@ -80,6 +80,7 @@
   </head>
 
   <body>
+  <?php include("head.php"); ?>
     <!--Div that will hold the dashboard-->
     <div id="dashboard_div">
       <!--Divs that will hold each control and chart-->
