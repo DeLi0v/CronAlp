@@ -3,7 +3,7 @@
 </div>
 <div class="tableHead">
     <div class="dropdown">
-        <button class="services, services-add, dropbtn">Услуги</button>
+        <button class="dropbtn">Услуги</button>
         <div class="dropdown-content">
             <a id="nav-services" href="/Pages/AdminPanel/Select/Services.php">Открыть таблицу</a>
             <a id="nav-services-add" href="/Pages/AdminPanel/Add/Services_1.php">Добавить данные</a>
