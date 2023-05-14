@@ -13,8 +13,27 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Количество'],
-          <?php 
-            require_once("../../connect.php"); // Подключение файла для связи с БД
+          ['2003', 3],
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Количество выданного оборудования',
+            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <?php include("head.php"); ?>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+    <div>
+    <?php require_once("../../connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
             $conn = $db->connect();
@@ -34,27 +53,9 @@
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "[" . $row["data"] . ", ". $row["count"] . "],";
-                }
+                echo "[" . $row["data"] . ", ". $row["count"] . "],";
             }
-          ?>
-        ]);
-
-        var options = {
-          chart: {
-            title: 'Количество выданного оборудования',
-            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-  </head>
-  <body>
-    <?php include("head.php"); ?>
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+            } ?>
+    </div>
   </body>
 </html>
