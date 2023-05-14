@@ -23,7 +23,7 @@
 }
 
 /* Стиль ссылок на панели навигации */
-.tableHead a{
+.tableHead .dropdown a{
     color: #000000;
     text-align: center;
 }

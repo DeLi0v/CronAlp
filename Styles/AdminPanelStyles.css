@@ -76,12 +76,13 @@ color: white;
   font-size: 16px;
   border: none;
   cursor: pointer; 
+  text-decoration: none;
 }
 .chart:hover{
   background-color: #3c7688 ;
 }
 
-body.chart-selected .chart{
+body.chart-selected #selected{
   background-color: #4CAF50;
   color: white;
   position: relative;
@@ -90,6 +91,7 @@ body.chart-selected .chart{
   font-size: 16px;
   border: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 /* Кнопка выпадающего списка */
