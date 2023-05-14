@@ -13,30 +13,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Количество']
-          <?php 
-            require_once("../../connect.php"); // Подключение файла для связи с БД
-            // Подключение к БД
-            $db = new DB_Class();
-            $conn = $db->connect();
-            mysqli_select_db($conn, $db->database);
-            
-            // Запрос
-            $sql = "SELECT 
-                        count(idEquepment) count,
-                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
-                    FROM Services
-                    WHERE
-                        idOperation = '1'
-                        AND idEquepment = '1'
-                    GROUP BY DATE_FORMAT(ServiceData, '%d.%m.%Y')";
-            // Выполняем SQL-запрос
-            $result = mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo ", ['" . $row["data"] . "', ". $row["count"] . "]";
-                }
-            }
-          ?>
+          
         ]);
 
         var options = {
