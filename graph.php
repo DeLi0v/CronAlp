@@ -1,81 +1,21 @@
 <?php
-    // Простая обработка формы
-    if (isset($_POST['orange'], $_POST['apple'], $_POST['banana'], $_POST['tomat'], $_POST['cucumber'], $_POST['potato']))
-	{
-		try {
-			foreach ($_POST as $value)
-			{
-				if (is_numeric($value)) {
-					$value = intval($value)/100;
-				}
-				else {
-					throw new Exception('Вы ввели некорректные данные');
-				}
-			}
-			extract($_POST);
-			$e = 1;
-		}
-		catch (Exception $ex){
-			echo '<b style="color:red">'.$ex->getMessage().'</b>';
-		}
-	}
-            
+  /* Подключаем классы */
+  require_once "../lib/pChart/class/pData.class";
+  require_once "../lib/pChart/class/pChart.class";
+  $DataSet = new pData(); // Создаём объект pData
+  $DataSet->AddPoint(array(0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100), "Serie1"); // Загружаем данные графика 1
+  $DataSet->AddPoint(array(0, 1, 8, 27, 64, 125, 216, 343, 512, 729, 1000), "Serie2"); // Загружаем данные графика 2
+  $DataSet->AddAllSeries(); // Добавить все данные для построения
+  $Test = new pChart(700, 230); // Рисуем графическую плоскость
+  $Test->setFontProperties("Fonts/tahoma.ttf", 8); // Установка шрифта
+  $Test->setGraphArea(50, 30, 585, 200); // Установка области графика
+  $Test->drawFilledRoundedRectangle(7, 7, 693, 223, 5, 240, 240, 240); // Выделяем плоскость прямоугольником
+  $Test->drawRoundedRectangle(5, 5, 695, 225, 5, 230, 230, 230); // Делаем контур графической плоскости
+  $Test->drawGraphArea(255, 255, 255, true); // Рисуем графическую плоскость
+  $Test->drawScale($DataSet->GetData(), $DataSet->GetDataDescription(), SCALE_NORMAL, 150, 150, 150, true, 0, 2); // Рисуем оси и график
+  $Test->drawGrid(4, true, 230, 230, 230, 50); // Рисуем сетку
+  $Test->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription()); // Соединяем точки графика линиями
+  $Test->drawPlotGraph($DataSet->GetData(),$DataSet->GetDataDescription(), 3, 2, 255, 255, 255); // Рисуем точки
+  $Test->drawTitle(50, 22, "MyRusakov.ru", 50, 50, 50, 585); // Выводим заголовок графика
+  $Test->Stroke(); // Выводим график в окно браузера;
 ?>
-
-<!DOCTYPE HTML>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Основы PHP</title>
-<style>
-   /* CSS-стили, формирующие оформление */
-   body div { height:1em; display:inline-block; vertical-align:middle }
-   span { display:inline-block; width:120px }
-   .orange { background:orange }
-   .apple { background:#33CC66 }
-   .banana { background:yellow }
-   .tomat { background:red }
-   .cucumber { background:green }
-   .potato {background:gray }
-   
-</style>
-</head>
-<body>
-<h1>Форма заказа</h1>
-<form method="post">
-    <fieldset>
-    <legend>Фрукты</legend>
-        <label>Апельсины</label>
-        <input name="orange" type="text" maxlength="2" placeholder="кол-во">
-        <label>Яблоки</label>
-        <input name="apple" type="text" maxlength="2" placeholder="кол-во">
-        <label>Бананы</label>
-        <input name="banana" type="text" maxlength="2" placeholder="кол-во">
-   </fieldset>    
-   <fieldset>
-    <legend>Овощи</legend>
-        <label>Помидоры</label>
-        <input name="tomat" type="text" maxlength="2" placeholder="кол-во">
-        <label>Огурцы</label>
-        <input name="cucumber" type="text" maxlength="2" placeholder="кол-во">
-        <label>Картошка</label>
-        <input name="potato" type="text" maxlength="2" placeholder="кол-во">
-   </fieldset>  
-    <input type="submit" value="Заказать">
-</form>
-
-<?php
-// Вывести результаты заказа
-if (isset($e))
-echo <<<EOT
-   <h2>Вы заказали: </h2>
-   <span>Апельсины: </span><div class="orange" style="width:{$orange}%"></div><br>
-   <span>Яблоки: </span><div class="apple" style="width:{$apple}%"></div><br>
-   <span>Бананы: </span><div class="banana" style="width:{$banana}%"></div><br>
-   <span>Помидоры: </span><div class="tomat" style="width:{$tomat}%"></div><br>
-   <span>Огурцы: </span><div class="cucumber" style="width:{$cucumber}%"></div><br>
-   <span>Картошка: </span><div class="potato" style="width:{$potato}%"></div><br>
-EOT;
-?>
-</body>
-</html>
