@@ -52,4 +52,5 @@
         </div>
     </div>
     <a href="/graph.php">График</a>
+    <a href="/graph.php">PHP info</a>
 </div>
