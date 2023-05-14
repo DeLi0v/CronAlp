@@ -16,7 +16,7 @@
         function drawChart() {
             // Create the data table.
             var data = google.visualization.arrayToDataTable([
-                ['Дата', 'Количество'],
+                ['Оборудование', 'Количество'],
                 <?php require_once("connect.php"); // Подключение файла для связи с БД
                 // Подключение к БД
                 $db = new DB_Class();
@@ -39,7 +39,7 @@
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-                        echo "['" . $row["data"] . "', " . $row["count"] . "],";
+                        echo "['" . $row["name"] . "', " . $row["count"] . "],";
                     }
                     $error = 0;
                 } else {
