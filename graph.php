@@ -20,14 +20,17 @@
             mysqli_select_db($conn, $db->database);
             
             // Запрос
-            $sql = "SELECT
-                        Equepments.EquepmentName name,
+            $sql = "SELECT 
+                        Equepments.EquepmentName name, 
                         count(Services.idEquepment) count,
                         DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
                     FROM 
-                        Equepments
-                        LEFT JOIN Services on Services.idEquepment = Equepments.idEquepment AND Services.idOperation = '1'
-                    GROUP BY name, data";
+                        Services
+                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
+                    WHERE
+                        idOperation = '1'
+                        AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y') 
+                    GROUP BY data, name";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
