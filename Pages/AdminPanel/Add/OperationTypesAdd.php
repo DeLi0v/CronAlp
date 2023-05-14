@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
-<body class="equepmentCat-add">
+<body class="operations-add">
 <?php include("../../../head.php"); ?>
 <?php
 if (isset($_POST["Name"])) {
