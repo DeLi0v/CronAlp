@@ -13,27 +13,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Дата', 'Количество'],
-          ['2003', 3],
-        ]);
-
-        var options = {
-          chart: {
-            title: 'Количество выданного оборудования',
-            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-          }
-        };
-
-        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-      }
-    </script>
-  </head>
-  <body>
-    <?php include("head.php"); ?>
-    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-    <div>
-    <?php require_once("../../connect.php"); // Подключение файла для связи с БД
+          <?php require_once("connect.php"); // Подключение файла для связи с БД
             // Подключение к БД
             $db = new DB_Class();
             $conn = $db->connect();
@@ -56,6 +36,23 @@
                 echo "[" . $row["data"] . ", ". $row["count"] . "],";
             }
             } ?>
-    </div>
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Количество выданного оборудования',
+            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <?php include("head.php"); ?>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
   </body>
 </html>
