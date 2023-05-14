@@ -21,15 +21,13 @@
             
             // Запрос
             $sql = "SELECT
-                        Equepments.EquepmentName name, 
-                        count(Services.idEquepment) count
-                        -- DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
+                        Equepments.EquepmentName name,
+                        count(Services.idEquepment) count,
+                        DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
                     FROM 
-                        Services
-                        JOIN Equepments on Services.idEquepment = Equepments.idEquepment
-                    WHERE
-                        Services.idOperation = '1'
-                    GROUP BY name";
+                        Equepments
+                        LEFT JOIN Services on Services.idEquepment = Equepments.idEquepment AND Services.idOperation = '1'
+                    GROUP BY name, data";
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
