@@ -26,7 +26,7 @@
                 // Запрос
                 $sql = "SELECT 
                             Equepments.EquepmentName name, 
-                            count(Services.idEquepment) count,
+                            count(Services.idEquepment) count
                         FROM 
                             Services
                             JOIN Equepments on Services.idEquepment = Equepments.idEquepment
