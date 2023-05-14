@@ -21,7 +21,7 @@
             
             // Запрос
             $sql = "SELECT
-                        Equepments.EquepmentName name 
+                        Equepments.EquepmentName name, 
                         count(Services.idEquepment) count,
                         -- DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') data
                     FROM 
