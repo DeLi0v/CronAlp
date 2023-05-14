@@ -4,7 +4,7 @@
     <title>MySiTe</title>
     <link rel="stylesheet" href="Styles/MainStyles.css">
     <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
-    
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
       google.charts.load('current', {'packages':['bar']});
@@ -12,17 +12,37 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses', 'Profit'],
-          ['2014', 1000, 400, 200],
-          ['2015', 1170, 460, 250],
-          ['2016', 660, 1120, 300],
-          ['2017', 1030, 540, 350]
+          ['Дата', 'Количество']
+          <?php 
+            require_once("../../connect.php"); // Подключение файла для связи с БД
+            // Подключение к БД
+            $db = new DB_Class();
+            $conn = $db->connect();
+            mysqli_select_db($conn, $db->database);
+            
+            // Запрос
+            $sql = "SELECT 
+                        count(idEquepment) count,
+                        DATE_FORMAT(ServiceData, '%d.%m.%Y') data
+                    FROM Services
+                    WHERE
+                        idOperation = '1'
+                        AND idEquepment = '1'
+                    GROUP BY DATE_FORMAT(ServiceData, '%d.%m.%Y')";
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo ", ['" . $row["data"] . "', ". $row["count"] . "]";
+                }
+            }
+          ?>
         ]);
 
         var options = {
           chart: {
-            title: 'Company Performance',
-            subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+            title: 'Количество выданного оборудования',
+            //subtitle: 'Sales, Expenses, and Profit: 2014-2017',
           }
         };
 
