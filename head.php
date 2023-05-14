@@ -1,18 +1,3 @@
-<head>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript">
-    var address = document.location.href;
-
-    if(document.getElementById('a').onclick == true)
-    {
-        alert("The button was pressed");
-        $('a').removeClass('selected');
-        $("a[href='address']").addClass('selected');
-    }
-
-</script>
-</head>
-
 <div class="head">
     <h1>Административная панель</h1>
 </div>
