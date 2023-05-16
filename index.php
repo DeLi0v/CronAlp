@@ -46,7 +46,7 @@
                 document.getElementById("prevBtn").style.display = "inline";
             }
             if (n == (x.length - 1)) {
-                document.getElementById("nextBtn").innerHTML = "Далее";
+                document.getElementById("nextBtn").innerHTML = "Подтвердить";
             } else {
                 document.getElementById("nextBtn").innerHTML = "Далее";
             }
