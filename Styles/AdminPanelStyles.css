@@ -93,6 +93,17 @@ body.chart-selected #selected{
   text-decoration: none;
 }
 
+.chart > a,
+.bron > a {
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+  text-decoration: none;
+}
+
 .bron{
   background-color: #4C98AF;
   color: white;
