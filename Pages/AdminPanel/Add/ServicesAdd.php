@@ -99,8 +99,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
                 WHERE 
                     Services.idOperation = '6'
                     AND Services.idClient = '$client'
-                    AND Services.idEquepment = '$equepment'
-                    AND Services.idEquepment = '$data';";
+                    AND Services.idEquepment = '$equepment';";
         // Выполняем SQL-запрос
         $result = mysqli_query($conn, $sql);
         while($object = mysqli_fetch_object($result)){
