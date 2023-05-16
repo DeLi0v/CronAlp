@@ -28,7 +28,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     $operation = $_SESSION['operation'];
     $newSkiPass = $_SESSION['newSkiPass'];
     
-    if ($operation == "1" || $operation == "2") { // Выдача или прием оборудования       
+    if ($operation == "1" || $operation == "2" || $operation == "7") { // Выдача или прием оборудования       
         $equepment = $conn->real_escape_string($_POST["Equepment"]);
         $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
                 VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null);";
@@ -87,6 +87,35 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
 
     if($operation == "4") {
         $sql ="UPDATE Ski_pass SET Balance = Balance + $total WHERE (idSki_pass = $skiPass);";
+        if(!$conn->query($sql)){
+            echo "Ошибка: " . $conn->error;    
+        }
+    }
+    if($operation == "7") {
+        $sql = "SELECT 
+                    Services.idService id,
+                    Equepments.idEquepment idEquepment,
+                    Equepments.EquepmentName EquepmentName,
+                    EquepmentCategories.CategoryName Category,
+                    ifnull(Services.ServiceData,NOW()) ServiceData
+                FROM 
+                    Services
+                    RIGHT join Equepments on Equepments.idEquepment = Services.idEquepment
+                    join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
+                WHERE 
+                    Services.idOperation = '6'
+                    AND Services.idClient = '$client'
+                    AND Services.idEquepment = '$equepment'
+                    AND Services.idEquepment = '$data'
+                    AND Services.idStaff = '$staff'
+                ORDER BY idEquepment;";
+        // Выполняем SQL-запрос
+        $result = mysqli_query($conn, $sql);
+        while($object = mysqli_fetch_object($result)){
+            $id = $object->id;
+        }
+
+        $sql ="DELETE FROM Services WHERE (idService = $id);";
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;    
         }

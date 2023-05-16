@@ -250,6 +250,39 @@
                     <input type=\"number\" name=\"total\"/>
                   </li>";
 
+        } elseif ($operation == "7") { // Выдача брони
+            
+            echo "<li class=\"form-row\">
+                    <label for=\"Equepment\">Оборудование:</label>";  
+            
+            // Формируем SQL-запрос
+            $sql = "SELECT 
+                        Services.idService id,
+                        Equepments.idEquepment idEquepment,
+                        Equepments.EquepmentName EquepmentName,
+                        EquepmentCategories.CategoryName Category,
+                        ifnull(Services.ServiceData,NOW()) ServiceData
+                    FROM 
+                        Services
+                        RIGHT join Equepments on Equepments.idEquepment = Services.idEquepment
+                        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
+                    WHERE 
+                        Services.idOperation = '6'
+                        AND Services.idClient = '$client'
+                    ORDER BY idEquepment;";
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            /*Выпадающий список*/
+            echo "<select name=\"Equepment\">";
+            
+            while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
+            }
+
+            echo "</select>
+                </li>";
         }
 
         echo "<li class=\"form-row\" style=\"justify-content: space-between;\">

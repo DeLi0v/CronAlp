@@ -26,7 +26,7 @@
                 <label for="Staff">Сотрудник:</label>
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM Staff";
+                    $sql = "SELECT * FROM Staff WHERE idStaff <> '1';";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
@@ -64,7 +64,7 @@
                 <label for="Operation">Вид услуги:</label>
                 <?php 
                     // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM OperationTypes";
+                    $sql = "SELECT * FROM OperationTypes WHERE idOperationType <> \"6\"";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
