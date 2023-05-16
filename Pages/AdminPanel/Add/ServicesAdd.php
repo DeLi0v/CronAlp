@@ -108,6 +108,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
         }
 
         $sql ="DELETE FROM Services WHERE (idService = $id);";
+        mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;    
         }
