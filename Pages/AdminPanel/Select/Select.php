@@ -50,7 +50,8 @@ if($table == 'Ski_pass') {
                 left join Clients on Clients.idClient = Services.idClient
                 left join Staff on Staff.idStaff = Services.idStaff
                 left join OperationTypes on OperationTypes.idOperationType = Services.idOperation
-                left join Equepments on Equepments.idEquepment = Services.idEquepment;";
+                left join Equepments on Equepments.idEquepment = Services.idEquepment
+            ORDER BY ServiceData desc;";
 } elseif($table == 'Bron') {
     $sql = "SELECT 
                 Services.idService id,
