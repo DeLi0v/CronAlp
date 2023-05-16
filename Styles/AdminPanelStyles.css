@@ -69,6 +69,7 @@ background-color: #4CAF50;
 color: white;
 }
 
+
 .chart:hover{
   background-color: #3c7688 ;
 }
@@ -95,8 +96,8 @@ body.chart-selected #selected{
   text-decoration: none;
 }
 
-.chart:hover > a,
-.bron:hover > a{
+
+.bron:hover{
   background-color: #3c7688 ;
 }
 body.bron-selected #bron-selected{
