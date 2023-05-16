@@ -12,20 +12,33 @@
     <?php include "head.php"; ?>
     <form id="regForm" action="textformzakaza.php" method="post">
 
-        <h1>Register:</h1>
+        <h1>Бронирование оборудования:</h1>
 
         <!-- One "tab" for each step in the form: -->
         <div class="tab">Введите данные о себе:
-            <p><input placeholder="Фамилия..." name="Surname"></p>
-            <!-- oninput="this.className = ''"></p> -->
-            <p><input placeholder="Имя..." oninput="this.className = ''"></p>
-            <p><input placeholder="Отчество..." oninput="this.className = ''"></p>
-            <p><input placeholder="Телефон..." oninput="this.className = ''"></p>
+            <p><input name="surname" placeholder="Фамилия..." oninput="this.className = ''"></p>
+            <p><input name="name" placeholder="Имя..." oninput="this.className = ''"></p>
+            <p><input name="otch" placeholder="Отчество..." oninput="this.className = ''"></p>
+            <p><input name="phone" placeholder="Телефон..." oninput="this.className = ''"></p>
+            <p><input name="mail" placeholder="E-mail..." oninput="this.className = ''"></p>
         </div>
 
-        <div class="tab">Login Info:
-            <p><input placeholder="E-mail..." oninput="this.className = ''"></p>
-            <p><input placeholder="Пароль..." oninput="this.className = ''"></p>
+        <div class="tab">Выберите категорию оборудования:
+            <?php 
+                // Формируем SQL-запрос для получения данных из таблицы "users"
+                $sql = "SELECT * FROM EquepmentCategories";
+                // Выполняем SQL-запрос
+                $result = mysqli_query($conn, $sql);
+                
+                /*Выпадающий список*/
+                echo "<select name=\"Category\">";
+                
+                while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->idEquepmentCategory'>$object->CategoryName</option>";
+                }
+                
+                echo "</select>";
+            ?>
         </div>
 
         <div style="overflow:auto;">
@@ -37,8 +50,6 @@
 
         <!-- Circles which indicates the steps of the form: -->
         <div style="text-align:center;margin-top:40px;">
-            <span class="step"></span>
-            <span class="step"></span>
             <span class="step"></span>
             <span class="step"></span>
         </div>
