@@ -1,14 +1,10 @@
 <?
 if ($row["id"] == 1 && $page == "Staff") {
     echo "<td class=\"center\">
-    <form action='#' method=\"post\">
-        <input type=\"image\" name=\"submit\" value=\"Edit\" src=\"/pictures/icons/stop.png\" style=\"max-width: 30px;border: 0;\">
-    </form>
+        <img src=\"/pictures/icons/stop.png\" style=\"max-width: 35px;border: 0;\">
     </td>";
     echo "<td class=\"center\">
-        <form action='#' method=\"post\">
-            <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/stop.png\" style=\"max-width: 25px;border: 0;\">
-        </form>
+        <img src=\"/pictures/icons/stop.png\" style=\"max-width: 35px;border: 0;\">
     </td>";
 } else {
     echo "<td class=\"center\">
