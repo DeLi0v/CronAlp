@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php include "head.php"; ?>
+    <?php include "../head.php"; ?>
     <form class="add" action="/Pages/bronirovanie.php" method="post" style=" margin:auto; width:500px;">
         <h3>Бронирование оборудования:</h3>
         <ul class="wrapper">
@@ -17,7 +17,7 @@
                 <label for="Surname">Категория оборудования:</label>
                 <?php 
                 if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
-                    require_once("connect.php"); // Подключение файла для связи с БД
+                    require_once("../connect.php"); // Подключение файла для связи с БД
 
                     // // Подключение к БД
                     $db = new DB_Class();
