@@ -24,14 +24,14 @@
         </div>
 
         <div class="tab">Выберите категорию оборудования:
-            <?php 
+            <p><?php 
                 require_once("../../../connect.php"); // Подключение файла для связи с БД
 
                 // // Подключение к БД
                 $db = new DB_Class();
                 $conn = $db->connect();
                 mysqli_select_db($conn, $db->database);
-                
+
                 // Формируем SQL-запрос для получения данных из таблицы "users"
                 $sql = "SELECT * FROM EquepmentCategories";
                 // Выполняем SQL-запрос
@@ -45,7 +45,7 @@
                 }
                 
                 echo "</select>";
-            ?>
+            ?></p>
         </div>
 
         <div style="overflow:auto;">
