@@ -23,30 +23,9 @@
             <p><input name="mail" placeholder="E-mail..." oninput="this.className = ''"></p>
         </div>
 
-        <!-- <div class="tab">Выберите категорию оборудования:
-            <p><?php 
-                require_once("../../../connect.php"); // Подключение файла для связи с БД
-
-                // // Подключение к БД
-                $db = new DB_Class();
-                $conn = $db->connect();
-                mysqli_select_db($conn, $db->database);
-
-                // Формируем SQL-запрос для получения данных из таблицы "users"
-                $sql = "SELECT * FROM EquepmentCategories";
-                // Выполняем SQL-запрос
-                $result = mysqli_query($conn, $sql);
-                
-                /*Выпадающий список*/
-                echo "<select name=\"Category\">";
-                
-                while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepmentCategory'>$object->CategoryName</option>";
-                }
-                
-                echo "</select>";
-            ?></p>
-        </div> -->
+        <div class="tab">Выберите категорию оборудования:
+            <p><input name="surname" placeholder="Фамилия..." oninput="this.className = ''"></p>
+        </div>
 
         <div style="overflow:auto;">
             <div style="float:right;">
