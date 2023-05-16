@@ -23,7 +23,7 @@
             <p><input name="mail" placeholder="E-mail..." oninput="this.className = ''"></p>
         </div>
 
-        <div class="tab">Выберите категорию оборудования:
+        <!-- <div class="tab">Выберите категорию оборудования:
             <p><?php 
                 require_once("../../../connect.php"); // Подключение файла для связи с БД
 
@@ -46,7 +46,7 @@
                 
                 echo "</select>";
             ?></p>
-        </div>
+        </div> -->
 
         <div style="overflow:auto;">
             <div style="float:right;">
