@@ -252,7 +252,7 @@
 
         }
 
-        echo "<li class=\"form-row\">
+        echo "<li class=\"form-row\" style=\"justify-content: space-between;\">
                 <a href=\"/Pages/AdminPanel/Add/Services_1.php\">Назад</a>
                 <button type=\"submit\">Добавить</button>
               </li>"; 

@@ -9,9 +9,11 @@
 </head>
 
 <body>
-    <?php include "../head.php"; ?>
-    <form class="add" action="/Pages/bronirovanie.php" method="post" style=" margin:auto; width:500px;">
-        <h3>Бронирование оборудования:</h3>
+    <div class="head">
+        <h1>Горнолыжный курорт "Альпийская крона"</h1>
+    </div>
+    <form class="add" action="/Pages/bronirovanie2.php" method="post" style=" margin:auto; width:500px;">
+        <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Surname">Категория оборудования:</label>
@@ -88,10 +90,10 @@
                     ?>
             </li>
 
-            <li class="form-row">
+            <li class="form-row" style="justify-content: space-between;">
                 <a href="/index.php">Назад</a>
                 <button type="submit">Далее</button>
-            </li>";
+            </li>
 
                 <?php } else {
                     echo "Ошибка";
