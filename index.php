@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <?php include("head.php"); ?>
+    <div class="head">
+        <h1>Горнолыжный курорт "Альпийская крона"</h1>
+    </div>
     <form class="add" action="/Pages/bronirovanie.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
