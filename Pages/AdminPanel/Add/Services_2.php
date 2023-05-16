@@ -136,7 +136,7 @@
                     WHERE 
                         Services.idClient = \"$client\"
                         AND Services.idEquepment IS not NULL
-                        AND Services.idOperation = 1
+                        AND Services.idOperation IN(1,7)
                         AND sec.idOperation IS NULL;"; // вывод если ранее оборудование уже было принято 
 
             // Выполняем SQL-запрос
