@@ -87,10 +87,15 @@
                                     WHERE idOperation in(1,7)
                                     GROUP BY idoperation, idEquepment) sec 
                                     on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
+                        left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
+                                    FROM Services 
+                                    WHERE idOperation = 6
+                                    GROUP BY idoperation, idEquepment) t 
+                                    on Services.idEquepment = t.idEquepment and t.ServiceData > Services.ServiceData
                     WHERE 
                         ifnull(Services.idOperation,2) = 2
-                        AND ifnull(Services.idOperation,2) <> 6
                         AND sec.idOperation IS NULL
+                        AND t.idOperation IS NULL
                     ORDER BY idEquepment;";
 
             // Выполняем SQL-запрос
