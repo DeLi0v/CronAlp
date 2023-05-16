@@ -34,7 +34,7 @@ if (isset($_POST["id"]) && isset($_POST["page"])) {
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
-    } elseif ($page == "Services") {
+    } elseif ($page == "Services" || $page == "broni") {
         $sql = "DELETE FROM Services WHERE (idService = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){
