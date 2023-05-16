@@ -89,6 +89,7 @@
                                     on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
                     WHERE 
                         ifnull(Services.idOperation,2) = 2
+                        AND ifnull(Services.idOperation,2) <> 6
                         AND sec.idOperation IS NULL
                     ORDER BY idEquepment;";
 
