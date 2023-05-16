@@ -335,7 +335,6 @@ function Bron($result){
             <th style=\"width: 0;\">Дата</th>
             <th>Клиент</th>
             <th>Оборудование</th>
-            <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
