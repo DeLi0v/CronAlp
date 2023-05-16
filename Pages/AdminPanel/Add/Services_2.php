@@ -84,7 +84,7 @@
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                         left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
                                     FROM Services 
-                                    WHERE idOperation = 1
+                                    WHERE idOperation in(1,7)
                                     GROUP BY idoperation, idEquepment) sec 
                                     on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
                     WHERE 
