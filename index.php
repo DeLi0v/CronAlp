@@ -23,34 +23,6 @@
             <p><input name="mail" placeholder="E-mail..." oninput="this.className = ''"></p>
         </div>
 
-        <div class="tab">Выберите категорию оборудования:
-            <p>
-                <?php 
-                require_once("../../../connect.php"); // Подключение файла для связи с БД
-
-                // // Подключение к БД
-                $db = new DB_Class();
-                $conn = $db->connect();
-                mysqli_select_db($conn, $db->database);
-
-                // Формируем SQL-запрос для получения данных из таблицы "users"
-                $sql = "SELECT * FROM EquepmentCategories";
-                // Выполняем SQL-запрос
-                $result = mysqli_query($conn, $sql);
-                
-                /*Выпадающий список*/
-                ?>
-                <select name="Category" oninput="this.className = ''">";
-                <?php
-                while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepmentCategory'>$object->CategoryName</option>";
-                }
-                
-                echo "</select>";
-            ?>
-            <input name="surname" placeholder="Фамилия..."></p>
-        </div>
-
         <div style="overflow:auto;">
             <div style="float:right;">
                 <button type="button" id="prevBtn" onclick="nextPrev(-1)">Назад</button>
@@ -59,10 +31,10 @@
         </div>
 
         <!-- Circles which indicates the steps of the form: -->
-        <div style="text-align:center;margin-top:40px;">
+        <!-- <div style="text-align:center;margin-top:40px;">
             <span class="step"></span>
             <span class="step"></span>
-        </div>
+        </div> -->
 
     </form>
     <script>
