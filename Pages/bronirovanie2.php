@@ -45,12 +45,18 @@
                                 join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                                 left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
                                             FROM Services 
-                                            WHERE idOperation = 1
+                                            WHERE idOperation in(1,7)
                                             GROUP BY idoperation, idEquepment) sec 
                                             on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
+                                left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
+                                            FROM Services 
+                                            WHERE idOperation = 6
+                                            GROUP BY idoperation, idEquepment) t 
+                                            on Services.idEquepment = t.idEquepment and t.ServiceData > Services.ServiceData
                             WHERE 
                                 ifnull(Services.idOperation,2) = 2
                                 AND sec.idOperation IS NULL
+                                AND t.idOperation IS NULL
                                 AND Equepments.idCategory = \"$category\"
                             ORDER BY idEquepment;";
 
