@@ -9,7 +9,7 @@
             <a id="nav-services-add" href="/Pages/AdminPanel/Add/Services_1.php">Добавить данные</a>
         </div>
     </div>
-    <a href="/Pages/AdminPanel/Select/broni.php" class="bron" id="selected">Брони</a>
+    <a href="/Pages/AdminPanel/Select/broni.php" class="bron" id="bron-selected">Брони</a>
     <div class="dropdown">
         <button class="dropbtn">Клиенты</button>
         <div class="dropdown-content">

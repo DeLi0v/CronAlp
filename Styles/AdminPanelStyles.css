@@ -105,7 +105,7 @@ body.chart-selected #selected{
 .bron:hover{
   background-color: #3c7688 ;
 }
-body.bron-selected #selected{
+body.bron-selected #bron-selected{
   background-color: #4CAF50;
   color: white;
   position: relative;

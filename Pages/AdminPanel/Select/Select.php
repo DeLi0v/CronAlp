@@ -345,7 +345,6 @@ function Bron($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td class=\"center\">" . $row["data"] . "</td>";
         echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
-        echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
