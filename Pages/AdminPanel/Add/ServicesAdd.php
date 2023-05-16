@@ -93,22 +93,15 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     }
     if($operation == "7") {
         $sql = "SELECT 
-                    Services.idService id,
-                    Equepments.idEquepment idEquepment,
-                    Equepments.EquepmentName EquepmentName,
-                    EquepmentCategories.CategoryName Category,
-                    ifnull(Services.ServiceData,NOW()) ServiceData
+                    Services.idService id
                 FROM 
                     Services
-                    RIGHT join Equepments on Equepments.idEquepment = Services.idEquepment
-                    join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                 WHERE 
                     Services.idOperation = '6'
                     AND Services.idClient = '$client'
                     AND Services.idEquepment = '$equepment'
                     AND Services.idEquepment = '$data'
-                    AND Services.idStaff = '$staff'
-                ORDER BY idEquepment;";
+                    AND Services.idStaff = '$staff';";
         // Выполняем SQL-запрос
         $result = mysqli_query($conn, $sql);
         while($object = mysqli_fetch_object($result)){
