@@ -10,7 +10,7 @@
 
 <body>
     <div class="head">
-        <h1>Горнолыжный курорт "Альпийская крона"</h1>
+        <a href="/index.php" style="text-decoration: none;"><h1>Горнолыжный курорт "Альпийская крона"</h1></a>
     </div>
     <form class="add" action="/Pages/bronirovanie2.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>

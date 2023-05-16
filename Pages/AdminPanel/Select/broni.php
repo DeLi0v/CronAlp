@@ -3,7 +3,7 @@
 
 <?php include("../../../htmlHead.php") ?>
 
-<body class="chart-selected">
+<body class="bron-selected">
     <?php include("../../../head.php"); ?>
     <h3 style="text-align:center;">Список брони</h3>
     <?php

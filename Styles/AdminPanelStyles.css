@@ -81,8 +81,31 @@ color: white;
 .chart:hover{
   background-color: #3c7688 ;
 }
-
 body.chart-selected #selected{
+  background-color: #4CAF50;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bron{
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+  text-decoration: none;
+}
+.bron:hover{
+  background-color: #3c7688 ;
+}
+body.bron-selected #selected{
   background-color: #4CAF50;
   color: white;
   position: relative;
