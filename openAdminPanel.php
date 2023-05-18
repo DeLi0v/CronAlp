@@ -13,8 +13,8 @@
         <h3 style="text-align:center;">Вход в административную панель</h3>
         <ul class="wrapper">
             <li class="form-row">
-                <label for="login">Телефон:</label>
-                <input type="text" name="login" size="20px" />
+                <label for="phone">Телефон:</label>
+                <input type="text" name="phone" size="20px" />
             </li>
             <li class="form-row">
                 <label for="passwd">Пароль:</label>
