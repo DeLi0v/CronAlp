@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>MySiTe</title>
-    <link rel="stylesheet" href="Styles/MainStyles.css">
-    <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
+    <link rel="stylesheet" href="/Styles/MainStyles.css">
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

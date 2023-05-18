@@ -3,7 +3,57 @@
 
 <head>
     <?php include_once("../../MainHead.php") ?>
-    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
+    <!-- <link rel="stylesheet" href="/Styles/AdminPanelStyles.css"> -->
+    <style>
+        .add {
+            margin: auto;
+            width: 500px;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .wrapper {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .form-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+            width: 70%;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 
 <body>
@@ -44,4 +94,4 @@
 
 </body>
 
-</html>  
+</html>
