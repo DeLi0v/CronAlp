@@ -1,5 +1,5 @@
 <div class="head">
-    <h1>Административная панель</h1>
+    <h1><a href="/index.php">Административная панель</a></h1>
 </div>
 <div class="tableHead">
     <div class="dropdown">
