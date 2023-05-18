@@ -43,7 +43,7 @@
                 <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
             <?php }
         } else { header("Location: /openAdminPanel.php"); } 
-    } else { header("Location: /openAdminPanel.php"); } ?>
+    } else { header("Location: /openAdminPanel.php?no=1"); } ?>
 </body>
 
 </html>

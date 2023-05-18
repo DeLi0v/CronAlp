@@ -20,9 +20,11 @@
                 <label for="passwd">Пароль:</label>
                 <input type="password" name="passwd" size="20px" />
             </li>
-            <li class="form-row, error">
+            <?php if($_POST["no"] == 1) { ?>
+            <li class="form-row-error">
                 <label>Неверно введен телефон/пароль</label>
             </li>
+            <?php } ?>
             <li class="form-row">
                 <button type="submit">Войти</button>
             </li>

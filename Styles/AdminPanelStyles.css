@@ -202,7 +202,11 @@ table {
 .form-row > a:hover {
   background: rgb(82, 82, 82);
 }
-.form-row.error {
+.form-row-error {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em 1em .5em 5px;
+  flex: 1;
   color: red;
   font-size: small;
   justify-content: center;
