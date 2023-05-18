@@ -9,8 +9,8 @@
 <body>
     <?php 
     $page = "account"; 
-    if(isset($_POST["no"])){
-        $error = $_POST["no"];
+    if(isset($_GET["no"])){
+        $error = $_GET["no"];
     } else {$error = 0;}?>
     <?php include_once("MainNavigation.php") ?>
     <form class="add" action="/Pages/AdminPanel/adminpanel.php" method="post" style=" margin:auto; width:500px;">
