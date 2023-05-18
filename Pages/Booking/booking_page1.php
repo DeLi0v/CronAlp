@@ -2,16 +2,14 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>MySiTe</title>
-    <link rel="stylesheet" href="/Styles/MainStyles.css">
-    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
+    <?php include_once("../../MainHead.php") ?>
+    <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
 </head>
 
-<body class="staff-add">
-    <?php include("../head.php"); ?>
-    <h3 style="text-align:center;">Добавление сотрудника</h3>
-    <form class="add" action="/Pages/AdminPanel/Add/StaffAdd.php" method="post" style=" margin:auto; width:500px;">
+<body>
+    <?php include_once("../../MainNavigation.php") ?>
+    <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
+        <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Surname">Фамилия:</label>
@@ -27,25 +25,22 @@
             </li>
             <li class="form-row">
                 <label for="Phone">Телефон:</label>
-                <input type="text" name="Phone" size="20px" />
+                <input type="tel" name="Phone" size="20px" />
             </li>
             <li class="form-row">
                 <label for="Mail">Почта:</label>
                 <input type="email" name="Mail" size="20px" />
             </li>
             <li class="form-row">
-                <label for="Mail">Должность:</label>
-                <input type="text" name="Post" size="20px" />
-            </li>
-            <li class="form-row">
                 <label for="Passwd">Пароль:</label>
                 <input type="text" name="Passwd" size="20px" />
             </li>
             <li class="form-row">
-                <button type="submit">Добавить</button>
+                <button type="submit">Дальше</button>
             </li>
         </ul>
     </form>
+
 </body>
 
-</html>
+</html>  

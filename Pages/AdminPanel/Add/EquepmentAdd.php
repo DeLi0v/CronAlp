@@ -9,7 +9,7 @@
 </head>
 
 <body class="equepment-add">
-<?php include("../../../head.php"); ?>
+<?php include("../head.php"); ?>
 <?php
 if (isset($_POST["Name"]) && isset($_POST["Category"])) {
       

@@ -9,7 +9,7 @@
 </head>
 
 <body class="equepmentCat-add">
-    <?php include("../../../head.php"); ?>
+    <?php include("../head.php"); ?>
     <h3 style="text-align:center;">Добавление категории оборудования</h3>
     <form class="add" action="/Pages/AdminPanel/Add/EquepmentCategoriesAdd.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">

@@ -9,7 +9,7 @@
 </head>
 
 <body class="client-add">
-<?php include("../../../head.php"); ?>
+<?php include("../head.php"); ?>
 <?php
 if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
       

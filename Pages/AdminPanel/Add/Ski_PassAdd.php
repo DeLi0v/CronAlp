@@ -9,7 +9,7 @@
 </head>
 
 <body class="ski_pass-add">
-<?php include("../../../head.php"); ?>
+<?php include("../head.php"); ?>
 <?php
 if (isset($_POST["Client"])) {
       

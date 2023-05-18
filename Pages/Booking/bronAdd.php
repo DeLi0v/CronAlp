@@ -2,20 +2,17 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
     <title>Заказ подтвержден</title>
-    <link rel="stylesheet" href="/Styles/MainStyles.css">
+    <?php include_once("../../MainHead.php") ?>
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body class="services">
-    <div class="head">
-        <a href="/index.php" style="text-decoration: none;"><h1>Горнолыжный курорт "Альпийская крона"</h1></a>
-    </div>
+    <?php include_once("../../MainNavigation.php") ?>
     <?php 
         if (isset($_POST["Client"]) && isset($_POST["Equepment"])) {
         
-        require_once("../connect.php"); // Подключение файла для связи с БД
+        require_once("../../connect.php"); // Подключение файла для связи с БД
         // Подключение к БД
         $db = new DB_Class();
         $conn = $db->connect();

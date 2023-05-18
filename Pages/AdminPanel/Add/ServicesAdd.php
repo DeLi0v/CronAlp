@@ -9,7 +9,7 @@
 </head>
 
 <body class="clients-add">
-<?php include("../../../head.php"); ?>
+<?php include("../head.php"); ?>
 <?php
 if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["skiPass"]) || isset($_POST["total"])) {
       

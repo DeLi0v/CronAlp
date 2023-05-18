@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <?php include("../../head.php"); ?>
+    <?php include("head.php"); ?>
     <form class="add" action="/Pages/AdminPanel/Edit.php" method="post" style=" margin:auto; width:500px;">
         <ul class="wrapper">
 

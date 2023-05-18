@@ -9,7 +9,7 @@
 </head>
 
 <body class="services-add">
-    <?php include("../../../head.php"); ?>
+    <?php include("../head.php"); ?>
     <?php 
         require_once("../../../connect.php"); // Подключение файла для связи с БД
 

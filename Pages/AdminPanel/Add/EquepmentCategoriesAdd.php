@@ -9,7 +9,7 @@
 </head>
 
 <body class="equepmentCat-add">
-<?php include("../../../head.php"); ?>
+<?php include("../head.php"); ?>
 <?php
 if (isset($_POST["CategoryName"])) {
       
