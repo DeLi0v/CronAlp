@@ -29,20 +29,19 @@
                     Mail,
                     Passwd
                 FROM
-                    Staff;";
+                    Staff
+                WHERE
+                    Phone = '$phone'
+                    AND Passwd = '$passwd';";
         // Выполняем SQL-запрос
         $result = mysqli_query($conn, $sql);
 
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                if($row["Phone"] == $phone && $row["Passwd"] == $passwd) { ?>
-
-    <?php include("head.php"); ?>
-    <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
-    <?php 
-                }
-            }
+            while ($row = mysqli_fetch_assoc($result)) { ?>
+                <?php include("head.php"); ?>
+                <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
+            <?php }
         } else { header("Location: /openAdminPanel.php"); } 
     } else { header("Location: /openAdminPanel.php"); } ?>
 </body>
