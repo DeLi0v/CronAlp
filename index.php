@@ -9,7 +9,7 @@
 <body>
     <?php $page = "main" ?>
     <?php include_once("MainNavigation.php") ?>
-    
+
     <div class="slideshow-container">
         <!-- Full-width images with number and caption text -->
         <div class="mySlides fade">
@@ -42,10 +42,46 @@
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
     </div>
+    
     <h3 style="text-align: center;">Добро пожаловать на сайт грнолыжного курорта "Альпийская крона!"</h3>
     <p>В данный момент сайт находится в разработке, поэтому работает только часть функций, а дизайн является лишь прототипом.
         <br>В процессе разработки функции и дизайн будут меняться!
     </p>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {
+                slideIndex = 1
+            }
+            if (n < 1) {
+                slideIndex = slides.length
+            }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
 </body>
 
 </html>
