@@ -8,7 +8,7 @@
 
 <body>
     <?php 
-    if (isset($_POST["login"]) && isset($_POST["passwd"])) {
+    if (isset($_POST["phone"]) && isset($_POST["passwd"])) {
         require_once("../../connect.php"); // Подключение файла для связи с БД
 
         // // Подключение к БД
@@ -16,7 +16,7 @@
         $conn = $db->connect();
         mysqli_select_db($conn, $db->database);
         
-        $login = $_POST["login"];
+        $phone = $_POST["phone"];
         $passwd = $_POST["passwd"];
 
         $sql = "SELECT 
@@ -36,7 +36,7 @@
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                if($row["Phone"] == $login && $row["Passwd"] == $passwd) { ?>
+                if($row["Phone"] == $phone && $row["Passwd"] == $passwd) { ?>
 
     <?php include("Pages/AdminPanel/head.php"); ?>
     <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
