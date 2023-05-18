@@ -218,27 +218,32 @@ button:hover {
   }
 }
 
-ul.mainHead {
+ul.topnav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #88A9D4;
 }
-.mainHead li {
+ul.topnav li {
   display: inline;
   float: left;
 }
-.mainHead li a {
+ul.topnav li a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-.mainHead li a:hover {
-  background-color: #111;
+ul.topnav li a:hover {
+  background-color: #6b85a8;
 }
+@media screen and (max-width: 600px){
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+
 .active {
   background-color: #4CAF50;
 }
