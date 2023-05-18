@@ -36,7 +36,7 @@
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
-                if($row["Phone"] == $login && $row["passwd"] == $passwd) { ?>
+                if($row["Phone"] == $login && $row["Passwd"] == $passwd) { ?>
 
     <?php include("Pages/AdminPanel/head.php"); ?>
     <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
