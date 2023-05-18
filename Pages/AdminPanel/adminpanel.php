@@ -38,7 +38,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 if($row["Phone"] == $phone && $row["Passwd"] == $passwd) { ?>
 
-    <?php include("/Pages/AdminPanel/head.php"); ?>
+    <?php include("head.php"); ?>
     <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
     <?php 
                 }
