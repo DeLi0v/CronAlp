@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-<?php include("htmlHead.php") ?>
+<head>
+    <?php include("../../htmlHead.php") ?>
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
+</head>
 
 <body>
     <?php 
     if (isset($_POST["login"]) && isset($_POST["passwd"])) {
-        require_once("connect.php"); // Подключение файла для связи с БД
+        require_once("../../connect.php"); // Подключение файла для связи с БД
 
         // // Подключение к БД
         $db = new DB_Class();
