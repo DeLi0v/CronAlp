@@ -18,7 +18,10 @@
             </li>
             <li class="form-row">
                 <label for="passwd">Пароль:</label>
-                <input type="text" name="passwd" size="20px" />
+                <input type="password" name="passwd" size="20px" />
+            </li>
+            <li class="form-row, error">
+                <label>Неверно введен телефон/пароль</label>
             </li>
             <li class="form-row">
                 <button type="submit">Войти</button>

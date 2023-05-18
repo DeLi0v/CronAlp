@@ -202,6 +202,11 @@ table {
 .form-row > a:hover {
   background: rgb(82, 82, 82);
 }
+.form-row.error {
+  color: red;
+  font-size: small;
+  justify-content: center;
+}
 
 .form-row > input[type=radio] {
   flex: inherit;
