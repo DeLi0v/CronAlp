@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once("../../MainHead.php") ?>
-    <link rel="stylesheet" href="Styles/AdminPanelStyles.css">
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body>
