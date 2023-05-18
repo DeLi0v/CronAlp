@@ -2,11 +2,11 @@
 <html>
 
 <head>
-    <?php include_once("../../MainHead.php") ?>
+    <?php include_once("MainHead.php") ?>
 </head>
 
 <body>
-    <?php include_once("../../MainNavigation.php") ?>
+    <?php include_once("MainNavigation.php") ?>
     <h2>Добро пожаловать на сайт грнолыжного курорта "Альпийская крона!"</h2>
     <p>В данный момент сайт находится в разработке, поэтому работает только часть функций, а дизайн является лишь прототипом. 
         <br>В процессе разработки функции и дизайн будут меняться! 
