@@ -3,46 +3,7 @@
 
 <head>
     <?php include_once("../../MainHead.php") ?>
-    <!-- <link rel="stylesheet" href="/Styles/AdminPanelStyles.css"> -->
-    <style>
-        /*Стили для формы*/
-        form.add {
-            margin: auto;
-            width: 500px;
-        }
-
-        h3 {
-            text-align: center;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        ul.wrapper {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        li.form-row {
-            margin-top: 10px;
-        }
-
-        /*Стили для выпадающего списка*/
-        select {
-            width: 100%;
-            padding: 5px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body>
@@ -127,7 +88,7 @@
             </li>
 
             <li class="form-row" style="justify-content: space-between;">
-                <a href="/index.php">Назад</a>
+                <a href="/index.php" class="back">Назад</a>
                 <button type="submit">Далее</button>
             </li>
 
