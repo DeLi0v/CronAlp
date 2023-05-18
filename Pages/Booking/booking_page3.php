@@ -8,7 +8,7 @@
 
 <body>
     <?php include_once("../../MainNavigation.php") ?>
-    <form class="add" action="/Pages/bronAdd.php" method="post" style=" margin:auto; width:500px;">
+    <form class="add" action="/Pages/Booking/bronAdd.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
             <li class="form-row">
