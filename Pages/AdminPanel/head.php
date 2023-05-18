@@ -2,6 +2,7 @@
     <h1>Административная панель</h1>
 </div>
 <div class="tableHead">
+    <a href="/index.php" class="chart">На главную</a>
     <div class="dropdown">
         <button class="dropbtn">Услуги</button>
         <div class="dropdown-content">
@@ -53,5 +54,4 @@
         </div>
     </div>
     <a href="/Pages/AdminPanel/graph.php" class="chart" id="selected">График</a>
-    <a href="/index.php" class="chart">Главная</a>
 </div>
