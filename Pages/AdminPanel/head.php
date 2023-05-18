@@ -53,5 +53,5 @@
         </div>
     </div>
     <a href="/Pages/AdminPanel/graph.php" class="chart" id="selected">График</a>
-    <a href="/index.php" class="chart">График</a>
+    <a href="/index.php" class="chart">Главная</a>
 </div>
