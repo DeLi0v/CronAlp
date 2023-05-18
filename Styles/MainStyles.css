@@ -236,8 +236,14 @@ ul.topnav li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-ul.topnav li a:hover {
+ul.topnav li a:hover:not(.active) {
   background-color: #6b85a8;
+}
+ul.topnav li.right {
+  float: right;
+}
+ul.topnav li a.active {
+  background-color: #4CAF50;
 }
 @media screen and (max-width: 600px){
   ul.topnav li.right, 

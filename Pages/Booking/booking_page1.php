@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <?php $page = "booking" ?>
     <?php include_once("../../MainNavigation.php") ?>
     <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
