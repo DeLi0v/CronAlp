@@ -72,7 +72,7 @@
         echo "</table>";
         echo "</div>";
     } else {
-        echo "<div style=\"text-align:center;\">На данный момент вы ничего не бронировали</div>";
+        echo "<h3 style=\"text-align:center;\">На данный момент вы ничего не бронировали</h3>";
     }
     ?>
 </body>
