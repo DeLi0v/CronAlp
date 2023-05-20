@@ -82,12 +82,16 @@
 
             </li>
 
-            <li class="form-row" style="justify-content: space-between;">
-                <?php if($login <> 1) { ?>
-                <a href="/Pages/Booking/booking_page1.php" class="back">Назад</a>
-                <?php }?>
-                <button type="submit">Далее</button>
-            </li>
+            <?php if($login <> 1) { ?>
+                <li class="form-row" style="justify-content: space-between;">
+                    <a href="/Pages/Booking/booking_page1.php" class="back">Назад</a>
+                    <button type="submit">Далее</button>
+                </li>
+            <?php } else { ?>
+                <li class="form-row">
+                    <button type="submit">Далее</button>
+                </li>
+            <?php } ?>
 
         </ul>
     </form>

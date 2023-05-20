@@ -73,7 +73,7 @@
             </li>
 
             <li class="form-row" style="justify-content: space-between;">
-                <a href="/index.php">Назад</a>
+                <a href="/Pages/Booking/booking_page1.php">Назад</a>
                 <button type="submit">Забронировать</button>
             </li>
         </ul>
