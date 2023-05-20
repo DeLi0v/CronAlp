@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
 
-<?php include("../../../htmlHead.php") ?>
+<head>
+    <?php include("../../MainHead.php") ?>
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css"> 
+</head>
 
 <body class="bron-selected">
-    <?php include("../head.php"); ?>
+    <?php include("../..MainHead.php"); ?>
     <h3 style="text-align:center;">Список брони</h3>
     <?php
     require_once("../../connect.php"); // Подключение файла для связи с БД
@@ -16,8 +19,6 @@
 
     session_name("account");
     session_start();
-
-    $
 
     $sql = "SELECT 
                 Services.idService id,
@@ -32,10 +33,11 @@
                 left join Equepments on Equepments.idEquepment = Services.idEquepment
             WHERE
                 Services.idOperation = \"6\"
-                Services.idClient = '$_SESSION\['idClient'\]';";
+                AND Services.idClient = '$_SESSION\['idClient'\]';";
     
     // Выполняем SQL-запрос
     $result = mysqli_query($conn, $sql);
+
     // Проверим, есть ли записи в таблице
     if (mysqli_num_rows($result) > 0) {
         echo "<tr>
