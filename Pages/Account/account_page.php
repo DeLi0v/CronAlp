@@ -65,7 +65,7 @@
             echo "<td class=\"center\">" . $row["data"] . "</td>";
             echo "<td>" . $row["clientSurname"] . " " . $row["clientName"] . " " . $row["clientOtch"] . "</td>";
             echo "<td>" . $row["equepment"] . "</td>";
-            include("EditAndDeleteRows.php");
+            include("../AdminPanel/Select/EditAndDeleteRows.php");
             echo "</tr>";
         }
 
