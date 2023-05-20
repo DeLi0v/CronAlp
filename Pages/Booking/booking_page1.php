@@ -34,7 +34,7 @@
             </li>
             <li class="form-row">
                 <label for="Passwd">Пароль:</label>
-                <input type="text" name="Passwd" size="20px" />
+                <input type="password" name="Passwd" size="20px" />
             </li>
             <li class="form-row">
                 <button type="submit">Дальше</button>

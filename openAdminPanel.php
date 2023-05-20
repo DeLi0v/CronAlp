@@ -10,8 +10,8 @@
     <?php 
     $page = "account"; 
     if(isset($_GET["no"])){
-        $error = $_GET["no"];
-    } else {$error = 0;}?>
+        $err = $_GET["no"];
+    } else {$err = 0;}?>
     <?php include_once("MainNavigation.php") ?>
     <form class="add" action="/Pages/AdminPanel/adminpanel.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Вход в административную панель</h3>
@@ -24,7 +24,7 @@
                 <label for="passwd">Пароль:</label>
                 <input type="password" name="passwd" size="20px" />
             </li>
-            <?php if($error == 1) { ?>
+            <?php if($err == 1) { ?>
             <li class="form-row-error">
                 <label>Неверно введен телефон/пароль</label>
             </li>
