@@ -92,7 +92,7 @@
         } elseif ($inClinets == 0 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/AdminPanel/adminpanel.php");               
-        }
+        } else { header("Location: /Pages/Account/account.php?no=1"); }
     } else { header("Location: /Pages/Account/account.php?no=1"); } ?>
 </body>
 
