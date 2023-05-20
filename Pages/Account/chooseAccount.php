@@ -15,10 +15,12 @@
     <?php include_once("../../MainNavigation.php") ?>
     <h3 style="text-align: center;">Выбери куда зайти!</h3>
     <div>
-        <ul class="choose">
+        <a class="choose" href="/Pages/Account/account_page.php">Личный кабинет клиента</a>
+        <a class="choose" href="/Pages/AdminPanel/adminpanel.php">Административная панель</a>
+        <!-- <ul class="choose">
             <li><a href="/Pages/Account/account_page.php">Личный кабинет клиента</a></li>
             <li><a href="/Pages/AdminPanel/adminpanel.php">Административная панель</a></li>
-        </ul>
+        </ul> -->
     </div>
 
 </body>
