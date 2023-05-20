@@ -3,14 +3,14 @@
 <html>
 
 <head>
-    <?php include("MainHead.php") ?>
+    <?php include("../../MainHead.php") ?>
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body>
     <?php 
     if (isset($_POST["phone"]) && isset($_POST["passwd"])) {
-        require_once("connect.php"); // Подключение файла для связи с БД
+        require_once("../../connect.php"); // Подключение файла для связи с БД
 
         // // Подключение к БД
         $db = new DB_Class();
