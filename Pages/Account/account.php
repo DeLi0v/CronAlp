@@ -21,7 +21,9 @@
             } else {
                 $LogIn = $_SESSION["LogIn"];
             }
-        } else { $_SESSION["LogIn"] = 0; $LogIn = 0; }
+        } else { $_SESSION["LogIn"] = 0; }
+
+        $LogIn = $_SESSION["LogIn"];
 
     } else {$err = 0;}?>
     <?php if($LogIn == 0) { ?>
