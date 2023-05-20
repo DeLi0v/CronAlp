@@ -7,7 +7,7 @@
       <?php 
       session_name("account");
       session_start();
-      if (isset($_SESSION["LogIn"]) && $_SESSION("LogIn") == 1) { 
+      if (isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) { 
       ?>
       <li class="right">
         <a href="/Pages/Account/logout.php"><img src="/pictures/icons/logout.png" style="max-width: 25px;border: 0;"></a>
