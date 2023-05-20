@@ -14,7 +14,7 @@
     ?>
 
     <?php include_once("../../MainNavigation.php") ?>
-    
+
     <form class="add" action="/Pages/Booking/booking_page3.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
@@ -27,9 +27,6 @@
                 $db = new DB_Class();
                 $conn = $db->connect();
                 mysqli_select_db($conn, $db->database);
-
-                session_name("account");
-                session_start();
 
                 if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
                     $id = $_SESSION["idClient"];
