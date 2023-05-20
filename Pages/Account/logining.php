@@ -30,10 +30,10 @@
 
         if ($_SESSION["LogIn"] == 1) {
             $phone = $_SESSION["phone"];
-            $phone = $_SESSION["passwd"];
+            $passwd = $_SESSION["passwd"];
         } else {
             $phone = $_POST["phone"];
-            $phone = $_POST["passwd"];
+            $passwd = $_POST["passwd"];
         }
         $inStaff = 0;
         $inClients = 0;
