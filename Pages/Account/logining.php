@@ -9,33 +9,31 @@
 
 <body>
     <?php 
+    
+    require_once("../../connect.php"); // Подключение файла для связи с БД
+
+    // // Подключение к БД
+    $db = new DB_Class();
+    $conn = $db->connect();
+    mysqli_select_db($conn, $db->database);
+
     session_name("account");
     session_start();
 
-    if (isset($_POST["phone"]) && isset($_POST["passwd"]) || isset($_SESSION["LogIn"])) {
-        
-        require_once("../../connect.php"); // Подключение файла для связи с БД
+    $logining = 0;
+    $inStaff = 0;
+    $inClients = 0;
 
-        // // Подключение к БД
-        $db = new DB_Class();
-        $conn = $db->connect();
-        mysqli_select_db($conn, $db->database);
-
-        if (isset($_SESSION["LogIn"])) {
-            if ($_SESSION["LogIn"] == 1) {
-                $phone = $_SESSION["phone"];
-                $passwd = $_SESSION["passwd"];
-            } else {
-                $phone = $_POST["phone"];
-                $passwd = $_POST["passwd"];
-            }
-        } else {
-            $phone = $_POST["phone"];
-            $passwd = $_POST["passwd"];
-        }
-        $inStaff = 0;
-        $inClients = 0;
-
+    if (isset($_POST["phone"]) && isset($_POST["passwd"])) {
+        $logining = 1;
+        $phone = $_POST["phone"];
+        $passwd = $_POST["passwd"];
+    } elseif (isset($_SESSION["LogIn"]) && isset($_SESSION["phone"]) && isset($_SESSION["passwd"])) {
+        $logining = 1;
+        $phone = $_POST["phone"];
+        $passwd = $_POST["passwd"];    
+    }
+    if ($logining == 1) {
         $sql = "SELECT 
                     idStaff id,
                     StaffSurname surname,
