@@ -9,7 +9,7 @@
 
 <body>
     <?php 
-    if (isset($_POST["phone"]) && isset($_POST["passwd"])) {
+    if ((isset($_POST["phone"]) && isset($_POST["passwd"])) || isset($_SESSION["LogIn"])) {
         require_once("../../connect.php"); // Подключение файла для связи с БД
 
         // // Подключение к БД
@@ -20,17 +20,17 @@
         session_name("account");
         session_start();
 
-        if (isset($_SESSION["LogIn"])) {
+        // if (isset($_SESSION["LogIn"])) {
             if ($_SESSION["LogIn"] <> 1) {
                 $_SESSION["LogIn"] = 0;
                 $_SESSION["phone"] = $_POST["phone"];
                 $_SESSION["passwd"] = $_POST["passwd"];
             }
-        } else {
-            $_SESSION["LogIn"] = 0;
-            $_SESSION["phone"] = $_POST["phone"];
-            $_SESSION["passwd"] = $_POST["passwd"];
-        }
+        // } else {
+        //     $_SESSION["LogIn"] = 0;
+        //     $_SESSION["phone"] = $_POST["phone"];
+        //     $_SESSION["passwd"] = $_POST["passwd"];
+        // }
 
         $phone = $_SESSION["phone"];
         $phone = $_SESSION["passwd"];
