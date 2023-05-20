@@ -40,7 +40,6 @@
                     $otch = $conn->real_escape_string($_POST["Otch"]);
                     $phone = $conn->real_escape_string($_POST["Phone"]);
                     $mail = $conn->real_escape_string($_POST["Mail"]);
-                    $passwd = $conn->real_escape_string($_POST["Passwd"]);
 
                     $sql = "SELECT * 
                             FROM Clients
@@ -61,6 +60,8 @@
                             $id = $row["idClient"];
                         }
                     } 
+                } elseif (isset($_GET["id"])) { 
+                    $id = $_GET["id"];
                 } else { header("Location: /Pages/Booking/booking_page1.php"); }
 
                 // Формируем SQL-запрос
