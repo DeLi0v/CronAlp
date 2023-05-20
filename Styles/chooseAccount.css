@@ -13,6 +13,6 @@
     border-radius: 10px;
 }
 
-.choose:hover {
+.choose a:hover {
     background-color: #707070;
 }
