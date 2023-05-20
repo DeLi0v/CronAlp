@@ -51,7 +51,7 @@
             </ul>
         </form>
     <?php } else {
-        header("Location: account_page.php");
+        header("Location: logining.php");
     } ?>
 </body>
 

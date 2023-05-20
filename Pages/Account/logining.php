@@ -25,10 +25,17 @@
         session_name("account");
         session_start();
 
+        if (isset($_SESSION["LogIn"])) {
+            if ($_SESSION["LogIn"] <> 1) {
+                $_SESSION["LogIn"] = 0;
+            }
+        } else {
+            $_SESSION["LogIn"] = 0;
+        }
+
         $_SESSION["phone"] = $phone;
         $_SESSION["passwd"] = $passwd;
-        $_SESSION["LogIn"] = 0;
-
+        
         $sql = "SELECT 
                     idStaff id,
                     StaffSurname surname,
