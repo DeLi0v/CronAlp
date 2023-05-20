@@ -1,11 +1,18 @@
 .choose {
-    display: block;
-    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.choose a {
+    color: #ffffff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    background-color: #808080;
+    margin: 0px 10px;
+    border-radius: 10px;
 }
 
-.choose:hover:not(.active) {
-    background-color: gray;
+.choose:hover {
+    background-color: #707070;
 }
