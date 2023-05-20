@@ -7,13 +7,14 @@
 </head>
 
 <body>
-    <?php $page = "booking" ?>
-    <?php include_once("../../MainNavigation.php") ?>
-
     <?php 
     session_name("account");
     session_start();
+    $page = "booking" ?>
+    
+    <?php include_once("../../MainNavigation.php") ?>
 
+    <?php 
     if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
         header("Location: /Pages/Booking/booking_page2.php");
     } else { ?>

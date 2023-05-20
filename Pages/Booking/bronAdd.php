@@ -8,7 +8,11 @@
 </head>
 
 <body class="services">
-    <?php $page = "booking" ?>
+    <?php     
+    session_name("account");
+    session_start();
+    $page = "booking" 
+    ?>
     <?php include_once("../../MainNavigation.php") ?>
     <?php 
         if (isset($_POST["Client"]) && isset($_POST["Equepment"])) {

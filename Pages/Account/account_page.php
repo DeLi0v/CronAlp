@@ -7,7 +7,10 @@
 </head>
 
 <body class="bron-selected">
-    <?php $page = "account"; ?>
+    <?php     
+    session_name("account");
+    session_start();
+    $page = "account"; ?>
     <?php include("../../MainNavigation.php"); ?>
     <?php
     require_once("../../connect.php"); // Подключение файла для связи с БД
@@ -16,9 +19,6 @@
     $db = new DB_Class();
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
-
-    session_name("account");
-    session_start();
 
     $id = $_SESSION['idClient'];
 

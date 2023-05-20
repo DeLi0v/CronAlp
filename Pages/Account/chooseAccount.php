@@ -9,6 +9,8 @@
 <body>
 
     <?php
+    session_name("account");
+    session_start();
     $page = "account";
     ?>
 
@@ -17,10 +19,6 @@
     <div class="choose">
         <a href="/Pages/Account/account_page.php">Личный кабинет клиента</a>
         <a href="/Pages/AdminPanel/adminpanel.php">Административная панель</a>
-        <!-- <ul class="choose">
-            <li><a href="/Pages/Account/account_page.php">Личный кабинет клиента</a></li>
-            <li><a href="/Pages/AdminPanel/adminpanel.php">Административная панель</a></li>
-        </ul> -->
     </div>
 
 </body>
