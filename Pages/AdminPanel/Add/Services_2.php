@@ -173,7 +173,7 @@
             left join (SELECT idoperation, idEquepment, ServiceData 
                         FROM Services 
                         WHERE idClient = \"$client\" AND idEquepment IS not NULL AND idOperation in(2,3)) sec 
-                        on Services.idEquepment = sec.idEquepment and sec.ServiceData < Services.ServiceData
+                        on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
         WHERE 
             Services.idClient = \"$client\"
             AND Services.idEquepment IS not NULL
