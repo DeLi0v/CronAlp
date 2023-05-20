@@ -15,7 +15,7 @@
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Name">Наименование:</label>
-                <input type="text" name="Name" size="20px" />
+                <input type="text" name="Name" size="20px" required/>
             </li>
             <li class="form-row">
                 <button type="submit">Добавить</button>

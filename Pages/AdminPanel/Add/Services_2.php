@@ -195,7 +195,7 @@
             
             echo "<li class=\"form-row\">
                     <label for=\"total\">Сумма:</label>
-                    <input type=\"number\" name=\"total\"/>
+                    <input type=\"number\" name=\"total\" required/>
                   </li>";
 
         } elseif ($operation == "4") { // Пополнение ski-pass
@@ -235,7 +235,7 @@
 
             echo "<li class=\"form-row\">
                     <label for=\"total\">Сумма:</label>
-                    <input type=\"number\" name=\"total\"/>
+                    <input type=\"number\" name=\"total\" required/>
                   </li>";
 
         } elseif ($operation == "7") { // Выдача брони
