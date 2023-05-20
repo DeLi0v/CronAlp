@@ -35,6 +35,7 @@
         $phone = $_SESSION["phone"];
         $passwd = $_SESSION["passwd"];    
     }
+
     if ($logining == 1) {
         $sql = "SELECT 
                     idStaff id,
@@ -55,9 +56,7 @@
 
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) { 
-                $inStaff = 1;
-            } 
+            $inStaff = 1;
         } 
 
         $sql = "SELECT 
@@ -78,9 +77,7 @@
 
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) { 
-                $inClients = 1;
-            } 
+            $inClients = 1;
         } 
 
         if($inClinets == 1 && $inStaff == 1) {
@@ -92,7 +89,7 @@
         } elseif ($inClinets == 0 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/AdminPanel/adminpanel.php");               
-        } else { header("Location: /Pages/Account/account.php?no=1"); }
+        } //else { header("Location: /Pages/Account/account.php?no=1"); }
     } else { header("Location: /Pages/Account/account.php?no=1"); } ?>
 </body>
 
