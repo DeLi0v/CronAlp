@@ -7,7 +7,7 @@
 </head>
 
 <body class="bron-selected">
-    <?php include("../../MainHead.php"); ?>
+    <?php include("../../MainNavigation.php"); ?>
     <h3 style="text-align:center;">Список брони</h3>
     <?php
     require_once("../../connect.php"); // Подключение файла для связи с БД
@@ -19,6 +19,8 @@
 
     session_name("account");
     session_start();
+
+    $id = $_SESSION['idClient'];
 
     $sql = "SELECT 
                 Services.idService id,
@@ -33,7 +35,7 @@
                 left join Equepments on Equepments.idEquepment = Services.idEquepment
             WHERE
                 Services.idOperation = \"6\"
-                AND Services.idClient = '$_SESSION\['idClient'\]';";
+                AND Services.idClient = '$id';";
 
     // Выполняем SQL-запрос
     $result = mysqli_query($conn, $sql);
