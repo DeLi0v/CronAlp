@@ -177,7 +177,7 @@
         WHERE 
             Services.idClient = \"$client\"
             AND Services.idEquepment IS not NULL
-            AND Services.idOperation = 2";
+            AND sec.idOperation = 2";
             // $sql = "SELECT 
             //             Services.idService endId,
             //             Services.ServiceData endData,
