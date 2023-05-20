@@ -16,11 +16,6 @@
         $db = new DB_Class();
         $conn = $db->connect();
         mysqli_select_db($conn, $db->database);
-        
-        $phone = $_POST["phone"];
-        $passwd = $_POST["passwd"];
-        $inStaff = 0;
-        $inClients = 0;
 
         session_name("account");
         session_start();
@@ -28,14 +23,20 @@
         if (isset($_SESSION["LogIn"])) {
             if ($_SESSION["LogIn"] <> 1) {
                 $_SESSION["LogIn"] = 0;
+                $_SESSION["phone"] = $_POST["phone"];
+                $_SESSION["passwd"] = $_POST["passwd"];
             }
         } else {
             $_SESSION["LogIn"] = 0;
+            $_SESSION["phone"] = $_POST["phone"];
+            $_SESSION["passwd"] = $_POST["passwd"];
         }
 
-        $_SESSION["phone"] = $phone;
-        $_SESSION["passwd"] = $passwd;
-        
+        $phone = $_SESSION["phone"];
+        $phone = $_SESSION["passwd"];
+        $inStaff = 0;
+        $inClients = 0;
+
         $sql = "SELECT 
                     idStaff id,
                     StaffSurname surname,
