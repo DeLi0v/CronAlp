@@ -12,9 +12,9 @@
 
     session_name("account");
     session_start();
-    if($_SESSION["LogIn"] <> 1) {
-        $_SESSION["LogIn"] = 0;
-    }
+    if(isset($_SESSION["LogIn"])) {
+        if ($_SESSION["LogIn"] <> 1) { $_SESSION["LogIn"] = 0; }
+    } else { $_SESSION["LogIn"] = 0; }
     ?>
 
     <?php include_once("MainNavigation.php") ?>
