@@ -1,0 +1,32 @@
+ul.choose {
+    list-style-type: none;
+}
+
+ul.choose li {
+    display: inline;
+    float: left;
+}
+
+ul.choose li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.choose li a:hover:not(.active) {
+    background-color: gray;
+}
+
+ul.choose li a.active {
+    background-color: darkgray;
+}
+
+@media screen and (max-width: 600px) {
+
+    ul.choose li.right,
+    ul.choose li {
+        float: none;
+    }
+}
