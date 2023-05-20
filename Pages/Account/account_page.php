@@ -42,6 +42,12 @@
 
     // Проверим, есть ли записи в таблице
     if (mysqli_num_rows($result) > 0) {
+
+        // Выводим начало таблицы
+        echo "<div>";
+        echo "<table>";
+
+        // Выводим первую строку
         echo "<tr>
             <th style=\"width: 0;\">ID</th>
             <th style=\"width: 0;\">Дата</th>
@@ -60,6 +66,12 @@
             include("EditAndDeleteRows.php");
             echo "</tr>";
         }
+
+        // Выводим конец таблицы
+        echo "</table>";
+        echo "</div>";
+    } else {
+        echo "<div class=\"error\">В таблице нет данных.</div>";
     }
     ?>
 </body>
