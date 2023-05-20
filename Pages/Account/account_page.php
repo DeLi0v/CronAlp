@@ -42,7 +42,6 @@
 
     // Проверим, есть ли записи в таблице
     if (mysqli_num_rows($result) > 0) {
-        $page = "broni";
         echo "<h3 style=\"text-align:center;\">Список брони</h3>";
 
         // Выводим начало таблицы
@@ -51,11 +50,10 @@
 
         // Выводим первую строку
         echo "<tr>
-            <th style=\"width: 0;\">ID</th>
             <th style=\"width: 0;\">Дата</th>
             <th>Клиент</th>
             <th>Оборудование</th>
-            <th style=\"width: 0;\">Удалить</th>
+            <th style=\"width: 0;\">Отменить</th>
         </tr>";
 
         // Выводим данные из таблицы
@@ -65,7 +63,13 @@
             echo "<td class=\"center\">" . $row["data"] . "</td>";
             echo "<td>" . $row["clientSurname"] . " " . $row["clientName"] . " " . $row["clientOtch"] . "</td>";
             echo "<td>" . $row["equepment"] . "</td>";
-            include("../AdminPanel/Select/EditAndDeleteRows.php");
+            echo "<td class=\"center\">
+                    <form action='/Pages/AdminPanel/Delete.php?id=\"".$row["id"]."\"' method=\"post\">
+                        <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
+                        <input type=\"hidden\" name=\"page\" value=\"$page\">
+                        <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 25px;border: 0;\">
+                    </form>
+                </td>";
             echo "</tr>";
         }
 
