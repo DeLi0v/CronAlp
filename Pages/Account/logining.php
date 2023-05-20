@@ -12,14 +12,6 @@
     session_name("account");
     session_start();
 
-    if (isset($_SESSION["LogIn"])) {
-        if ($_SESSION["LogIn"] <> 1) {
-            $_SESSION["LogIn"] = 0;
-        }
-    } else {
-        $_SESSION["LogIn"] = 0;
-    }
-
     if (isset($_POST["phone"]) && isset($_POST["passwd"]) || isset($_SESSION["LogIn"])) {
         
         require_once("../../connect.php"); // Подключение файла для связи с БД
