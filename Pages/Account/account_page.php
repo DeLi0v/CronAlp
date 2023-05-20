@@ -61,10 +61,10 @@
             echo "<td class=\"center\">" . $row["data"] . "</td>";
             echo "<td>" . $row["equepment"] . "</td>";
             echo "<td class=\"center\">
-                    <form action='/Pages/AdminPanel/Delete.php?id=\"".$row["id"]."\"' method=\"post\">
+                    <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
                         <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
                         <input type=\"hidden\" name=\"page\" value=\"$page\">
-                        <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 25px;border: 0;\">
+                        <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 35px;border: 0;padding: 2px 0;padding-top: 4px;\">
                     </form>
                 </td>";
             echo "</tr>";
