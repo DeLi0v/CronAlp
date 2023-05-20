@@ -12,7 +12,8 @@
 
     <?php if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
         header("Location: booking_page2");
-    } else { ?>
+    } else { 
+        echo $_SESSION["LogIn"]; ?>
 
     <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
