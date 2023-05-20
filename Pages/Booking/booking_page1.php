@@ -10,8 +10,14 @@
     <?php 
     session_name("account");
     session_start();
-    $page = "booking" ?>
-    
+    $page = "booking"; 
+
+    if (isset($_GET["no"])) {
+        $err = $_GET["no"];
+    } else {
+        $err = 0;
+    } ?>
+
     <?php include_once("../../MainNavigation.php") ?>
 
     <?php 
@@ -42,10 +48,11 @@
                 <label for="Mail">Почта:</label>
                 <input type="email" name="Mail" size="20px" />
             </li>
-            <li class="form-row">
-                <label for="Passwd">Пароль:</label>
-                <input type="password" name="Passwd" size="20px" />
-            </li>
+            <?php if ($err == 1) { ?>
+                    <li class="form-row-error">
+                        <label>Необходимо заполнить все поля</label>
+                    </li>
+                <?php } ?>
             <li class="form-row">
                 <button type="submit">Дальше</button>
             </li>

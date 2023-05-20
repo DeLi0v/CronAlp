@@ -32,7 +32,7 @@
                     $id = $_SESSION["idClient"];
                     $login = 1;
                 } elseif (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) 
-                            && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
+                            && isset($_POST["Phone"]) && isset($_POST["Mail"])) {
 
                     $surname = $conn->real_escape_string($_POST["Surname"]);
                     $name = $conn->real_escape_string($_POST["Name"]);
@@ -53,16 +53,14 @@
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) == 0) { // Если такого клиента в базе нет, то создаем запись о нем
-                        $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
+                        $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', Null);";
                         mysqli_query($conn, $sql);
                     } elseif (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row["idClient"];
                         }
                     } 
-                } else {
-                    echo "Ошибка";
-                }
+                } else { header("Location: /Pages/Booking/booking_page1.php?no=1"); }
 
                 // Формируем SQL-запрос
                 $sql = "SELECT * FROM EquepmentCategories";
