@@ -16,18 +16,19 @@
                 <label for="Surname">Категория оборудования:</label>
                 
                 <?php
+                require_once("../../connect.php"); // Подключение файла для связи с БД
+                // Подключение к БД
+                $db = new DB_Class();
+                $conn = $db->connect();
+                mysqli_select_db($conn, $db->database);
+
                 session_name("account");
                 session_start();
+                
                 if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
                     $id = $_SESSION["idClient"];
                 } elseif (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) 
                             && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
-                    require_once("../../connect.php"); // Подключение файла для связи с БД
-
-                    // // Подключение к БД
-                    $db = new DB_Class();
-                    $conn = $db->connect();
-                    mysqli_select_db($conn, $db->database);
 
                     $surname = $conn->real_escape_string($_POST["Surname"]);
                     $name = $conn->real_escape_string($_POST["Name"]);

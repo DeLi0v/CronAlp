@@ -15,7 +15,7 @@
     session_start();
 
     if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
-        header("Location: booking_page2");
+        header("Location: /Pages/Booking/booking_page2.php");
     } else { ?>
 
     <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
