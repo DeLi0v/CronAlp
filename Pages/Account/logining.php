@@ -57,6 +57,9 @@
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
             $inStaff = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $_SESSION["idStaff"] = $row["id"];
+            }
         } 
 
         $sql = "SELECT 
@@ -78,6 +81,9 @@
         // Проверим, есть ли записи в таблице
         if (mysqli_num_rows($result) > 0) {
             $inClients = 1;
+            while ($row = mysqli_fetch_assoc($result)) {
+                $_SESSION["idClient"] = $row["id"];
+            }
         } 
 
         if($inClients == 1 && $inStaff == 1) {
