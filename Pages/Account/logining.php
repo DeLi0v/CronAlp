@@ -21,6 +21,7 @@
     }
 
     if (isset($_POST["phone"]) && isset($_POST["passwd"]) || isset($_SESSION["LogIn"])) {
+        
         require_once("../../connect.php"); // Подключение файла для связи с БД
 
         // // Подключение к БД
@@ -28,9 +29,14 @@
         $conn = $db->connect();
         mysqli_select_db($conn, $db->database);
 
-        if ($_SESSION["LogIn"] == 1) {
-            $phone = $_SESSION["phone"];
-            $passwd = $_SESSION["passwd"];
+        if (isset($_SESSION["LogIn"])) {
+            if ($_SESSION["LogIn"] == 1) {
+                $phone = $_SESSION["phone"];
+                $passwd = $_SESSION["passwd"];
+            } else {
+                $phone = $_POST["phone"];
+                $passwd = $_POST["passwd"];
+            }
         } else {
             $phone = $_POST["phone"];
             $passwd = $_POST["passwd"];
