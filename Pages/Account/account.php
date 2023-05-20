@@ -23,10 +23,10 @@
             }
         } else { $_SESSION["LogIn"] = 0; }
 
-        $LogIn = $_SESSION["LogIn"];
+        $log = $_SESSION["LogIn"];
 
     } else {$err = 0;}?>
-    <?php if($LogIn == 0) { ?>
+    <?php if($log == 0) { ?>
         <?php include_once("../../MainNavigation.php") ?>
         <form class="add" action="/Pages/Account/logining.php" method="post" style=" margin:auto; width:500px;">
             <h3 style="text-align:center;">Вход в аккаунт</h3>
