@@ -18,7 +18,7 @@
                 <?php
                 session_name("account");
                 session_start();
-                if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && $_SESSION["idClient"]) {
+                if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
                     $id = $_SESSION["idClient"];
                 } elseif (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) 
                             && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
