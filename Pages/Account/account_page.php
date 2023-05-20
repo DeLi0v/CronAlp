@@ -3,11 +3,11 @@
 
 <head>
     <?php include("../../MainHead.php") ?>
-    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css"> 
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body class="bron-selected">
-    <?php include("../..MainHead.php"); ?>
+    <?php include("../../MainHead.php"); ?>
     <h3 style="text-align:center;">Список брони</h3>
     <?php
     require_once("../../connect.php"); // Подключение файла для связи с БД
@@ -34,7 +34,7 @@
             WHERE
                 Services.idOperation = \"6\"
                 AND Services.idClient = '$_SESSION\['idClient'\]';";
-    
+
     // Выполняем SQL-запрос
     $result = mysqli_query($conn, $sql);
 
@@ -53,7 +53,7 @@
             echo "<tr>";
             echo "<td class=\"center\">" . $row["id"] . "</td>";
             echo "<td class=\"center\">" . $row["data"] . "</td>";
-            echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
+            echo "<td>" . $row["clientSurname"] . " " . $row["clientName"] . " " . $row["clientOtch"] . "</td>";
             echo "<td>" . $row["equepment"] . "</td>";
             include("EditAndDeleteRows.php");
             echo "</tr>";
