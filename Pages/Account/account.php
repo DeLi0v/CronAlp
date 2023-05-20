@@ -16,10 +16,12 @@
         session_start();
         
         if(isset($_SESSION["LogIn"])) {
-            if ($_SESSION["LogIn"] <> 1) { $_SESSION["LogIn"] = 0; }
-        } else { $_SESSION["LogIn"] = 0; }
-
-        $LogIn = $_SESSION["LogIn"];
+            if ($_SESSION["LogIn"] <> 1) { 
+                $_SESSION["LogIn"] = 0; 
+            } else {
+                $LogIn = $_SESSION["LogIn"];
+            }
+        } else { $_SESSION["LogIn"] = 0; $LogIn = 0; }
 
     } else {$err = 0;}?>
     <?php if($LogIn == 0) { ?>
