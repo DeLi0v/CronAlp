@@ -51,7 +51,6 @@
         // Выводим первую строку
         echo "<tr>
             <th style=\"width: 0;\">Дата</th>
-            <th>Клиент</th>
             <th>Оборудование</th>
             <th style=\"width: 0;\">Отменить</th>
         </tr>";
@@ -59,9 +58,7 @@
         // Выводим данные из таблицы
         while ($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
-            echo "<td class=\"center\">" . $row["id"] . "</td>";
             echo "<td class=\"center\">" . $row["data"] . "</td>";
-            echo "<td>" . $row["clientSurname"] . " " . $row["clientName"] . " " . $row["clientOtch"] . "</td>";
             echo "<td>" . $row["equepment"] . "</td>";
             echo "<td class=\"center\">
                     <form action='/Pages/AdminPanel/Delete.php?id=\"".$row["id"]."\"' method=\"post\">
