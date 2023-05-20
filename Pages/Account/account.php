@@ -14,6 +14,11 @@
         
         session_name("account");
         session_start();
+        
+        if(isset($_SESSION["LogIn"])) {
+            if ($_SESSION["LogIn"] <> 1) { $_SESSION["LogIn"] = 0; }
+        } else { $_SESSION["LogIn"] = 0; }
+
         $LogIn = $_SESSION["LogIn"];
 
     } else {$err = 0;}?>
