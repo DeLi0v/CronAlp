@@ -9,6 +9,11 @@
 <body>
     <?php $page = "booking" ?>
     <?php include_once("../../MainNavigation.php") ?>
+
+    <?php if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
+        header("Location: booking_page2");
+    } else { ?>
+
     <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
         <ul class="wrapper">
@@ -41,6 +46,7 @@
             </li>
         </ul>
     </form>
+    <?php } ?>
 
 </body>
 

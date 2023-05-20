@@ -15,8 +15,7 @@
             <li class="form-row">
                 <label for="Surname">Оборудование:</label>
                 <?php 
-                if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) 
-                    && isset($_POST["Passwd"]) && isset($_POST["id"]) && isset($_POST["Category"])) {
+                if (isset($_POST["id"]) && isset($_POST["Category"])) {
                     
                     require_once("../../connect.php"); // Подключение файла для связи с БД
 

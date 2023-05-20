@@ -14,8 +14,14 @@
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Surname">Категория оборудования:</label>
+                
                 <?php
-                if (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
+                session_name("account");
+                session_start();
+                if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && $_SESSION["idClient"]) {
+                    $id = $_SESSION["idClient"];
+                } elseif (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) 
+                            && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
                     require_once("../../connect.php"); // Подключение файла для связи с БД
 
                     // // Подключение к БД
@@ -44,47 +50,34 @@
                     if (mysqli_num_rows($result) == 0) { // Если такого клиента в базе нет, то создаем запись о нем
                         $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
                         mysqli_query($conn, $sql);
-                    }
-
-                    // Получаем id клиента
-                    $sql = "SELECT * 
-                            FROM Clients
-                            WHERE
-                                ClientSurname = \"$surname\"
-                                AND ClientName = \"$name\"
-                                AND ClientOtch = \"$otch\"
-                                AND Phone = \"$phone\"";
-                    // Выполняем SQL-запрос
-                    $result = mysqli_query($conn, $sql);
-
-                    if (mysqli_num_rows($result) > 0) {
+                    } elseif (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row["idClient"];
                         }
-                    }
+                    } 
+                } else {
+                    echo "Ошибка";
+                }
 
-                    // Формируем SQL-запрос для получения данных из таблицы "users"
-                    $sql = "SELECT * FROM EquepmentCategories";
-                    // Выполняем SQL-запрос
-                    $result = mysqli_query($conn, $sql);
+                // Формируем SQL-запрос
+                $sql = "SELECT * FROM EquepmentCategories";
+                
+                // Выполняем SQL-запрос
+                $result = mysqli_query($conn, $sql);
 
-                    /*Выпадающий список*/
-                    echo "<select name=\"Category\">";
+                /*Выпадающий список*/
+                echo "<select name=\"Category\">";
 
+                if (mysqli_num_rows($result) > 0) {
                     while ($object = mysqli_fetch_object($result)) {
                         echo "<option value = '$object->idEquepmentCategory'>$object->CategoryName</option>";
                     }
+                }
 
-                    echo "</select>";
-
-                    echo "<input type=\"hidden\" name=\"id\" value=\"$id\">
-                            <input type=\"hidden\" name=\"Surname\" value=\"$surname\">
-                            <input type=\"hidden\" name=\"Name\" value=\"$name\">
-                            <input type=\"hidden\" name=\"Otch\" value=\"$otch\">
-                            <input type=\"hidden\" name=\"Phone\" value=\"$phone\">
-                            <input type=\"hidden\" name=\"Mail\" value=\"$mail\">
-                            <input type=\"hidden\" name=\"Passwd\" value=\"$passwd\">";
+                echo "</select>";
+                echo "<input type=\"hidden\" name=\"id\" value=\"$id\">";
                 ?>
+
             </li>
 
             <li class="form-row" style="justify-content: space-between;">
@@ -92,12 +85,9 @@
                 <button type="submit">Далее</button>
             </li>
 
-        <?php } else {
-                    echo "Ошибка";
-                }
-        ?>
         </ul>
     </form>
+
 </body>
 
 </html>
