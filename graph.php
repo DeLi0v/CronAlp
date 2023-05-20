@@ -62,7 +62,7 @@
 </head>
 
 <body class="chart-selected">
-    <?php include("/Pages/AdminPanel/head.php"); ?>
+    <?php include("Pages/AdminPanel/head.php"); ?>
     <?php if ($error == 0) { ?>
         <h2 style="text-align: center;">Количество выданного оборудования на текущий день</h2>
         <div id="columnchart_material" style="margin: auto; width: 800px; height: 500px;"></div>
