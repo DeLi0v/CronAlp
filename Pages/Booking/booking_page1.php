@@ -14,7 +14,7 @@
     session_name("account");
     session_start();
 
-    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
         header("Location: /Pages/Booking/booking_page2.php");
     } else { ?>
 
