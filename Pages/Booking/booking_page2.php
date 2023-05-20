@@ -10,7 +10,8 @@
     <?php 
     session_name("account");
     session_start();
-    $page = "booking" 
+    $page = "booking";
+    $login = 0; 
     ?>
 
     <?php include_once("../../MainNavigation.php") ?>
@@ -60,7 +61,7 @@
                             $id = $row["idClient"];
                         }
                     } 
-                } else { header("Location: /Pages/Booking/booking_page1.php?no=1"); }
+                } else { header("Location: /Pages/Booking/booking_page1.php"); }
 
                 // Формируем SQL-запрос
                 $sql = "SELECT * FROM EquepmentCategories";

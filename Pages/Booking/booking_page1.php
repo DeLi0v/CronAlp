@@ -30,29 +30,24 @@
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Surname">Фамилия:</label>
-                <input type="text" name="Surname" size="20px" />
+                <input type="text" name="Surname" size="20px" required/>
             </li>
             <li class="form-row">
                 <label for="Name">Имя:</label>
-                <input type="text" name="Name" size="20px" />
+                <input type="text" name="Name" size="20px" required/>
             </li>
             <li class="form-row">
                 <label for="Otch">Отчетсво:</label>
-                <input type="text" name="Otch" size="20px" />
+                <input type="text" name="Otch" size="20px" required/>
             </li>
             <li class="form-row">
                 <label for="Phone">Телефон:</label>
-                <input type="tel" name="Phone" size="20px" />
+                <input type="tel" name="Phone" size="20px" required/>
             </li>
             <li class="form-row">
                 <label for="Mail">Почта:</label>
-                <input type="email" name="Mail" size="20px" />
+                <input type="email" name="Mail" size="20px" required/>
             </li>
-            <?php if ($err == 1) { ?>
-                    <li class="form-row-error">
-                        <label>Необходимо заполнить все поля</label>
-                    </li>
-                <?php } ?>
             <li class="form-row">
                 <button type="submit">Дальше</button>
             </li>
