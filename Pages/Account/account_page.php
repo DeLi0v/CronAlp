@@ -7,6 +7,7 @@
 </head>
 
 <body class="bron-selected">
+    <?php $page = "account"; ?>
     <?php include("../../MainNavigation.php"); ?>
     <h3 style="text-align:center;">Список брони</h3>
     <?php
