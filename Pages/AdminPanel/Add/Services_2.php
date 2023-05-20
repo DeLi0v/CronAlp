@@ -172,12 +172,13 @@
             join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
             left join (SELECT idoperation, idEquepment, ServiceData 
                         FROM Services 
-                        WHERE idClient = \"$client\" AND idEquepment IS not NULL AND idOperation = 2) sec 
-                        on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
+                        WHERE idClient = \"$client\" AND idEquepment IS not NULL AND idOperation in(2,3)) sec 
+                        on Services.idEquepment = sec.idEquepment and sec.ServiceData < Services.ServiceData
         WHERE 
             Services.idClient = \"$client\"
             AND Services.idEquepment IS not NULL
-            AND sec.idOperation = 2";
+            AND Services.idOperation = 2
+            AND sec.idOperation IS NULL";
             // $sql = "SELECT 
             //             Services.idService endId,
             //             Services.ServiceData endData,
