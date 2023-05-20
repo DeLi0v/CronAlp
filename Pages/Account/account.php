@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <?php include_once("../MainHead.php") ?>
+    <?php include_once("../../MainHead.php") ?>
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
@@ -18,7 +18,7 @@
 
     } else {$err = 0;}?>
     <?php if($LogIn == 0) { ?>
-        <?php include_once("../MainNavigation.php") ?>
+        <?php include_once("../../MainNavigation.php") ?>
         <form class="add" action="/Pages/Account/logining.php" method="post" style=" margin:auto; width:500px;">
             <h3 style="text-align:center;">Вход в аккаунт</h3>
             <ul class="wrapper">
