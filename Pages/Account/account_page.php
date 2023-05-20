@@ -42,6 +42,7 @@
 
     // Проверим, есть ли записи в таблице
     if (mysqli_num_rows($result) > 0) {
+        $page = "broni";
         echo "<h3 style=\"text-align:center;\">Список брони</h3>";
 
         // Выводим начало таблицы
