@@ -159,44 +159,64 @@
             
             // Формируем SQL-запрос
             $sql = "SELECT 
-                        Services.idService endId,
-                        Services.ServiceData endData,
-                        Equepments.idEquepment idEquepment,
-                        Equepments.EquepmentName EquepmentName,
-                        begindata.startdata startData,
-                        begindata.id startId,
-                        EquepmentCategories.CategoryName Category
-                    FROM 
-                        Services
-                        join Equepments on Equepments.idEquepment = Services.idEquepment
-                        join EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory
-                        join (Select 
-                                Services.idService id,
-                                Services.ServiceData startdata
-                            from Services
-                            where 
-                                DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
-                                AND MONTH(Services.ServiceData) = MONTH(NOW()) 
-                                AND YEAR(Services.ServiceData) = YEAR(NOW())
-                                AND Services.idClient = \"$client\"
-                                AND Services.idOperation = \"1\"
-                            ORDER BY ServiceData desc
-                            limit 1) begindata
-                    WHERE
-                        DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
-                        AND MONTH(Services.ServiceData) = MONTH(NOW()) 
-                        AND YEAR(Services.ServiceData) = YEAR(NOW())
-                        AND Services.idClient = \"$client\"
-                        AND Services.idOperation = \"2\"
-                        AND Services.ServiceData > (select ifnull(ServiceData,'2000-01-01 00:00:00') from Services where DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
-                                                    AND MONTH(Services.ServiceData) = MONTH(NOW())
-                                                    AND YEAR(Services.ServiceData) = YEAR(NOW())
-                                                    AND idClient = \"$client\"
-                                                    AND Services.idOperation = \"3\"
-                                                    ORDER BY ServiceData desc
-                                                    limit 1) 
-                    ORDER BY ServiceData desc
-                    limit 1;"; // оплата возможна только если оборудование было сдано
+            Equepments.idEquepment idEquepment,
+            Equepments.EquepmentName EquepmentName,
+            EquepmentCategories.CategoryName Category,
+            Services.ServiceData,
+            Services.idClient,
+            Services.idOperation,
+            sec.idOperation secOp
+        FROM 
+            Services
+            join Equepments on Equepments.idEquepment = Services.idEquepment
+            join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
+            left join (SELECT idoperation, idEquepment, ServiceData 
+                        FROM Services 
+                        WHERE idClient = \"$client\" AND idEquepment IS not NULL AND idOperation = 2) sec 
+                        on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
+        WHERE 
+            Services.idClient = \"$client\"
+            AND Services.idEquepment IS not NULL
+            AND Services.idOperation = 2";
+            // $sql = "SELECT 
+            //             Services.idService endId,
+            //             Services.ServiceData endData,
+            //             Equepments.idEquepment idEquepment,
+            //             Equepments.EquepmentName EquepmentName,
+            //             begindata.startdata startData,
+            //             begindata.id startId,
+            //             EquepmentCategories.CategoryName Category
+            //         FROM 
+            //             Services
+            //             join Equepments on Equepments.idEquepment = Services.idEquepment
+            //             join EquepmentCategories on Equepments.idCategory = EquepmentCategories.idEquepmentCategory
+            //             join (Select 
+            //                     Services.idService id,
+            //                     Services.ServiceData startdata
+            //                 from Services
+            //                 where 
+            //                     DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+            //                     AND MONTH(Services.ServiceData) = MONTH(NOW()) 
+            //                     AND YEAR(Services.ServiceData) = YEAR(NOW())
+            //                     AND Services.idClient = \"$client\"
+            //                     AND Services.idOperation = \"1\"
+            //                 ORDER BY ServiceData desc
+            //                 limit 1) begindata
+            //         WHERE
+            //             DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+            //             AND MONTH(Services.ServiceData) = MONTH(NOW()) 
+            //             AND YEAR(Services.ServiceData) = YEAR(NOW())
+            //             AND Services.idClient = \"$client\"
+            //             AND Services.idOperation = \"2\"
+            //             AND Services.ServiceData > (select ifnull(ServiceData,'2000-01-01 00:00:00') from Services where DAYOFMONTH(Services.ServiceData) = DAYOFMONTH(NOW())
+            //                                         AND MONTH(Services.ServiceData) = MONTH(NOW())
+            //                                         AND YEAR(Services.ServiceData) = YEAR(NOW())
+            //                                         AND idClient = \"$client\"
+            //                                         AND Services.idOperation = \"3\"
+            //                                         ORDER BY ServiceData desc
+            //                                         limit 1) 
+            //         ORDER BY ServiceData desc
+            //         limit 1;"; // оплата возможна только если оборудование было сдано
 
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
