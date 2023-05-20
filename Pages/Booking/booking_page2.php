@@ -24,9 +24,10 @@
 
                 session_name("account");
                 session_start();
-                
+
                 if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
                     $id = $_SESSION["idClient"];
+                    $login = 1;
                 } elseif (isset($_POST["Surname"]) && isset($_POST["Name"]) && isset($_POST["Otch"]) 
                             && isset($_POST["Phone"]) && isset($_POST["Mail"]) && isset($_POST["Passwd"])) {
 
@@ -82,7 +83,9 @@
             </li>
 
             <li class="form-row" style="justify-content: space-between;">
-                <a href="/index.php" class="back">Назад</a>
+                <?php if($login <> 1) { ?>
+                <a href="/Pages/Booking/booking_page1.php" class="back">Назад</a>
+                <?php }?>
                 <button type="submit">Далее</button>
             </li>
 
