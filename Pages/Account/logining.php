@@ -80,13 +80,13 @@
             $inClients = 1;
         } 
 
-        if($inClinets == 1 && $inStaff == 1) {
+        if($inClinets == '1' && $inStaff == '1') {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/Account/chooseAccount.php");
-        } elseif ($inClinets == 1 && $inStaff == 0) {
+        } elseif ($inClinets == '1' && $inStaff == '0') {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/Account/account_page.php");
-        } elseif ($inClinets == 0 && $inStaff == 1) {
+        } elseif ($inClinets == '0' && $inStaff == '1') {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/AdminPanel/adminpanel.php");               
         } //else { header("Location: /Pages/Account/account.php?no=1"); }
