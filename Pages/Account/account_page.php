@@ -9,7 +9,6 @@
 <body class="bron-selected">
     <?php $page = "account"; ?>
     <?php include("../../MainNavigation.php"); ?>
-    <h3 style="text-align:center;">Список брони</h3>
     <?php
     require_once("../../connect.php"); // Подключение файла для связи с БД
 
@@ -43,6 +42,7 @@
 
     // Проверим, есть ли записи в таблице
     if (mysqli_num_rows($result) > 0) {
+        echo "<h3 style=\"text-align:center;\">Список брони</h3>";
 
         // Выводим начало таблицы
         echo "<div>";
@@ -72,7 +72,7 @@
         echo "</table>";
         echo "</div>";
     } else {
-        echo "<div class=\"error\">В таблице нет данных.</div>";
+        echo "<div style=\"text-align:center;\">На данный момент вы ничего не бронировали</div>";
     }
     ?>
 </body>
