@@ -28,10 +28,12 @@
         $logining = 1;
         $phone = $_POST["phone"];
         $passwd = $_POST["passwd"];
+        $_SESSION["phone"] = $phone;
+        $_SESSION["passwd"] = $passwd;
     } elseif (isset($_SESSION["LogIn"])) {
         $logining = 1;
-        $phone = $_POST["phone"];
-        $passwd = $_POST["passwd"];    
+        $phone = $_SESSION["phone"];
+        $passwd = $_SESSION["passwd"];    
     }
     if ($logining == 1) {
         $sql = "SELECT 
