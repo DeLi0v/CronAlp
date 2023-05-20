@@ -9,6 +9,5 @@
         <a href="/Pages/Account/logout.php" style="padding: 9px 14px;"><img src="/pictures/icons/logout_white.png" style="max-width: 25px;border: 0;"></a>
       </li>
   <?php } ?>
-  <?php echo $_SESSION["LogIn"] ?>
   <li class="right"><a href="/Pages/Account/account.php" <?php if ($page == "account") { echo "class=\"active\""; } ?>>Личный кабинет</a></li>
 </ul>
