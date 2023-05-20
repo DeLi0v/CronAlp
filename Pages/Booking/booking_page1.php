@@ -10,10 +10,13 @@
     <?php $page = "booking" ?>
     <?php include_once("../../MainNavigation.php") ?>
 
-    <?php if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
+    <?php 
+    session_name("account");
+    session_start();
+
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1) {
         header("Location: booking_page2");
-    } else { 
-        if(isset($_SESSION["LogIn"])) {echo "ДААА";} else {echo "НЕЕЕТ";} ?>
+    } else { ?>
 
     <form class="add" action="/Pages/Booking/booking_page2.php" method="post" style=" margin:auto; width:500px;">
         <h3 style="text-align:center;">Бронирование оборудования</h3>
