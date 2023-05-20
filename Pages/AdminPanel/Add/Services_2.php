@@ -23,7 +23,7 @@
     <?php 
     if (isset($_POST["Staff"]) && isset($_POST["Client"]) && isset($_POST["Operation"])) {
 
-        echo "<form class=\"add\" action=\"/Pages/AdminPanel/Add/ServicesAdd.php\" method=\"post\">
+        echo "<form class=\"add\" action=\"/Pages/AdminPanel/Add/ServicesAdd.php\" method=\"post\"  style=\"margin:auto; width:500px;\">
                 <ul class=\"wrapper\">";
 
         $staff = $conn->real_escape_string($_POST["Staff"]);
