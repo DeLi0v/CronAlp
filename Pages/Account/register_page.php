@@ -2,8 +2,8 @@
 <html>
 
 <head>
-<?php include("../../MainHead.php") ?>
-
+    <?php include("../../MainHead.php") ?>
+    <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
 <body>

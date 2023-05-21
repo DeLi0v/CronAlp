@@ -54,7 +54,7 @@
         if($conn->query($sql)){
             echo "<div align=\"center\">
                 <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
-                <div style=\"font-size: 20px;padding-top: 10px;\">Данные успешно добавлены</div>
+                <div style=\"font-size: 20px;padding-top: 10px;\">Аккаунт успешно зарегестрирован!</div>
             </div>";
         } else{
             echo "Ошибка: " . $conn->error;
