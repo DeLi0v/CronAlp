@@ -21,6 +21,7 @@
     
     // Получение введенных данных
     session_name("register");
+    session_start();
     if (isset($_SESSION["surname"]) && isset($_SESSION["name"]) && isset($_SESSION["otch"]) && isset($_SESSION["phone"]) && isset($_SESSION["mail"])) {
         $dataErr = 1;
     } else { $dataErr = 0; } 
@@ -71,6 +72,7 @@
             </li>
         </ul>
     </form>
+    <?php session_unset(); ?>
 </body>
 
 </html>
