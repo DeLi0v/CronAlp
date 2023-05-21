@@ -48,17 +48,21 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { $m=1; } else { $m=0; }
 
-        if($p == 1 || $m == 1) { header("Location: register_page.php?p=$p&m=$m"); } // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией
+        if($p == 1 || $m == 1) // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией
+        { 
+            header("Location: register_page.php?p=$p&m=$m"); 
+        } else {
 
-        $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
-        if($conn->query($sql)){
-            echo "<div align=\"center\">
-                <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
-                <div style=\"font-size: 20px;padding-top: 10px;\">Аккаунт успешно зарегестрирован!</div>
-            </div>";
-            session_unset();
-        } else{
-            echo "Ошибка: " . $conn->error;
+            $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
+            if($conn->query($sql)){
+                echo "<div align=\"center\">
+                    <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
+                    <div style=\"font-size: 20px;padding-top: 10px;\">Аккаунт успешно зарегестрирован!</div>
+                </div>";
+                session_unset();
+            } else{
+                echo "Ошибка: " . $conn->error;
+            }
         }
         $conn->close();
     } else {
