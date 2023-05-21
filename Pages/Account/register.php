@@ -44,7 +44,7 @@
         if (mysqli_num_rows($result) > 0) { $p=1; } else { $p=0; }
 
         // Проверка на существование пользователя с такой же почтой
-        $sql = "SELECT * FROM Clients WHERE Phone = '$mail';";
+        $sql = "SELECT * FROM Clients WHERE Mail = '$mail';";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { $m=1; } else { $m=0; }
 
