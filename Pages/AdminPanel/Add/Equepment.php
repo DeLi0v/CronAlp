@@ -9,6 +9,11 @@
 </head>
 
 <body class="equepment-add">
+    <?php 
+    session_name("account");
+    session_start();
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+
     <?php include("../head.php"); ?>
     <h3 style="text-align:center;">Добавление оборудования</h3>
     <form class="add" action="/Pages/AdminPanel/Add/EquepmentAdd.php" method="post" style=" margin:auto; width:500px;">
@@ -48,6 +53,8 @@
             </li>
         </ul>
     </form>
+
+    <?php } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>

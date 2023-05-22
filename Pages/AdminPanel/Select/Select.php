@@ -8,9 +8,6 @@ $db = new DB_Class();
 $conn = $db->connect();
 mysqli_select_db($conn, $db->database);
 
-// session_start();
-// $_SESSION["conn"] = $conn;
-
 // Формируем SQL-запрос
 if($table == 'Ski_pass') {
     $sql = "SELECT 	

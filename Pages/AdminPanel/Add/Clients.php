@@ -4,6 +4,11 @@
 <?php include("../../../htmlHead.php") ?>
 
 <body class="clients-add">
+    <?php 
+    session_name("account");
+    session_start();
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+
     <?php include("../head.php"); ?>
     <h3 style="text-align:center;">Добавление клиента</h3>
     <form class="add" action="/Pages/AdminPanel/Add/ClientsAdd.php" method="post" style=" margin:auto; width:500px;">
@@ -33,6 +38,8 @@
             </li>
         </ul>
     </form>
+    
+    <?php } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>
