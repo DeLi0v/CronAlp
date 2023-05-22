@@ -62,13 +62,18 @@
 </head>
 
 <body class="chart-selected">
-    <?php include("Pages/AdminPanel/head.php"); ?>
-    <?php if ($error == 0) { ?>
-        <h2 style="text-align: center;">Количество выданного оборудования на текущий день</h2>
-        <div id="columnchart_material" style="margin: auto; width: 800px; height: 500px;"></div>
-    <?php } else { ?>
-        <div class="error">На данный момент ни одного оборудования не выдали</div>
-    <?php } ?>
+    <?php 
+    session_name("account");
+    session_start();
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+        <?php include("Pages/AdminPanel/head.php"); ?>
+        <?php if ($error == 0) { ?>
+            <h2 style="text-align: center;">Количество выданного оборудования на текущий день</h2>
+            <div id="columnchart_material" style="margin: auto; width: 800px; height: 500px;"></div>
+        <?php } else { ?>
+            <div class="error">На данный момент ни одного оборудования не выдали</div>
+        <?php } ?>
+    <?php } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>

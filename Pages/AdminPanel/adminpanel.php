@@ -10,7 +10,7 @@
     <?php 
     session_name("account");
     session_start();
-    if($_SESSION["LogIn"] == 1) { ?>
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
     <?php include("head.php"); ?>
     <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
     <?php } else { header("Location: /index.php"); } ?>

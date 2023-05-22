@@ -9,6 +9,11 @@
 </head>
 
 <body class="ski_pass-add">
+    <?php 
+    session_name("account");
+    session_start();
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+
     <?php include("../head.php"); ?>
     <h3 style="text-align:center;">Выдача ski-pass</h3>
     <form class="add" action="/Pages/AdminPanel/Add/Ski_PassAdd.php" method="post" style=" margin:auto; width:500px;">
@@ -44,6 +49,8 @@
             </li>
         </ul>
     </form>
+    
+    <?php } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>

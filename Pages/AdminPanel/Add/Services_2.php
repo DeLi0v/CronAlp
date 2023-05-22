@@ -9,6 +9,11 @@
 </head>
 
 <body class="services-add">
+    <?php 
+    session_name("account");
+    session_start();
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+
     <?php include("../head.php"); ?>
     <?php 
         require_once("../../../connect.php"); // Подключение файла для связи с БД
@@ -281,6 +286,8 @@
         echo "Что-то не так";
     }
     ?>
+    
+    <?php } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>
