@@ -29,6 +29,9 @@
 
         $id = $_POST["id"];
         $page = $_POST["page"];
+        if ($page == "broni" || $page == "Services") {
+            $operation = $_POST["operation"];
+        }
         $error = 0;
 
         if ($page == "Clients") {
@@ -222,8 +225,9 @@
                 </li>
 
     <?php } elseif ($page == "Services") {
+        if($operation == 3) { // изменение стоимости услуги, в которой есть сумма
             // Запрос
-            $sql = "SELECT * FROM Services WHERE idService = $id AND idOperation IN(3,4);";
+            $sql = "SELECT * FROM Services WHERE idService = $id AND idOperation IN(3);";
             // Выполняем SQL-запрос
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
@@ -235,10 +239,36 @@
     <h3 style="text-align:center;">Изменение стоимости услуги</h3>
                 <li class="form-row">
                     <label for="Total">Стоимость:</label>
+                    <?php echo "<input type=\"hidden\" name=\"Operation\" value=\"$operation\">"; ?>
                     <input type="text" name="Total" size="20px" value="<?php echo $total?>"/>
                 </li>
 
-    <?php } else {echo "<div class=\"error\">Данная услуга не связана с оплатой</div>"; $error = 1; } } ?>
+    <?php } 
+        } elseif ($operation == 6) { // изменение статуса брони ?>
+
+                <li class="form-row">
+                    <label for="Status">Стоимость:</label>
+                    <?php echo "<input type=\"hidden\" name=\"Operation\" value=\"$operation\">"; ?>
+
+            <?php // Формируем SQL-запрос
+            $sql = "SELECT * FROM ResortStatus;";
+
+            // Выполняем SQL-запрос
+            $result = mysqli_query($conn, $sql);
+            
+            /*Выпадающий список*/
+            echo "<select name=\"Status\">";
+            
+            while($object = mysqli_fetch_object($result)){
+                echo "<option value = '$object->id' >$object->name</option>";
+            }
+            
+            echo "</select>";
+        ?>
+
+                </li>
+            
+        <?php } else {echo "<div class=\"error\">Данная услуга не связана с бронью оборудования или оплатой проката</div>"; $error = 1; } } ?>
                 
                     <li class="form-row" style="justify-content: space-between;">
                         <a href="/Pages/AdminPanel/Select/<?php echo $page?>.php">Назад</a>
