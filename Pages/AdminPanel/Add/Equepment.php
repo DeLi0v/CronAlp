@@ -24,7 +24,7 @@
             </li>
             <li class="form-row">
                 <label for="Size">Размер:</label>
-                <input type="number" name="Size" required/>
+                <input type="text" name="Size" required/>
             </li>
             <li class="form-row">
                 <label for="Category">Категория:</label>
