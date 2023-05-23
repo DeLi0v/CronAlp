@@ -25,7 +25,8 @@ if($table == 'Ski_pass') {
                 Equepments.EquepmentName Name,
                 EquepmentCategories.CategoryName Category,
                 Equepments.storage storage,
-                Equepments.size size
+                Equepments.size size,
+                Equepments.price price
             FROM 
                 Equepments
                 join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
@@ -265,6 +266,7 @@ function Equepments($result){
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
             <th>Категория</th>
+            <th>Цена (руб/ч)</th>
             <th style=\"width: 0;\">Место хранения</th>
             <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
@@ -276,6 +278,7 @@ function Equepments($result){
         echo "<td class=\"center\">" . $row["id"] . "</td>";
         echo "<td>" . $row["Name"] . " - " . $row["size"] . " р.</td>";
         echo "<td>" . $row["Category"] . "</td>";
+        echo "<td>" . $row["price"] . "</td>";
         echo "<td>" . $row["storage"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
