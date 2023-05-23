@@ -25,12 +25,13 @@
 
         $sql = "SELECT 
                     Services.idService id,
-                    DATE_FORMAT(Services.ServiceData, '%d.%m.%Y %H:%i') data,
+                    DATE_FORMAT(Services.ServiceData, '%d.%m.%Y %H:%i') date,
                     Clients.ClientSurname clientSurname,
                     Clients.ClientName clientName,
                     Clients.ClientOtch clientOtch,
                     Equepments.EquepmentName equepment,
-                    ResortStatus.name resortName
+                    ResortStatus.name resortName,
+                    DATE_FORMAT(NOW(), '%d.%m.%Y %H:%i') now
                 FROM 
                     Services
                     left join Clients on Clients.idClient = Services.idClient
@@ -62,16 +63,22 @@
             // Выводим данные из таблицы
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
-                echo "<td class=\"center\">" . $row["data"] . "</td>";
+                echo "<td class=\"center\">" . $row["date"] . "</td>";
                 echo "<td>" . $row["equepment"] . "</td>";
                 echo "<td>" . $row["resortName"] . "</td>";
-                echo "<td class=\"center\">
-                        <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
-                            <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
-                            <input type=\"hidden\" name=\"page\" value=\"$page\">
-                            <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 35px;border: 0;padding: 2px 0;padding-top: 4px;\">
-                        </form>
-                    </td>";
+                if ($row["date"] == $row["now"]) {
+                    echo "<td class=\"center\">
+                            <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
+                                <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
+                                <input type=\"hidden\" name=\"page\" value=\"$page\">
+                                <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 35px;border: 0;padding: 2px 0;padding-top: 4px;\">
+                            </form>
+                        </td>";
+                } else {
+                    echo "<td class=\"center\">
+                              <img src=\"/pictures/icons/stop.png\" style=\"max-width: 35px;border: 0;\">
+                          </td>";
+                }
                 echo "</tr>";
             }
 

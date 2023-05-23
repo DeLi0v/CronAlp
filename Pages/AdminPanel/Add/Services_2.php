@@ -96,7 +96,7 @@
                                     on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
                         left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
                                     FROM Services 
-                                    WHERE idOperation = 6 AND idStatusEquepment <> 5
+                                    WHERE idOperation = 6 AND idStatusEquepment  NOT IN (5,6)
                                     GROUP BY idoperation, idEquepment) t 
                                     on Services.idEquepment = t.idEquepment and t.ServiceData > Services.ServiceData
                     WHERE 
@@ -263,7 +263,7 @@
                         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory
                     WHERE 
                         Services.idOperation = '6'
-                        AND Services.idStatusEquepment NOT IN (4,5)
+                        AND Services.idStatusEquepment NOT IN (4,5,6)
                         AND Services.idClient = '$client'
                     ORDER BY idEquepment;";
 
