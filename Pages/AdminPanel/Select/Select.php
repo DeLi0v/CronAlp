@@ -21,14 +21,14 @@ if($table == 'Ski_pass') {
         join Clients on Clients.idClient = Ski_pass.idClient;";
 } elseif($table == 'Equepments') {
     $sql = "SELECT 	
-        Equepments.idEquepment id,
-        Equepments.EquepmentName Name,
-        EquepmentCategories.CategoryName Categoryб
-        Equepments.storage storage,
-        Equepments.size size
-    FROM 
-        Equepments
-        join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
+                Equepments.idEquepment id,
+                Equepments.EquepmentName Name,
+                EquepmentCategories.CategoryName Category,
+                Equepments.storage storage,
+                Equepments.size size
+            FROM 
+                Equepments
+                join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
 } elseif($table == 'Services') {
     $sql = "SELECT 
                 Services.idService id,
