@@ -8,18 +8,23 @@ mysqli_select_db($conn, $db->database);
 
 if (isset($_POST["id"]) && isset($_POST["page"])
             || isset($_POST["Surname"]) || isset($_POST["Name"]) || isset($_POST["Otch"]) || isset($_POST["Mail"]) || isset($_POST["Phone"]) || isset($_POST["Passwd"])
-            || isset($_POST["Post"]) || isset($_POST["Category"]) || isset($_POST["Total"]) || isset($_POST["Balance"]) || isset($_POST["Status"])) {
+            || isset($_POST["Post"]) || isset($_POST["Category"]) || isset($_POST["Total"]) || isset($_POST["Balance"]) || isset($_POST["Status"])
+            || isset($_POST["Storage"]) || isset($_POST["Size"])) {
     $id = $_POST["id"];
     $page = $_POST["page"];
     
     if ($page == "Equepment") {
         $category = $_POST["Category"];
         $name = $_POST["Name"];
+        $size = $_POST["Size"];
+        $storage = $_POST["Storage"];
 
         $sql = "UPDATE Equepments 
                 SET 
                     idCategory = '$category',
-                    EquepmentName = '$name'
+                    EquepmentName = '$name',
+                    size = '$size',
+                    storage = '$storage'
                 WHERE (idEquepment = $id);";
         mysqli_query($conn,$sql);
         if(!$conn->query($sql)){

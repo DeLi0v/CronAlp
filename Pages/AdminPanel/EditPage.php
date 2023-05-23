@@ -160,6 +160,10 @@
                     <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
                 </li>
                 <li class="form-row">
+                    <label for="Size">Размер:</label>
+                    <input type="number" name="Size" required/>
+                </li>
+                <li class="form-row">
                     <label for="Category">Категория:</label>
                     <!-- <input type="text" name="Category" size="20px" value="<?php echo $category?>"/> -->
                     <?php 
@@ -188,6 +192,10 @@
                         
                         echo "</select>";
                     ?>
+                </li>
+                <li class="form-row">
+                    <label for="Storage">Место хранения:</label>
+                    <input type="text" name="Storage" size="20px" required/>
                 </li>
 
     <?php } elseif ($page == "EquepmentCategories") {
