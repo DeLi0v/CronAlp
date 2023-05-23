@@ -69,7 +69,7 @@ if($table == 'Ski_pass') {
                 left join ResortStatus on ResortStatus.id = Services.idStatusEquepment
             WHERE
                 Services.idOperation = \"6\"
-                AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y %H:%i') = DATE_FORMAT(NOW(), '%d.%m.%Y %H:%i');";
+                AND DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') = DATE_FORMAT(NOW(), '%d.%m.%Y');";
 } elseif($table == 'Clients') {
     $sql = "SELECT 
                 idClient id,
