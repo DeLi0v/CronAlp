@@ -41,13 +41,15 @@ if($table == 'Ski_pass') {
                 Equepments.EquepmentName equepment,
                 Services.NewSki_Pass NewSki_pass,
                 Services.idSki_pass ski_pass,
-                Services.Total total
+                Services.Total total,
+                ResortStatus.name statusName
             FROM 
                 Services
                 left join Clients on Clients.idClient = Services.idClient
                 left join Staff on Staff.idStaff = Services.idStaff
                 left join OperationTypes on OperationTypes.idOperationType = Services.idOperation
                 left join Equepments on Equepments.idEquepment = Services.idEquepment
+                left join ResortStatus on ResortStatus.id = Services.idStatusEquepment
             ORDER BY ServiceData desc;";
 } elseif($table == 'Bron') {
     $sql = "SELECT 
@@ -56,11 +58,13 @@ if($table == 'Ski_pass') {
                 Clients.ClientSurname clientSurname,
                 Clients.ClientName clientName,
                 Clients.ClientOtch clientOtch,
-                Equepments.EquepmentName equepment
+                Equepments.EquepmentName equepment,
+                ResortStatus.name statusName
             FROM 
                 Services
                 left join Clients on Clients.idClient = Services.idClient
                 left join Equepments on Equepments.idEquepment = Services.idEquepment
+                left join ResortStatus on ResortStatus.id = Services.idStatusEquepment
             WHERE
                 Services.idOperation = \"6\";";
 } elseif($table == 'Clients') {
@@ -301,6 +305,7 @@ function Services($result){
             <th>Клиент</th>
             <th style=\"width: 0;\">Операция</th>
             <th>Оборудование</th>
+            <th style=\"width: 0;\">Статус брони</th>
             <th style=\"width: 90px;\">Новый ski-pass?</th>
             <th style=\"width: 0;\">ID ski-pass</th>
             <th style=\"width: 0;\">Сумма</th>
@@ -317,6 +322,7 @@ function Services($result){
         echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
         echo "<td>" . $row["operation"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
+        echo "<td>" . $row["statusName"] . "</td>";
         echo "<td class=\"center\">" . $row["NewSki_pass"] . "</td>";
         echo "<td class=\"center\">" . $row["ski_pass"] . "</td>";
         echo "<td>" . $row["total"] . "</td>";
@@ -333,6 +339,7 @@ function Bron($result){
             <th style=\"width: 0;\">Дата</th>
             <th>Клиент</th>
             <th>Оборудование</th>
+            <th style=\"width: 0;\">Статус</th>
             <th style=\"width: 0;\">Удалить</th>
         </tr>";
 
@@ -343,6 +350,7 @@ function Bron($result){
         echo "<td class=\"center\">" . $row["data"] . "</td>";
         echo "<td>" . $row["clientSurname"] ." ". $row["clientName"] ." ". $row["clientOtch"] . "</td>";
         echo "<td>" . $row["equepment"] . "</td>";
+        echo "<td>" . $row["statusName"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
     }
