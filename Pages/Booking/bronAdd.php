@@ -30,8 +30,8 @@
         $client = $conn->real_escape_string($_POST["Client"]);
         $equepment = $conn->real_escape_string($_POST["Equepment"]);
 
-        $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total) 
-                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null);";
+        $sql = "INSERT INTO Services (ServiceData, idStaff, idClient, idOperation, idEquepment, NewSki_pass, idSki_pass, Total, idStatusEquepment) 
+                VALUES ($data,'$staff', '$client', '$operation', '$equepment', Null, Null, Null, '1');";
 
         if($conn->query($sql)) {
             echo "<div align=\"center\">
