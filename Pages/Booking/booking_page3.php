@@ -52,7 +52,7 @@
                                             on Services.idEquepment = sec.idEquepment and sec.ServiceData > Services.ServiceData
                                 left join (SELECT idoperation, idEquepment, MAX(ServiceData) ServiceData 
                                             FROM Services 
-                                            WHERE idOperation = 6  AND idStatusEquepment  NOT IN (5,6)
+                                            WHERE idOperation = 6  AND idStatusEquepment  NOT IN (5)
                                             GROUP BY idoperation, idEquepment) t 
                                             on Services.idEquepment = t.idEquepment and t.ServiceData > Services.ServiceData
                             WHERE 
