@@ -164,7 +164,7 @@
                 </li>
                 <li class="form-row">
                     <label for="Size">Размер:</label>
-                    <input type="number" name="Size" value="<?php echo $size?>" required/>
+                    <input type="text" name="Size" value="<?php echo $size?>" required/>
                 </li>
                 <li class="form-row">
                     <label for="Category">Категория:</label>
