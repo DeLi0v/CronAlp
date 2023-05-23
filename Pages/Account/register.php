@@ -54,7 +54,7 @@
             header("Location: register_page.php?p=$p&m=$m"); 
         } else {
             
-            $sql - "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd IS NULL";
+            $sql = "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd IS NULL";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) { 
                 while ($row = mysqli_fetch_assoc($result)) {
