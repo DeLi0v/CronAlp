@@ -50,8 +50,7 @@
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { $p=1; } else { $m=0; }
 
-        if($p == 1 || $m == 1) // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией
-        { 
+        if ($p == 1 || $m == 1) { // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией  
             header("Location: register_page.php?p=$p&m=$m"); 
         } else {
             
@@ -59,7 +58,7 @@
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) { 
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $id = $row["idCleint"];
+                    $id = $row["idClient"];
                 }
                 $sql = "UPDATE Clients 
                 SET 
