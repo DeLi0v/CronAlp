@@ -68,7 +68,7 @@ if (isset($_POST["id"]) && isset($_POST["page"])
         if(!$conn->query($sql)){
             echo "Ошибка: " . $conn->error;   
         }
-    } elseif ($page == "Services") {
+    } elseif ($page == "Services" || $page == "broni") {
         $operation = $_POST["Operation"]; 
         
         if ($operation == 3) {
