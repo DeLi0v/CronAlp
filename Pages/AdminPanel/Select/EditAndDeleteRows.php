@@ -11,7 +11,7 @@ if ($row["id"] == 1 && $page == "Staff") {
     <form action='/Pages/AdminPanel/EditPage.php?id=\"".$row["id"]."\"' method=\"post\">
         <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
         <input type=\"hidden\" name=\"page\" value=\"$page\">
-        <input type=\"hidden\" name=\"operation\" value=\"".$row["operation"]."\">
+        <input type=\"hidden\" name=\"operation\" value=\"".$row["idOperation"]."\">
         <input type=\"image\" name=\"submit\" value=\"Edit\" src=\"/pictures/icons/edit_orange.png\" style=\"max-width: 30px;border: 0;\">
     </form>
     </td>";

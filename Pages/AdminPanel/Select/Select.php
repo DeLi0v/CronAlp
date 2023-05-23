@@ -42,7 +42,8 @@ if($table == 'Ski_pass') {
                 Services.NewSki_Pass NewSki_pass,
                 Services.idSki_pass ski_pass,
                 Services.Total total,
-                ResortStatus.name statusName
+                ResortStatus.name statusName,
+                Services.idOperation idOperation
             FROM 
                 Services
                 left join Clients on Clients.idClient = Services.idClient
@@ -59,7 +60,8 @@ if($table == 'Ski_pass') {
                 Clients.ClientName clientName,
                 Clients.ClientOtch clientOtch,
                 Equepments.EquepmentName equepment,
-                ResortStatus.name statusName
+                ResortStatus.name statusName,
+                Services.idOperation idOperation
             FROM 
                 Services
                 left join Clients on Clients.idClient = Services.idClient
