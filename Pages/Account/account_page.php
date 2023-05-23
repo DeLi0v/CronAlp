@@ -31,7 +31,8 @@
                     Clients.ClientOtch clientOtch,
                     Equepments.EquepmentName equepment,
                     ResortStatus.name resortName,
-                    DATE_FORMAT(NOW(), '%d.%m.%Y %H:%i') now
+                    DATE_FORMAT(NOW(), '%d.%m.%Y') now,
+                    DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') dateDay
                 FROM 
                     Services
                     left join Clients on Clients.idClient = Services.idClient
@@ -66,7 +67,7 @@
                 echo "<td class=\"center\">" . $row["date"] . "</td>";
                 echo "<td>" . $row["equepment"] . "</td>";
                 echo "<td>" . $row["resortName"] . "</td>";
-                if ($row["date"] == $row["now"]) {
+                if ($row["dateDay"] == $row["now"]) {
                     echo "<td class=\"center\">
                             <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
                                 <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
