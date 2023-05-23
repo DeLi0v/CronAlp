@@ -151,17 +151,20 @@
                     $name =  $row["EquepmentName"];
                     $idCategory = $row["idCategory"];
                     $nameCategory = $row["CategoryName"];
+                    $price = $row["price"];
+                    $size = $row["size"];
+                    $storage = $row["storage"];
                 }
             } ?>
 
     <h3 style="text-align:center;">Изменение данных об оборудовании</h3>
                 <li class="form-row">
                     <label for="Name">Наименование:</label>
-                    <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
+                    <input type="text" name="Name" size="20px" value="<?php echo $name?>" required/>
                 </li>
                 <li class="form-row">
                     <label for="Size">Размер:</label>
-                    <input type="number" name="Size" required/>
+                    <input type="number" name="Size" value="<?php echo $size?>" required/>
                 </li>
                 <li class="form-row">
                     <label for="Category">Категория:</label>
@@ -194,8 +197,12 @@
                     ?>
                 </li>
                 <li class="form-row">
+                    <label for="Price">Цена:</label>
+                    <input type="number" name="Price" value="<?php echo $price?>" required/>
+                </li>
+                <li class="form-row">
                     <label for="Storage">Место хранения:</label>
-                    <input type="text" name="Storage" size="20px" required/>
+                    <input type="text" name="Storage" size="20px" value="<?php echo $storage?>" required/>
                 </li>
 
     <?php } elseif ($page == "EquepmentCategories") {
