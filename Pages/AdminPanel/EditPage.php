@@ -246,6 +246,7 @@
     <?php } 
         } elseif ($operation == 6) { // изменение статуса брони ?>
 
+                <h3 style="text-align:center;">Изменение статуса брони</h3>
                 <li class="form-row">
                     <label for="Status">Статус:</label>
                     <?php echo "<input type=\"hidden\" name=\"Operation\" value=\"$operation\">"; ?>
