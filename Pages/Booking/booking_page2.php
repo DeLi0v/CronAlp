@@ -55,6 +55,7 @@
                     if (mysqli_num_rows($result) == 0) { // Если такого клиента в базе нет, то создаем запись о нем
                         $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail) VALUES ('$surname', '$name', '$otch', '$phone', '$mail');";
                         mysqli_query($conn, $sql);
+                        $id = mysqli_insert_id($conn);
                     } elseif (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row["idClient"];
