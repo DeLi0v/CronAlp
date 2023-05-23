@@ -37,9 +37,11 @@
         $_SESSION["otch"] = $otch;
         $_SESSION["phone"] = $phone;
         $_SESSION["mail"] = $mail;
+        $p = 0;
+        $m = 0;
 
         // Проверка на существование пользователя с таким же телефоном
-        $sql = "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd NOT IS NULL;";
+        $sql = "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd IS NOT NULL;";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { $p=1; } else { $p=0; }
 

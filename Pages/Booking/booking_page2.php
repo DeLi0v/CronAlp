@@ -44,10 +44,10 @@
                     $sql = "SELECT * 
                             FROM Clients
                             WHERE
-                                ClientSurname = \"$surname\"
-                                AND ClientName = \"$name\"
-                                AND ClientOtch = \"$otch\"
-                                AND Phone = \"$phone\"";
+                                ClientSurname = '$surname'
+                                AND ClientName = '$name'
+                                AND ClientOtch = '$otch'
+                                AND Phone = '$phone'";
 
                     // Выполняем SQL-запрос
                     $result = mysqli_query($conn, $sql);
