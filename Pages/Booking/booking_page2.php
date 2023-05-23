@@ -53,7 +53,7 @@
                     $result = mysqli_query($conn, $sql);
 
                     if (mysqli_num_rows($result) == 0) { // Если такого клиента в базе нет, то создаем запись о нем
-                        $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', Null);";
+                        $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail) VALUES ('$surname', '$name', '$otch', '$phone', '$mail');";
                         mysqli_query($conn, $sql);
                     } elseif (mysqli_num_rows($result) > 0) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -81,7 +81,7 @@
 
                 echo "</select>";
                 echo "<input type='hidden' name='id' value='$id'>";
-                ?>s
+                ?>
 
             </li>
 
