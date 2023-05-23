@@ -79,6 +79,7 @@
                     <div style=\"font-size: 20px;padding-top: 10px;\">Аккаунт успешно зарегестрирован!</div>
                 </div>";
                 session_unset(); // Очищаем данные сессии
+                header("Refresh: 10; Location: /Pages/Account/account.php"); // перенаправляем на страницу входа в аккаунт через 10 секунд
             } else{
                 echo "Ошибка: " . $conn->error;
             }
