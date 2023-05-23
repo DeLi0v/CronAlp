@@ -100,7 +100,7 @@
                                     GROUP BY idoperation, idEquepment) t 
                                     on Services.idEquepment = t.idEquepment and t.ServiceData > Services.ServiceData
                     WHERE 
-                        ifnull(Services.idOperation,2) = 2
+                        (ifnull(Services.idOperation,2) = 2 OR (ifnull(Services.idOperation,6) = 6 AND Services.idStatusEquepment = 6))
                         AND sec.idOperation IS NULL
                         AND t.idOperation IS NULL
                     ORDER BY idEquepment;";
