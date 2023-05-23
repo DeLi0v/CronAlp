@@ -23,7 +23,9 @@ if($table == 'Ski_pass') {
     $sql = "SELECT 	
         Equepments.idEquepment id,
         Equepments.EquepmentName Name,
-        EquepmentCategories.CategoryName Category
+        EquepmentCategories.CategoryName Categoryб
+        Equepments.storage storage,
+        Equepments.size size
     FROM 
         Equepments
         join EquepmentCategories on EquepmentCategories.idEquepmentCategory = Equepments.idCategory;";
@@ -263,6 +265,7 @@ function Equepments($result){
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
             <th>Категория</th>
+            <th style=\"width: 0;\">Место хранения</th>
             <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
         </tr>";
@@ -271,8 +274,9 @@ function Equepments($result){
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";
         echo "<td class=\"center\">" . $row["id"] . "</td>";
-        echo "<td>" . $row["Name"] . "</td>";
+        echo "<td>" . $row["Name"] . " - " . $row["size"] . " р.</td>";
         echo "<td>" . $row["Category"] . "</td>";
+        echo "<td>" . $row["storage"] . "</td>";
         include("EditAndDeleteRows.php");
         echo "</tr>";
     }
