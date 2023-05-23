@@ -40,14 +40,14 @@
                     <label for="passwd">Пароль:</label>
                     <input type="password" name="passwd" size="20px" required/>
                 </li>
-                <li class="from-row">
-                    <a href="/Pages/Account/register_page.php">Зарегестрироваться</a>
-                </li>
                 <?php if ($err == 1) { ?>
                     <li class="form-row-error">
                         <label>Неверно введен телефон или пароль</label>
                     </li>
                 <?php } ?>
+                <li class="from-row" style="justify-content: center;display: flex;font-size: small;">
+                    <a href="/Pages/Account/register_page.php">Зарегестрироваться</a>
+                </li>
                 <li class="form-row">
                     <button type="submit">Войти</button>
                 </li>
