@@ -29,11 +29,13 @@
                     Clients.ClientSurname clientSurname,
                     Clients.ClientName clientName,
                     Clients.ClientOtch clientOtch,
-                    Equepments.EquepmentName equepment
+                    Equepments.EquepmentName equepment,
+                    ResortStatus.name resortName
                 FROM 
                     Services
                     left join Clients on Clients.idClient = Services.idClient
                     left join Equepments on Equepments.idEquepment = Services.idEquepment
+                    left join ResortStatus on ResortStatus.id = Services.idStatusEquepment
                 WHERE
                     Services.idOperation = \"6\"
                     AND Services.idClient = '$id';";
@@ -53,6 +55,7 @@
             echo "<tr>
                 <th style=\"width: 0;\">Дата</th>
                 <th>Оборудование</th>
+                <th style=\"width: 0;\">Статус</th>
                 <th style=\"width: 0;\">Отменить</th>
             </tr>";
 
@@ -61,6 +64,7 @@
                 echo "<tr>";
                 echo "<td class=\"center\">" . $row["data"] . "</td>";
                 echo "<td>" . $row["equepment"] . "</td>";
+                echo "<td>" . $row["resortName"] . "</td>";
                 echo "<td class=\"center\">
                         <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
                             <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
