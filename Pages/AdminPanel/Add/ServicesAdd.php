@@ -20,6 +20,7 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
+    session_name("addServices");
     session_start();
 
     $data = 'NOW()';
