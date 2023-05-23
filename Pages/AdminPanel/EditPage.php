@@ -224,7 +224,7 @@
                     <input type="text" name="Name" size="20px" value="<?php echo $name?>"/>
                 </li>
 
-    <?php } elseif ($page == "Services") {
+    <?php } elseif ($page == "Services" || $page = "broni") {
         if($operation == 3) { // изменение стоимости услуги, в которой есть сумма
             // Запрос
             $sql = "SELECT * FROM Services WHERE idService = $id AND idOperation IN(3);";
