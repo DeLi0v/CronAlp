@@ -80,8 +80,8 @@
                 }
 
                 echo "</select>";
-                echo "<input type=\"hidden\" name=\"id\" value=\"$id\">";
-                ?>
+                echo "<input type='hidden' name='id' value='$id'>";
+                ?>s
 
             </li>
 
