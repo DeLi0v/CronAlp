@@ -39,21 +39,39 @@
         $_SESSION["mail"] = $mail;
 
         // Проверка на существование пользователя с таким же телефоном
-        $sql = "SELECT * FROM Clients WHERE Phone = '$phone';";
+        $sql = "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd NOT IS NULL;";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) { $p=1; } else { $p=0; }
 
         // Проверка на существование пользователя с такой же почтой
-        $sql = "SELECT * FROM Clients WHERE Mail = '$mail';";
+        $sql = "SELECT * FROM Clients WHERE Mail = '$mail' AND Passwd IS NOT NULL;";
         $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) > 0) { $m=1; } else { $m=0; }
+        if (mysqli_num_rows($result) > 0) { $p=1; } else { $m=0; }
 
         if($p == 1 || $m == 1) // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией
         { 
             header("Location: register_page.php?p=$p&m=$m"); 
         } else {
-
-            $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
+            
+            $sql - "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd IS NULL";
+            $result = mysqli_query($conn, $sql);
+            if (mysqli_num_rows($result) > 0) { 
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row["idCleint"];
+                }
+                $sql = "UPDATE Clients 
+                SET 
+                    ClientSurname = '$surname',
+                    ClientName = '$name',
+                    ClientOtch = '$otch',
+                    Mail = '$mail',
+                    Phone = '$phone',
+                    Passwd = '$passwd'
+                WHERE (idClient = $id);";
+             } else {    
+                $sql = "INSERT INTO Clients (ClientSurname, ClientName, ClientOtch, Phone, Mail, Passwd) VALUES ('$surname', '$name', '$otch', '$phone', '$mail', '$passwd');";
+            }
+            
             if($conn->query($sql)){
                 echo "<div align=\"center\">
                     <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
