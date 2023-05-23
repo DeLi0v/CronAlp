@@ -266,7 +266,7 @@ function Equepments($result){
             <th style=\"width: 0;\">ID</th>
             <th>Наименование</th>
             <th>Категория</th>
-            <th>Цена (руб/ч)</th>
+            <th style=\"width: 0;\">Цена (руб/ч)</th>
             <th style=\"width: 0;\">Место хранения</th>
             <th style=\"width: 0;\">Изменить</th>
             <th style=\"width: 0;\">Удалить</th>
