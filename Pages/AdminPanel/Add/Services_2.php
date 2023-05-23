@@ -12,7 +12,8 @@
     <?php 
     session_name("account");
     session_start();
-    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
+    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { 
+        session_write_close(); ?>
 
     <?php include("../head.php"); ?>
     <?php 
@@ -35,6 +36,7 @@
         $client = $conn->real_escape_string($_POST["Client"]);
         $operation = $conn->real_escape_string($_POST["Operation"]);
 
+        session_name("addServices");
         session_start(); 
         $_SESSION['staff'] = $staff;
         $_SESSION['client'] = $client;
