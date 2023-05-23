@@ -30,6 +30,7 @@
                     Clients.ClientName clientName,
                     Clients.ClientOtch clientOtch,
                     Equepments.EquepmentName equepment,
+                    Equepments.size size,
                     ResortStatus.name resortName,
                     DATE_FORMAT(NOW(), '%d.%m.%Y') now,
                     DATE_FORMAT(Services.ServiceData, '%d.%m.%Y') dateDay
@@ -65,7 +66,7 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<tr>";
                 echo "<td class=\"center\">" . $row["date"] . "</td>";
-                echo "<td>" . $row["equepment"] . "</td>";
+                echo "<td>" . $row["equepment"] . " - " . $row["size"] . "</td>";
                 echo "<td>" . $row["resortName"] . "</td>";
                 if ($row["dateDay"] == $row["now"]) {
                     echo "<td class=\"center\">

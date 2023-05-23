@@ -20,7 +20,11 @@
         <ul class="wrapper">
             <li class="form-row">
                 <label for="Name">Наименование:</label>
-                <input type="text" name="Name" size="20px" />
+                <input type="text" name="Name" size="20px" required/>
+            </li>
+            <li class="form-row">
+                <label for="Size">Размер:</label>
+                <input type="number" name="Size" required/>
             </li>
             <li class="form-row">
                 <label for="Category">Категория:</label>
@@ -47,6 +51,10 @@
                     
                     echo "</select>";
                 ?>
+            </li>
+            <li class="form-row">
+                <label for="Storage">Место хранения:</label>
+                <input type="text" name="Storage" size="20px" required/>
             </li>
             <li class="form-row">
                 <button type="submit">Добавить</button>

@@ -11,7 +11,7 @@
 <body class="equepment-add">
 <?php include("../head.php"); ?>
 <?php
-if (isset($_POST["Name"]) && isset($_POST["Category"])) {
+if (isset($_POST["Name"]) && isset($_POST["Category"]) && isset($_POST["Size"]) && isset($_POST["Storage"])) {
       
     require_once("../../../connect.php"); // Подключение файла для связи с БД
 
@@ -22,8 +22,10 @@ if (isset($_POST["Name"]) && isset($_POST["Category"])) {
 
     $name = $conn->real_escape_string($_POST["Name"]);
     $category = $conn->real_escape_string($_POST["Category"]);
+    $size = $conn->real_escape_string($_POST["Size"]);
+    $storage = $conn->real_escape_string($_POST["Storage"]);
 
-    $sql = "INSERT INTO Equepments (EquepmentName, idCategory) VALUES ('$name', '$category');";
+    $sql = "INSERT INTO Equepments (EquepmentName, idCategory, size, storage) VALUES ('$name', '$category', '$size', '$storage');";
     if($conn->query($sql)){
         echo "<div align=\"center\">
             <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
