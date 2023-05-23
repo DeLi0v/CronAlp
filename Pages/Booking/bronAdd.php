@@ -38,6 +38,7 @@
             <img src=\"/pictures/icons/success.png\" style=\"max-height: 100px;max-width: 100px; padding-top: 15px;\">
             <div style=\"font-size: 20px;padding-top: 10px;\">Оборудование успешно забронировано</div>";
             echo "</div>";
+            header("Refresh: 2; url=/index.php"); // перенаправляем на страницу входа в аккаунт через 2 секунды
         } else{
             echo "Ошибка: " . $conn->error;
         }
