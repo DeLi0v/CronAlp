@@ -247,7 +247,7 @@
         } elseif ($operation == 6) { // изменение статуса брони ?>
 
                 <li class="form-row">
-                    <label for="Status">Стоимость:</label>
+                    <label for="Status">Статус:</label>
                     <?php echo "<input type=\"hidden\" name=\"Operation\" value=\"$operation\">"; ?>
 
             <?php // Формируем SQL-запрос

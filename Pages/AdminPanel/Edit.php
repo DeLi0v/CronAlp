@@ -69,6 +69,7 @@ if (isset($_POST["id"]) && isset($_POST["page"])
             echo "Ошибка: " . $conn->error;   
         }
     } elseif ($page == "Services") {
+        $operation = $_POST["Operation"]; 
         
         if ($operation == 3) {
             $total = $_POST["Total"];
