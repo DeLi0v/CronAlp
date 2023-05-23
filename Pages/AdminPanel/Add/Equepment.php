@@ -53,6 +53,10 @@
                 ?>
             </li>
             <li class="form-row">
+                <label for="Price">Цена (руб/ч):</label>
+                <input type="text" name="Price" size="20px" required/>
+            </li>
+            <li class="form-row">
                 <label for="Storage">Место хранения:</label>
                 <input type="text" name="Storage" size="20px" required/>
             </li>

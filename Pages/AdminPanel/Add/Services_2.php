@@ -81,6 +81,7 @@
             $sql = "SELECT 
                         Equepments.idEquepment idEquepment,
                         Equepments.EquepmentName EquepmentName,
+                        Equepments.size,
                         EquepmentCategories.CategoryName Category,
                         ifnull(Services.ServiceData,NOW()) ServiceData,
                         ifnull(Services.idOperation,2) idOperation,
@@ -112,7 +113,7 @@
             echo "<select name=\"Equepment\">";
             
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName - $object->size р.</option>";
             }
 
             echo "</select>
@@ -168,6 +169,8 @@
             $sql = "SELECT 
             Equepments.idEquepment idEquepment,
             Equepments.EquepmentName EquepmentName,
+            Equepments.size size,
+            Equepments.price price,
             EquepmentCategories.CategoryName Category,
             Services.ServiceData,
             Services.idClient,
@@ -194,7 +197,7 @@
             echo "<select name=\"Equepment\">";
             
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
+                echo "<option value = '$object->idEquepment' >$object->Category - $object->EquepmentName - $object->size р. - $object->price руб./ч.</option>";
             }
 
             echo "</select>
@@ -274,7 +277,7 @@
             echo "<select name=\"Equepment\">";
             
             while($object = mysqli_fetch_object($result)){
-                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName</option>";
+                echo "<option value = '$object->idEquepment' >$object->idEquepment - $object->Category - $object->EquepmentName - $object->size р.</option>";
             }
 
             echo "</select>

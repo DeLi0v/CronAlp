@@ -38,6 +38,8 @@
                                 Equepments.idEquepment idEquepment,
                                 Equepments.EquepmentName EquepmentName,
                                 EquepmentCategories.CategoryName Category,
+                                Equepments.size size,
+                                Equepments.price,
                                 ifnull(Services.ServiceData,NOW()) ServiceData,
                                 ifnull(Services.idOperation,2) idOperation,
                                 sec.idOperation secOp
@@ -69,7 +71,7 @@
                     echo "<select name=\"Equepment\">";
 
                     while($object = mysqli_fetch_object($result)){
-                        echo "<option value = '$object->idEquepment' >$object->EquepmentName</option>";
+                        echo "<option value = '$object->idEquepment' >$object->EquepmentName - $object->size р. - $object->price руб./ч.</option>";
                     }
 
                     echo "</select>";
