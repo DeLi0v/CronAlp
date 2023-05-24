@@ -86,6 +86,8 @@
             }
         } 
 
+        $db->close();
+
         if($inClients == 1 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
             header("Location: /Pages/Account/chooseAccount.php");

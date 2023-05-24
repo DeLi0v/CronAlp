@@ -92,30 +92,6 @@ if (isset($_POST["Equepment"]) || isset($_POST["newSkiPass"]) || isset($_POST["s
             echo "Ошибка: " . $conn->error;    
         }
     }
-    if($operation == "7") {
-        $sql = "SELECT 
-                    Services.idService id
-                FROM 
-                    Services
-                WHERE 
-                    Services.idOperation = '6'
-                    AND Services.idOperation NOT IN (4,5)
-                    AND Services.idClient = '$client'
-                    AND Services.idEquepment = '$equepment';";
-        // Выполняем SQL-запрос
-        $result = mysqli_query($conn, $sql);
-        while($object = mysqli_fetch_object($result)){
-            $id = $object->id;
-        }
-
-        // $sql = "DELETE 
-        //         FROM Services 
-        //         WHERE (idService = '$id');";
-        // mysqli_query($conn,$sql);
-        // if(!$conn->query($sql)){
-        //     echo "Ошибка: " . $conn->error;    
-        // }
-    }
     $conn->close();
 } else {
     echo "<div class=\"error\">Данные не могут быть добавлены. Попробуйте снова.</div>";

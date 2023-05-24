@@ -298,7 +298,7 @@
             </ul>
         </form>
 
-        <?php 
+        <?php $db->close();
         } else {
             echo "Что-то не так";
         }

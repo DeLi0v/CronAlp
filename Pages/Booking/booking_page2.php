@@ -82,7 +82,7 @@
 
                 echo "</select>";
                 echo "<input type='hidden' name='id' value='$id'>";
-                ?>
+                $db->close();?>
 
             </li>
 

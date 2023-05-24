@@ -87,6 +87,7 @@
             // Выводим конец таблицы
             echo "</table>";
             echo "</div>";
+            $db->close();
         } else {
             echo "<h3 style=\"text-align:center;\">На данный момент вы ничего не бронировали</h3>";
         }

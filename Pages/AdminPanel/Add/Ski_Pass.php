@@ -42,6 +42,7 @@
                     }
                     
                     echo "</select>";
+                    $db->close();
                 ?>
             </li>
             <li class="form-row">

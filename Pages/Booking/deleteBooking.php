@@ -19,5 +19,6 @@ if (isset($_POST["id"])) {
 } else {
     echo "Что-то не так";
 }
+$db->close();
 header("Location: /Pages/Account/account_page.php");
 ?>

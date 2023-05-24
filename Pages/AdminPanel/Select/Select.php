@@ -148,7 +148,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 // Закрываем подключение к базе данных
-// mysqli_close($conn);
+$db->close();
 }
 
 // Вывод таблицы клиентов

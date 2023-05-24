@@ -293,7 +293,7 @@
     }
     ?>
     
-    <?php } else { header("Location: /index.php"); } ?>
+    <?php $db->close(); } else { header("Location: /index.php"); } ?>
 </body>
 
 </html>

@@ -42,7 +42,7 @@
         } else{
             echo "Ошибка: " . $conn->error;
         }
-    } ?>
+    } $db->close(); ?>
 </body>
 
 </html> 

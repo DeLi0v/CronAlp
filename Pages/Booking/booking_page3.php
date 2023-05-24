@@ -77,7 +77,7 @@
                     echo "</select>";
 
                     echo "<input type=\"hidden\" name=\"Client\" value=\"$id\">";
-                } ?>
+                } $db->close(); ?>
             </li>
 
             <li class="form-row" style="justify-content: space-between;">

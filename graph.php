@@ -44,7 +44,8 @@
                     $error = 0;
                 } else {
                     $error = 1;
-                } ?>
+                } 
+                $db->close();?>
             ]);
 
             var options = {
