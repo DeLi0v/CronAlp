@@ -1,0 +1,245 @@
+/* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
+/* Выделение кнопки навигации "Клиенты" */
+body.clients #nav-clients{
+    background-color: #4CAF50;
+    color: white;
+}
+body.clients-add #nav-clients-add{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Выделение кнопки навигации "Сотрудники" */
+body.staff #nav-staff{
+    background-color: #4CAF50;
+    color: white;
+}
+body.staff-add #nav-staff-add{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Выделение кнопки навигации "Ski-pass" */
+body.ski_pass #nav-ski_pass{
+    background-color: #4CAF50;
+    color: white;
+}
+body.ski_pass-add #nav-ski_pass-add{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Выделение кнопки навигации "Услуги" */
+body.services #nav-services{
+    background-color: #4CAF50;
+    color: white;
+}
+body.services-add #nav-services-add{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Выделение кнопки навигации "Оборудование" */
+body.equepment #nav-equepment{
+    background-color: #4CAF50;
+    color: white;
+}
+body.equepment-add #nav-equepment-add{
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Выделение кнопки навигации "Категории оборудования" */
+body.equepmentCat #nav-equepment-cat{
+  background-color: #4CAF50;
+  color: white;
+}
+body.equepmentCat-add #nav-equepment-cat-add{
+background-color: #4CAF50;
+color: white;
+}
+
+/* Выделение кнопки навигации "Виды услуг" */
+body.operations #nav-operations{
+  background-color: #4CAF50;
+  color: white;
+}
+body.operations-add #nav-operations-add{
+background-color: #4CAF50;
+color: white;
+}
+
+.chart{
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+  text-decoration: none;
+}
+.chart:hover{
+  background-color: #3c7688 ;
+}
+body.chart-selected #selected{
+  background-color: #4CAF50;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.chart > a,
+.bron > a {
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+  text-decoration: none;
+}
+
+.bron{
+  background-color: #4C98AF;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer; 
+  text-decoration: none;
+}
+.bron:hover{
+  background-color: #3c7688 ;
+}
+body.bron-selected #bron-selected{
+  background-color: #4CAF50;
+  color: white;
+  position: relative;
+  display: inline-block;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* ////////////////  КНОПКИ НАВИГАЦИИ  ////////////////////// */
+
+/* ////////////////  ТАБЛИЦЫ  ////////////////////// */
+/* внешние границы таблицы серого цвета толщиной 1px */
+table {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+ }
+ /* границы ячеек первого ряда таблицы */
+ th {
+    border: 1px solid grey;
+    padding: 5px 10px;
+ }
+ /* границы ячеек тела таблицы */
+ td {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    text-align: left;
+ }
+ td.center {
+    border: 1px solid grey;
+    padding: 5px 10px;
+    text-align: center;
+ }
+ /* ////////////////  ТАБЛИЦЫ  ////////////////////// */
+
+ .error {
+    text-align: center;
+    font-size: 20px;
+    color: #ff0000;
+    font-weight: bold;
+ }
+
+.wrapper {
+  background-color: whitesmoke;
+  list-style-type: none;
+  padding: 0;
+  border-radius: 3px;
+  max-width: 550px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.form-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em;
+}
+.form-row > label {
+  padding: .5em 1em .5em 5px;
+  flex: 1;
+}
+.form-row > input {
+  flex: 2;
+}
+.form-row > input,
+.form-row > button,
+.form-row > select,
+.form-row > a {
+  padding: 7px;
+}
+.form-row > button,
+.form-row > a {
+  background: gray;
+  color: white;
+  border: 0;
+  cursor: pointer;
+  padding: 12px;
+  font-size: 15px;
+  text-decoration: none;
+}
+.form-row > button:hover,
+.form-row > a:hover {
+  background: rgb(82, 82, 82);
+}
+.form-row-error {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5em 1em .5em 5px;
+  flex: 1;
+  color: red;
+  font-size: small;
+  justify-content: center;
+}
+
+.form-row > input[type=radio] {
+  flex: inherit;
+  width: 25px;
+  margin: 2px;
+}
+/* form.add {
+  margin:auto; 
+  width:550px;
+} */
+
+
+select {
+  width: 380px;
+  padding: 7px;
+  border: 1px solid gray;
+  /* border-radius: .3em; */
+  background-color: white;
+  flex: 2;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
