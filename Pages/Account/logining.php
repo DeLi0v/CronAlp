@@ -1,6 +1,6 @@
 <!-- Если такой чел есть и в клиентах, и в стафе, то перенаправляем сюда и даем выбрать куда входить -->
 <?php 
-    include_once("cookee.php"); 
+    include_once("../../cookee.php"); 
     startmysession(0,"/", "account",true,false); 
 ?>
 <!DOCTYPE html>

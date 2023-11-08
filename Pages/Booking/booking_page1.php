@@ -1,5 +1,5 @@
 <?php 
-    include_once("cookee.php"); 
+    include_once("../../cookee.php"); 
     startmysession(0,"/", "account",true,false); 
 ?>
 
