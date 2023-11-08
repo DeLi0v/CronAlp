@@ -1,3 +1,8 @@
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "register",true,false); 
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -30,8 +35,6 @@
         $mail = $conn->real_escape_string($_POST["Mail"]);
         $passwd = $conn->real_escape_string($_POST["passwd"]);
 
-        session_name("register");
-        session_start();
         $_SESSION["surname"] = $surname;
         $_SESSION["name"] = $name;
         $_SESSION["otch"] = $otch;

@@ -1,4 +1,8 @@
 <!-- Если такой чел есть и в клиентах, и в стафе, то перенаправляем сюда и даем выбрать куда входить -->
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "account",true,false); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -17,8 +21,8 @@
     $conn = $db->connect();
     mysqli_select_db($conn, $db->database);
 
-    session_name("account");
-    session_start();
+    // session_name("account");
+    // session_start();
 
     $logining = 0;
     $inStaff = 0;

@@ -1,3 +1,7 @@
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "register",true,false); 
+?>
 <!DOCTYPE html>
 <html>
 
@@ -20,8 +24,6 @@
     } 
     
     // Получение введенных данных
-    session_name("register");
-    session_start();
     if (isset($_SESSION["surname"]) && isset($_SESSION["name"]) && isset($_SESSION["otch"]) && isset($_SESSION["phone"]) && isset($_SESSION["mail"])) {
         $dataErr = 1;
     } else { $dataErr = 0; } 

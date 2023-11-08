@@ -1,3 +1,8 @@
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "account",true,false); 
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,8 +14,8 @@
 <body>
 
     <?php
-    session_name("account");
-    session_start();
+    // session_name("account");
+    // session_start();
 
     if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"]) && isset($_SESSION["idClient"])) {
         $page = "account";

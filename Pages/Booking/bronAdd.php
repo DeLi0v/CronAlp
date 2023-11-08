@@ -1,3 +1,8 @@
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "account",true,false); 
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -9,8 +14,8 @@
 
 <body class="services">
     <?php     
-    session_name("account");
-    session_start();
+    // session_name("account");
+    // session_start();
     $page = "booking" 
     ?>
     <?php include_once("../../MainNavigation.php") ?>
