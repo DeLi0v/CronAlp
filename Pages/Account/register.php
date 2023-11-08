@@ -54,7 +54,10 @@
         if (mysqli_num_rows($result) > 0) { $p=1; } else { $m=0; }
 
         if ($p == 1 || $m == 1) { // Если есть хотя бы одно совпадение перенаправляем обратно на страницу с регистрацией  
-            header("Location: register_page.php?p=$p&m=$m"); 
+            echo '<script>window.location.replace("/Pages/Account/register_page.php?p='.$p.'&m='.$m.'")</script>'
+            ?> 
+            
+            <?php
         } else {
             
             $sql = "SELECT * FROM Clients WHERE Phone = '$phone' AND Passwd IS NULL";
