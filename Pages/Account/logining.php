@@ -20,7 +20,6 @@
     include_once("../../cookee.php"); 
     startmysession(0,"/", "account",true,false); 
 ?>
-
 <!DOCTYPE html>
 <html>
 
