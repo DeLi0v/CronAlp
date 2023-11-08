@@ -1,5 +1,5 @@
 <!-- Если такой чел есть и в клиентах, и в стафе, то перенаправляем сюда и даем выбрать куда входить -->
-<?php 
+<?php
 
     function goToChooseAccount() {
         header("Location: /Pages/Account/chooseAccount.php");
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <?php 
+    <?php
     
     require_once("../../connect.php"); // Подключение файла для связи с БД
 
@@ -110,27 +110,29 @@
         $db->close();
 
         if($inClients == 1 && $inStaff == 1) {
+            $_SESSION["LogIn"] = 1; // header("Location: /Pages/Account/chooseAccount.php");?>
+            <script>window.location.replace("/Pages/Account/chooseAccount.php")</script>
+            
+        <?php } elseif ($inClients == 1 && $inStaff == 0) {
             $_SESSION["LogIn"] = 1;
-            goToChooseAccount();
-            // header("Location: /Pages/Account/chooseAccount.php");
-        } elseif ($inClients == 1 && $inStaff == 0) {
+            // goToAccountPage();
+            // header("Location: /Pages/Account/account_page.php"); ?>
+            <script>window.location.replace("/Pages/Account/account_page.php")</script>
+        <?php } elseif ($inClients == 0 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
-            goToAccountPage();
-            // header("Location: /Pages/Account/account_page.php");
-        } elseif ($inClients == 0 && $inStaff == 1) {
-            $_SESSION["LogIn"] = 1;
-            goToAdminPanel();
-            // header("Location: /Pages/AdminPanel/adminpanel.php");               
-        } else { goBackWithError();
-            // header("Location: /Pages/Account/account.php?no=1"); 
-        }
+            // goToAdminPanel();
+            // header("Location: /Pages/AdminPanel/adminpanel.php"); ?>
+            <script>window.location.replace("/Pages/AdminPanel/adminpanel.php")</script>              
+        <?php } else { 
+            // goBackWithError();
+            // header("Location: /Pages/Account/account.php?no=1"); ?>
+            <script>window.location.replace("/Pages/Account/account.php?no=1")</script>
+        <?php }
     } else { 
-        goBackWithError();
-        // header("Location: /Pages/Account/account.php?no=1"); 
-        } ?>
+        // goBackWithError();
+        // header("Location: /Pages/Account/account.php?no=1"); ?>
+        <script>window.location.replace("/Pages/Account/account.php?no=1")</script>
+        <?php } ?>
 </body>
 
 </html>
-
-<!-- // <?php include("head.php"); ?>
-                // <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2> -->
