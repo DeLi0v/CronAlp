@@ -7,7 +7,7 @@
 <html>
 
 <head>
-    <?php include("../../MainHead.php") ?>
+    <?php include_once("../../MainHead.php") ?>
     <link rel="stylesheet" href="/Styles/AdminPanelStyles.css">
 </head>
 
@@ -92,6 +92,7 @@
 
         $db->close();
 
+        sleep(2);
         if($inClients == 1 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1; ?>
             <script>window.location.replace("/Pages/Account/chooseAccount.php")</script>
