@@ -1,8 +1,26 @@
 <!-- Если такой чел есть и в клиентах, и в стафе, то перенаправляем сюда и даем выбрать куда входить -->
 <?php 
+
+    function goToChooseAccount() {
+        header("Location: /Pages/Account/chooseAccount.php");
+    }
+
+    function goToAdminPanel() {
+        header("Location: /Pages/AdminPanel/adminpanel.php");
+    }
+
+    function goToAccountPage() {
+        header("Location: /Pages/Account/account_page.php");
+    }
+
+    function goBackWithError() {
+        header("Location: /Pages/Account/account.php?no=1");
+    }
+
     include_once("../../cookee.php"); 
     startmysession(0,"/", "account",true,false); 
 ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -94,15 +112,23 @@
 
         if($inClients == 1 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
-            header("Location: /Pages/Account/chooseAccount.php");
+            goToChooseAccount();
+            // header("Location: /Pages/Account/chooseAccount.php");
         } elseif ($inClients == 1 && $inStaff == 0) {
             $_SESSION["LogIn"] = 1;
-            header("Location: /Pages/Account/account_page.php");
+            goToAccountPage();
+            // header("Location: /Pages/Account/account_page.php");
         } elseif ($inClients == 0 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1;
-            header("Location: /Pages/AdminPanel/adminpanel.php");               
-        } else { header("Location: /Pages/Account/account.php?no=1"); }
-    } else { header("Location: /Pages/Account/account.php?no=1"); } ?>
+            goToAdminPanel();
+            // header("Location: /Pages/AdminPanel/adminpanel.php");               
+        } else { goBackWithError();
+            // header("Location: /Pages/Account/account.php?no=1"); 
+        }
+    } else { 
+        goBackWithError();
+        // header("Location: /Pages/Account/account.php?no=1"); 
+        } ?>
 </body>
 
 </html>
