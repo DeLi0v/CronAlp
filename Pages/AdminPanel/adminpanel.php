@@ -1,3 +1,8 @@
+<?php
+include_once("../../cookee.php");
+startmysession(0, "/", "account", true, false);
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,8 +13,6 @@
 
 <body>
     <?php 
-    session_name("account");
-    session_start();
     if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idStaff"])) { ?>
     <?php include("head.php"); ?>
     <h2 style="text-align: center;">Добро пожаловать в административную панель!</h2>
