@@ -1,3 +1,8 @@
+<?php 
+    include_once("cookee.php"); 
+    startmysession(0,"/", "account",true,false); 
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -8,9 +13,7 @@
 <body>
 
     <?php 
-    $page = "main"; 
-
-    startmysession(0,"/", "account",true,false);   
+    $page = "main";   
 
     if(isset($_SESSION["LogIn"])) {
         if ($_SESSION["LogIn"] <> 1) { $_SESSION["LogIn"] = 0; }
