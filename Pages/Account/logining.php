@@ -98,7 +98,7 @@
             
         <?php } elseif ($inClients == 1 && $inStaff == 0) {
             $_SESSION["LogIn"] = 1; ?>
-            <script>window.location.replace("/Pages/Account/account_page.php")</script>
+            <!-- <script>window.location.replace("/Pages/Account/account_page.php")</script> -->
         <?php } elseif ($inClients == 0 && $inStaff == 1) {
             $_SESSION["LogIn"] = 1; ?>
             <script>window.location.replace("/Pages/AdminPanel/adminpanel.php")</script>              

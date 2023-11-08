@@ -101,7 +101,7 @@ startmysession(0, "/", "account", true, false);
         echo $_SESSION["LogIn"];
         ?>
         <script>
-            // window.location.replace("/index.php")
+            window.location.replace("/index.php")
         </script>
     <?php
         // header("Location: /index.php");

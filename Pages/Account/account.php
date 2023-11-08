@@ -1,6 +1,6 @@
-<?php 
-    include_once("../../cookee.php"); 
-    startmysession(0,"/", "account",true,false); 
+<?php
+include_once("../../cookee.php");
+startmysession(0, "/", "account", true, false);
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +39,11 @@
             <ul class="wrapper">
                 <li class="form-row">
                     <label for="phone">Телефон:</label>
-                    <input type="text" name="phone" size="20px" required/>
+                    <input type="text" name="phone" size="20px" required />
                 </li>
                 <li class="form-row">
                     <label for="passwd">Пароль:</label>
-                    <input type="password" name="passwd" size="20px" required/>
+                    <input type="password" name="passwd" size="20px" required />
                 </li>
                 <?php if ($err == 1) { ?>
                     <li class="form-row-error">
@@ -58,8 +58,12 @@
                 </li>
             </ul>
         </form>
-    <?php } else {
-        header("Location: logining.php");
+    <?php } else { ?>
+        <script>
+            window.location.replace("/index.php")
+        </script>
+    <?php
+        // header("Location: /index.php");
     } ?>
 </body>
 
