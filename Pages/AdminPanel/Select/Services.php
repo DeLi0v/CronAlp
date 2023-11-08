@@ -19,7 +19,11 @@ startmysession(0, "/", "localhost", true, false);
             SelectTable("Services");
         ?>
     
-    <?php } else { header("Location: /index.php"); } ?>
+    <?php } else { ?>
+        <script>
+            window.location.replace("/index.php")
+        </script>
+    <?php } ?>
 </body>
 
 </html>

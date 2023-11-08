@@ -17,7 +17,11 @@ startmysession(0, "/", "localhost", true, false);
             require("Select.php");
             SelectTable("EquepmentCategories");
         ?>
-    <?php } else { header("Location: /index.php"); } ?>
+    <?php } else { ?>
+        <script>
+            window.location.replace("/index.php")
+        </script>
+    <?php } ?>
 </body>
 
 </html>

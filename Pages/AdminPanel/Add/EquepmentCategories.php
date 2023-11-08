@@ -1,5 +1,5 @@
 <?php
-include_once("../../cookee.php");
+include_once("../../../cookee.php");
 startmysession(0, "/", "localhost", true, false);
 ?>
 
@@ -31,7 +31,11 @@ startmysession(0, "/", "localhost", true, false);
         </ul>
     </form>
 
-    <?php } else { header("Location: /index.php"); } ?>
+    <?php } else { ?>
+        <script>
+            window.location.replace("/index.php")
+        </script>
+    <?php } ?>
 </body>
 
 </html>
