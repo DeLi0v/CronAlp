@@ -10,8 +10,8 @@
     <?php 
     $page = "main"; 
 
-    session_name("account");
-    session_start();
+    startmysession(0,"/", "account",true,false);   
+
     if(isset($_SESSION["LogIn"])) {
         if ($_SESSION["LogIn"] <> 1) { $_SESSION["LogIn"] = 0; }
     } else { $_SESSION["LogIn"] = 0; }
