@@ -1,6 +1,6 @@
 <?php 
     include_once("../../cookee.php"); 
-    startmysession(0,"/", "register",true,false); 
+    startmysession(0,"/", "localhost",true,false); 
 ?>
 
 <!DOCTYPE html>
