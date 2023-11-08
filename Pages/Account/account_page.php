@@ -1,6 +1,6 @@
-<?php 
-    include_once("../../cookee.php"); 
-    startmysession(0,"/", "account",true,false); 
+<?php
+include_once("../../cookee.php");
+startmysession(0, "/", "account", true, false);
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +12,10 @@
 </head>
 
 <body class="bron-selected">
-    <?php     
+    <?php
     // session_name("account");
     // session_start();
-    if(isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
+    if (isset($_SESSION["LogIn"]) && $_SESSION["LogIn"] == 1 && isset($_SESSION["idClient"])) {
         $page = "account"; ?>
         <?php include("../../MainNavigation.php"); ?>
         <?php
@@ -75,8 +75,8 @@
                 echo "<td>" . $row["resortName"] . "</td>";
                 if ($row["dateDay"] == $row["now"]) {
                     echo "<td class=\"center\">
-                            <form action='/Pages/Booking/deleteBooking.php?id=\"".$row["id"]."\"' method=\"post\">
-                                <input type=\"hidden\" name=\"id\" value=\"".$row["id"]."\">
+                            <form action='/Pages/Booking/deleteBooking.php?id=\"" . $row["id"] . "\"' method=\"post\">
+                                <input type=\"hidden\" name=\"id\" value=\"" . $row["id"] . "\">
                                 <input type=\"hidden\" name=\"page\" value=\"$page\">
                                 <input type=\"image\" name=\"submit\" value=\"Delete\" src=\"/pictures/icons/remove.png\" style=\"max-width: 35px;border: 0;padding: 2px 0;padding-top: 4px;\">
                             </form>
@@ -97,7 +97,13 @@
             echo "<h3 style=\"text-align:center;\">На данный момент вы ничего не бронировали</h3>";
         }
         ?>
-    <?php } else { header("Location: /index.php"); } ?>
+    <?php } else { ?>
+        <script>
+            window.location.replace("/index.php")
+        </script>
+    <?php
+        // header("Location: /index.php");
+    } ?>
 </body>
 
 </html>
