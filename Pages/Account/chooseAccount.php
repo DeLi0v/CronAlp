@@ -27,7 +27,11 @@
             <a href="/Pages/Account/account_page.php">Личный кабинет клиента</a>
             <a href="/Pages/AdminPanel/adminpanel.php">Административная панель</a>
         </div>
-        <?php } else { header("Location: /index.php");} ?>
+        <?php } else { ?> 
+        <script>window.location.replace("/index.php")</script>
+        <?php 
+        // header("Location: /index.php");
+        } ?>
 
 </body>
 

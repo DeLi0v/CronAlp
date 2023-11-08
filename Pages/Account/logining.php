@@ -1,22 +1,5 @@
 <!-- Если такой чел есть и в клиентах, и в стафе, то перенаправляем сюда и даем выбрать куда входить -->
 <?php
-
-    function goToChooseAccount() {
-        header("Location: /Pages/Account/chooseAccount.php");
-    }
-
-    function goToAdminPanel() {
-        header("Location: /Pages/AdminPanel/adminpanel.php");
-    }
-
-    function goToAccountPage() {
-        header("Location: /Pages/Account/account_page.php");
-    }
-
-    function goBackWithError() {
-        header("Location: /Pages/Account/account.php?no=1");
-    }
-
     include_once("../../cookee.php"); 
     startmysession(0,"/", "account",true,false); 
 ?>

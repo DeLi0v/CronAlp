@@ -82,7 +82,10 @@
                     <div style=\"font-size: 20px;padding-top: 10px;\">Аккаунт успешно зарегестрирован!</div>
                 </div>";
                 session_unset(); // Очищаем данные сессии
-                header("Refresh: 2; url=account.php"); // перенаправляем на страницу входа в аккаунт через 2 секунды
+                sleep(2);?>
+                <script>window.location.replace("/Pages/Account/account.php")</script>
+                <?php
+                // header("Refresh: 2; url=account.php"); // перенаправляем на страницу входа в аккаунт через 2 секунды
             } else{
                 echo "Ошибка: " . $conn->error;
             }
