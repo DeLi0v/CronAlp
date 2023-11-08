@@ -76,7 +76,7 @@ startmysession(0, "/", "localhost", true, false);
         </li>
         <li class="form-row">
             <label for="Passwd">Пароль:</label>
-            <input type="text" name="Passwd" size="20px" value="<?php echo $passwd?>"/>
+            <input type="text" name="Passwd" size="20px"/>
         </li>
     <?php
         } elseif ($page == "Ski_Pass") {
@@ -141,7 +141,7 @@ startmysession(0, "/", "localhost", true, false);
                 </li>
                 <li class="form-row">
                     <label for="Passwd">Пароль:</label>
-                    <input type="text" name="Passwd" size="20px" value="<?php echo $passwd?>"/>
+                    <input type="text" name="Passwd" size="20px"/>
                 </li>
 
     <?php } elseif ($page == "Equepment") {

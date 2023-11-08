@@ -175,7 +175,14 @@ function Clients($result){
         echo "<td>" . $row["ClientOtch"] . "</td>";
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
+        if(isset($row["Passwd"])) 
+        { 
+            echo "<td> 1 </td>";
+        } else 
+        {
+            echo "<td> 0 </td>";
+        } 
+        
         include("EditAndDeleteRows.php");
         echo "</tr>";
     }
@@ -207,7 +214,13 @@ function Staff($result){
         echo "<td>" . $row["Phone"] . "</td>";
         echo "<td>" . $row["Mail"] . "</td>";
         echo "<td>" . $row["Post"] . "</td>";
-        echo "<td>" . $row["Passwd"] . "</td>";
+        if(isset($row["Passwd"])) 
+        { 
+            echo "<td> 1 </td>";
+        } else 
+        {
+            echo "<td> 0 </td>";
+        } 
         include("EditAndDeleteRows.php");
         echo "</tr>";
     }    
