@@ -93,27 +93,19 @@
         $db->close();
 
         if($inClients == 1 && $inStaff == 1) {
-            $_SESSION["LogIn"] = 1; // header("Location: /Pages/Account/chooseAccount.php");?>
+            $_SESSION["LogIn"] = 1; ?>
             <script>window.location.replace("/Pages/Account/chooseAccount.php")</script>
             
         <?php } elseif ($inClients == 1 && $inStaff == 0) {
-            $_SESSION["LogIn"] = 1;
-            // goToAccountPage();
-            // header("Location: /Pages/Account/account_page.php"); ?>
+            $_SESSION["LogIn"] = 1; ?>
             <script>window.location.replace("/Pages/Account/account_page.php")</script>
         <?php } elseif ($inClients == 0 && $inStaff == 1) {
-            $_SESSION["LogIn"] = 1;
-            // goToAdminPanel();
-            // header("Location: /Pages/AdminPanel/adminpanel.php"); ?>
+            $_SESSION["LogIn"] = 1; ?>
             <script>window.location.replace("/Pages/AdminPanel/adminpanel.php")</script>              
-        <?php } else { 
-            // goBackWithError();
-            // header("Location: /Pages/Account/account.php?no=1"); ?>
+        <?php } else { ?>
             <script>window.location.replace("/Pages/Account/account.php?no=1")</script>
         <?php }
-    } else { 
-        // goBackWithError();
-        // header("Location: /Pages/Account/account.php?no=1"); ?>
+    } else { ?>
         <script>window.location.replace("/Pages/Account/account.php?no=1")</script>
         <?php } ?>
 </body>

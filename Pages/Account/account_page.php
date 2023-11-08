@@ -97,9 +97,11 @@ startmysession(0, "/", "account", true, false);
             echo "<h3 style=\"text-align:center;\">На данный момент вы ничего не бронировали</h3>";
         }
         ?>
-    <?php } else { ?>
+    <?php } else { 
+        echo $_SESSION["LogIn"];
+        ?>
         <script>
-            window.location.replace("/index.php")
+            // window.location.replace("/index.php")
         </script>
     <?php
         // header("Location: /index.php");
